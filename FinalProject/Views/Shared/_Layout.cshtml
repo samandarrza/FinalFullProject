@@ -1,0 +1,366 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eTrade-Main</title>
+  <link rel="stylesheet" href="~/assets/css/bootstrap502.css">
+  <link rel="stylesheet" type="text/css" href="~/assets/css/slick.css" />
+  <link rel="stylesheet" type="text/css" href="~/assets/css/slick-theme.css" />
+  <link rel="stylesheet"
+    href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+  <link rel="stylesheet" href="~/assets/css/main-slider.css">
+  <link rel="stylesheet" href="~/assets/css/navbar.css">
+  <link rel="stylesheet" href="~/assets/css/main.css">
+</head>
+<body>
+
+  <header class="bg-navbar">
+    <div class="">
+      <div class="nav-fixed">
+        <nav class="navbar container">
+          <div class="logo">
+            <a href="~/./index.html"><img src="~/assets/images/logo.png" alt=""></a>
+            
+          </div>
+          <div class="menu">
+            <a href="~/./index.html"><span class="menu-button active">Home</span></a>
+            <a href="~/./shop.html"><span class="menu-button">Shop</span></a>
+            <a href="~/./blog.html"><span class="menu-button">Blog</span></a>
+            <a href="~/./contact.html"><span class="menu-button">Contact</span></a>
+            <a href="~/./about.html"><span class="menu-button">About</span></a>
+          </div>
+          <div class="icon">
+            <a href="~/" data-bs-toggle="modal" data-bs-target="#search"><i class="las la-search"></i></a>
+            <a href="~/"><i class="las la-heart"></i></a>
+            <a href="~/" data-bs-toggle="offcanvas" data-bs-target="#addtocart" aria-controls="addtocart"><i
+                class="las la-shopping-cart"></i></a>
+            <a href="~/"><i class="las la-user"></i></a>
+          </div>
+          <div class="mobile">
+            <span><i class="las la-bars"></i></span>
+          </div>
+          <div class="mobile-menu">
+            <a href="~/./index.html"><span class="menu-button">Home</span></a>
+            <a href="~/./shop.html"><span class="menu-button">Shop</span></a>
+            <a href="~/./blog.html"><span class="menu-button">Blog</span></a>
+            <a href="~/./contact.html"><span class="menu-button">Contact</span></a>
+            <a href="~/./about.html"><span class="menu-button">About</span></a>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="shopping-cart-modal">
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="addtocart" aria-labelledby="addtocartLabel">
+        <div class="offcanvas-header">
+          <div class="addtocartLabel">
+            <h2 class="header-title">Cart review</h2>
+          </div>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class="cart-item">
+            <div class="item-img">
+              <a href="~/#"><img src="~/assets/images/product-01.png" alt="Cart Product"></a>
+              <button class="close-btn"><i class="las la-times"></i></button>
+            </div>
+            <div class="item-content">
+              <div class="product-rating">
+                <span class="product-icon">
+                  <i class="las la-star"></i>
+                  <i class="las la-star"></i>
+                  <i class="las la-star"></i>
+                  <i class="las la-star"></i>
+                  <i class="las la-star"></i>
+
+
+                </span>
+                <span class="rating-number">(64)</span>
+              </div>
+              <h6 class="item-title"><a href="~/#">Wireless PS Handler</a></h6>
+              <div class="item-price"><span class="currency-symbol">$</span>155.00</div>
+              <div class="pro-qty item-quantity">
+                <input type="number" class="quantity-input" value="1">
+              </div>
+            </div>
+          </div>
+          <div class="cart-item">
+            <div class="item-img">
+              <a href="~/#"><img src="~/assets/images/product-01.png" alt="Cart Product"></a>
+              <button class="close-btn"><i class="las la-times"></i></button>
+            </div>
+            <div class="item-content">
+              <div class="product-rating">
+                <span class="product-icon">
+                  <i class="las la-star"></i>
+                  <i class="las la-star"></i>
+                  <i class="las la-star"></i>
+                  <i class="las la-star"></i>
+                  <i class="las la-star"></i>
+
+
+                </span>
+                <span class="rating-number">(64)</span>
+              </div>
+              <h6 class="item-title"><a href="~/#">Wireless PS Handler</a></h6>
+              <div class="item-price"><span class="currency-symbol">$</span>155.00</div>
+              <div class="pro-qty item-quantity">
+                <input type="number" class="quantity-input" value="1">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  @RenderBody()
+  <section>
+    <div class="service-area">
+      <div class="container">
+        <div class="row row-cols-xl-4 row-cols-sm-2 row-cols-1 row--20">
+          <div class="col">
+            <div class="service-box">
+              <div class="icon">
+                <img src="~/assets/images/service1.png" alt="Service">
+              </div>
+              <div class="content">
+                <h6 class="title">Fast &amp; Secure Delivery</h6>
+                <p>Tell about your service.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="service-box">
+              <div class="icon">
+                <img src="~/assets/images/service2.png" alt="Service">
+              </div>
+              <div class="content">
+                <h6 class="title">Money Back Guarantee</h6>
+                <p>Within 10 days.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="service-box">
+              <div class="icon">
+                <img src="~/assets/images/service3.png" alt="Service">
+              </div>
+              <div class="content">
+                <h6 class="title">24 Hour Return Policy</h6>
+                <p>No question ask.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="service-box">
+              <div class="icon">
+                <img src="~/assets/images/service4.png" alt="Service">
+              </div>
+              <div class="content">
+                <h6 class="title">Pro Quality Support</h6>
+                <p>24/7 Live support.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <!-- Start Footer Top Area  -->
+    <div class="footer-top separator-top">
+      <div class="container">
+        <div class="row">
+          <!-- Start Single Widget  -->
+          <div class="col-lg-3 col-sm-6">
+            <div class="new-footer-widget">
+              <h5 class="widget-title">Support</h5>
+              <div class="inner">
+                <p>685 Market Street, <br>
+                  Las Vegas, LA 95820, <br>
+                  United States.
+                </p>
+                <ul class="support-list-item">
+                  <li><a href="~/mailto:example@domain.com"><i class="fal fa-envelope-open"></i> example@domain.com</a>
+                  </li>
+                  <li><a href="~/tel:(+01)850-315-5862"><i class="fal fa-phone-alt"></i> (+01) 850-315-5862</a></li>
+                  <!-- <li><i class="fal fa-map-marker-alt"></i> 685 Market Street,  <br> Las Vegas, LA 95820, <br> United States.</li> -->
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- End Single Widget  -->
+          <!-- Start Single Widget  -->
+          <div class="col-lg-3 col-sm-6">
+            <div class="new-footer-widget">
+              <h5 class="widget-title">Account</h5>
+              <div class="inner">
+                <ul>
+                  <li><a href="~/my-account.html">My Account</a></li>
+                  <li><a href="~/sign-up.html">Login / Register</a></li>
+                  <li><a href="~/cart.html">Cart</a></li>
+                  <li><a href="~/wishlist.html">Wishlist</a></li>
+                  <li><a href="~/shop.html">Shop</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- End Single Widget  -->
+          <!-- Start Single Widget  -->
+          <div class="col-lg-3 col-sm-6">
+            <div class="new-footer-widget">
+              <h5 class="widget-title">Quick Link</h5>
+              <div class="inner">
+                <ul>
+                  <li><a href="~/privacy-policy.html">Privacy Policy</a></li>
+                  <li><a href="~/terms-of-service.html">Terms Of Use</a></li>
+                  <li><a href="~/#">FAQ</a></li>
+                  <li><a href="~/contact.html">Contact</a></li>
+                  <li><a href="~/contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- End Single Widget  -->
+          <!-- Start Single Widget  -->
+          <div class="col-lg-3 col-sm-6">
+            <div class="new-footer-widget">
+              <h5 class="widget-title">Download App</h5>
+              <div class="inner">
+                <span>Save $3 With App & New User only</span>
+                <div class="download-btn-group">
+                  <div class="qr-code">
+                    <img src="~/assets/images/qr.png" alt="newthemes">
+                  </div>
+                  <div class="app-link">
+                    <a href="~/#">
+                      <img src="~/assets/images/app-store.png" alt="App Store">
+                    </a>
+                    <a href="~/#">
+                      <img src="~/assets/images/play-store.png" alt="Play Store">
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Single Widget  -->
+        </div>
+      </div>
+    </div>
+    <!-- End Footer Top Area  -->
+    <!-- Start Copyright Area  -->
+    <div class="copyright-area copyright-default separator-top">
+      <div class="container">
+        <hr>
+        <div class="row align-items-center">
+          <div class="col-xl-4">
+            <div class="social-share">
+              <a href="~/#"><i class="lab la-facebook-f"></i></a>
+              <a href="~/#"><i class="lab la-instagram"></i></a>
+              <a href="~/#"><i class="lab la-twitter"></i></a>
+              <a href="~/#"><i class="lab la-linkedin-in"></i></a>
+              <a href="~/#"><i class="lab la-discord"></i></a>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-12">
+            <div class="copyright-left d-flex flex-wrap justify-content-center">
+              <ul class="quick-link">
+                <li>© 2023. All rights reserved by <a target="_blank" href="https://github.com/samandarrza">Semender
+                    Rzayev</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-12">
+            <div
+              class="copyright-right d-flex flex-wrap justify-content-xl-end justify-content-center align-items-center">
+              <span class="card-text">Accept For</span>
+              <ul class="payment-icons-bottom">
+                <li><img src="~/assets/images/cart-1.png" alt="paypal"></li>
+                <li><img src="~/assets/images/cart-2.png" alt="paypal"></li>
+                <li><img src="~/assets/images/cart-5.png" alt="paypal"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Copyright Area  -->
+  </footer>
+
+  <!-- Search Modal -->
+  <div class="modal fade" id="search" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="searchModalLabel">Search</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body d-flex">
+          <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+            aria-describedby="search-addon" />
+          <button class="input-group-text border-0" id="search-addon">
+            <i class="las la-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Product Modal -->
+    <div class="modal fade" id="quick-view-modal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="productModalLabel">Product</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body modal-product">
+            <div class="modal-image">
+              <img src="~/assets/images/product-big-01.png" alt="">
+            </div>
+            <div class="product-content">
+              <div class="inner">
+                <div class="product-rating">
+                  <span class="product-rating">
+                    <i class="las la-star"></i>
+                    <i class="las la-star"></i>
+                    <i class="las la-star"></i>
+                    <i class="las la-star"></i>
+                    <i class="las la-star"></i>
+                  </span>
+                  <span class="rating-number">(64)</span>
+                </div>
+                <h5 class="title"><a href="~/#" tabindex="0">3D™ wireless headset</a></h5>
+                <div class="product-price">
+                  <span class="price current-price">$29.99</span>
+                  <del class="price old-price">$49.99</del>
+                </div>
+                <div class="modal-cart mt-5">
+                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
+                    tabindex="0"><i class="las la-eye"></i></a>
+                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
+                  <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+<script src="~/assets/js/bootstrap502.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="~/assets/js/slick.js"></script>
+<script src="~/assets/js/slider.js"></script>
+<script src="~/assets/js/main.js"></script>
+<script src="~/assets/js/burger.js"></script>
+
+</html>

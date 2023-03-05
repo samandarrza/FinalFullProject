@@ -1,0 +1,117 @@
+.cart-header{
+    margin: auto;
+    text-align: center;
+    background-color: #f6f7fb;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+.main-cart-title{
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cart-header p {
+    font-size: 20px;
+    font-weight: bold;
+    align-items: center;
+}
+.cart-body{
+    margin: auto;
+    text-align: center; 
+    align-items: center;
+    border: 1px solid rgb(246, 243, 243);
+    border-radius: 5px;
+}
+.cart-mobile{
+    display: none;
+}
+.cart-body{
+    padding: 1rem;
+    position: relative;
+}
+
+.cart-image img{
+    width: 70px;
+    height: 70px;
+}
+.remove-cart{
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+}
+.remove-cart button{
+    cursor: pointer;
+    border: none;
+    border-radius: 50px;
+    border: 2px solid transparent;
+}
+.remove-cart button:hover{
+    border: 2px solid blue;
+}
+
+@media (max-width: 768px) {
+    .cart-header{
+        display: none;
+    }
+    .cart-body{
+        margin: auto;
+        text-align: left; 
+    }
+    .cart-mobile{
+        display: contents;
+        color: red;
+    }
+    .remove-cart{
+        position: absolute;
+        right: 5%;
+        z-index: 99;
+    }
+  }
+.quantity, .title, .price, .subtotal{
+    color: rgb(89, 87, 87);
+    display: flex;
+    justify-content: space-around;
+}
+
+a{
+    text-decoration: none;
+}
+
+  .wrapper{
+    height: 30px;
+    width: 70px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    background: #FFF;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+    overflow: hidden;
+  }
+  .wrapper span{
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+  }
+  .wrapper span.num{
+    font-size: 1.3rem;
+    text-align: center;
+    align-items: center;
+    border-right: 2px solid rgba(0,0,0,0.2);
+    border-left: 2px solid rgba(0,0,0,0.2);
+    pointer-events: none;
+  }
+  .go-to-check{
+    padding: 2rem;
+    text-align: end;
+  }
+  .checkbtn{
+    padding: 1rem;
+    font-weight: 600;
+  }

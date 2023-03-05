@@ -1,0 +1,40 @@
+
+body{
+    background-color: #f9f3f0;
+}
+.form-group input{
+    width: 100%;
+    border: 1px solid silver;
+    outline: none;
+    border-radius: 5px;
+}
+
+.form-group textarea{
+    width: 100%;
+    height: 150px;
+    border: 1px solid silver;
+    resize: none;
+    outline: none;
+    border-radius: 5px;
+
+}
+
+textarea:is(:focus){
+    border-color: rgb(151, 151, 196);
+}
+input:is(:focus){
+    border-color: rgb(151, 151, 196);
+}
+.star{
+    color: red;
+}
+
+.google-map iframe{
+    width: 100%;
+    height: 300px;
+    border-radius: 5px;
+}
+
+.title, .form-group,.google-map{
+    padding-top: 1rem;
+}

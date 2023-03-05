@@ -1,0 +1,121 @@
+.blog_header {
+    background-color: blue;
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+}
+.blog_header .blog_title {
+    font-size: 3rem;
+    font-weight: 200;
+    color: blue;
+}
+.blog_watch {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+.blog_watch .blog_content {
+    margin: 1rem;
+    border: 1px solid rgb(235, 234, 234);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.blog_watch .blog_content .image {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+.blog_watch .blog_content .image button {
+    position: absolute;
+    border: none;
+    padding: 0.2rem;
+    font-size: 1rem;
+    bottom: 2%;
+    right: 2%;
+    border-radius: 0.5rem;
+    transition: 0.5s;
+    background-color: gray;
+    border: 1px solid white;
+    color: white;
+}
+.blog_watch .blog_content .image button:hover {
+    color: rgb(184, 215, 245);
+}
+.blog_watch .blog_content .image img {
+    cursor: pointer;
+    width: 100%;
+    transition: 1s;
+}
+.blog_watch .blog_content .image img:hover {
+    transform: scale(1.1);
+}
+
+.blog-last{
+    width: 100%;
+    margin: 1rem;
+    border-radius: 1rem;
+    border: 1px solid rgb(235, 234, 234);
+}
+
+.blog-last hr{
+    color: rgb(235, 234, 234);
+}
+
+.blog-last-content{
+    display: flex;
+    border: 1px solid transparent;
+    margin: 1rem;
+}
+
+.blog-last-image img{
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 992px) {
+    .blog_watch{
+        margin: 2rem 2rem;
+        grid-template-columns: 1fr;
+}
+}
+@media (max-width: 768px) {
+    .blog_watch{
+        margin: 0;
+        grid-template-columns: 1fr;
+}
+}
+
+.blog-button{
+    cursor: pointer;
+    border: none;
+    font-weight: 500;
+    font-style: 1.3rem;
+    font-family: sans-serif;
+    text-align: left;
+    position: relative;
+    width: 200px;
+    display: inline-block;
+    color: #1b1b1b;
+    text-decoration: none;
+    width: auto;
+    padding: 2px 0;
+    font-size: 1rem;
+    cursor: pointer;
+
+}
+.blog-button::before{
+    content: "";
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 0%;
+    height: 1.5px;
+    background-color: blue;
+    transition: 0.3s;
+}
+.blog-button:hover::before{
+    width: 100%;
+}
+.blog-button.active::before{
+    width: 100% !important;
+}

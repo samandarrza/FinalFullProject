@@ -1,0 +1,54 @@
+
+
+.about-01-area, .about-info-area{
+    margin-top: 2rem;
+}
+.about-info-box{
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid rgb(229, 227, 227);
+    border-radius: 6px;
+}
+.about-info-box:hover{
+    cursor: pointer;
+    border: 1px solid #3577f0;
+}
+.team-area{
+    padding: 2rem;
+}
+.slick-prev:before, .slick-next:before{
+    color: black;
+}
+.multiple-items{
+    display: flex;
+    justify-content: space-around;
+}
+
+.single-team-item, .feature-about{
+    padding: 1rem;
+
+}
+.team-image img{
+    width: 100%;
+    opacity: 0.8;
+}
+.team-image{
+    border-radius: 1rem;
+    overflow-y: hidden;
+    overflow: hidden;
+}
+.team-image img:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+.feature-about-image img{
+    width: 100%;
+    border-radius: 1rem;
+}
+.input-group input{
+    padding: 0.5rem;
+    width: 100%;
+    height: 100%;
+    border: 1px solid gray;
+    border-radius: 10px 0 0 10px;
+}

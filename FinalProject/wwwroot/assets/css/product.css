@@ -1,0 +1,223 @@
+.product-image img{
+    width: 90%;
+}
+
+
+
+
+
+.product-tabs li a{
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-align: left;
+    position: relative;
+    text-decoration: none;
+    width: auto;
+    color: gray;
+    padding: 3px 0;
+    margin-left: 1.2rem;
+
+}
+.product-tabs li a::before{
+    content: "";
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 0%;
+    height: 1.5px;
+    color: rgb(73, 128, 248);
+    background-color: rgb(73, 128, 248);
+    transition: 0.3s;
+}
+.product-tabs li a:hover::before{
+    color: rgb(73, 128, 248);
+    width: 100%;
+}
+.product-tabs li a.active::before{
+    width: 100%;
+}
+.product-tabs li a:hover{
+    color: rgb(73, 128, 248);
+}
+.product-tabs li a.active{
+    color: rgb(73, 128, 248);
+}
+
+.product-features{
+    display: flex;
+    justify-content: start;
+
+}
+.product-desc{
+    background-color: #f9f3f0;
+    padding: 1rem;
+}
+.single-features{
+    list-style-type: none;
+    padding: 1rem;
+}
+.single-desc{
+    padding-top: 1rem;
+}
+.single-desc .title{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.product-icon{
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+}
+.product-icon img{
+    width: 50%;
+    height: 50%;
+    background-color: white;
+}
+
+.single-features p{
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+
+.product-additional-info{
+    padding: 1rem;
+}
+.table-responsive{
+    background-color: white;
+}
+.table-responsive th{
+    padding: 0.5rem;
+}
+
+.comment{
+    list-style-type: none;
+}
+.single-comment{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+.comment-body{
+    border: 1px solid rgb(236, 230, 230);
+    margin-bottom: 0.5rem;
+    border-radius: 20px;
+}
+.comment-img img{
+    width: 90%;
+}
+.commenter{
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-commnet-area{
+    padding: 1rem;
+}
+.product-commnet-area h5{
+    padding: 1rem;
+}
+
+.comment-respond{
+    padding: 1rem;
+    margin: 1rem;
+}
+.form-group{
+    padding-top: 1rem;
+}
+.rating-product i, .commenter-rating i, .product-icon i{
+    color: rgb(205, 202, 50);
+}
+.form-submit button{
+    padding: 1rem;
+    margin: 1rem;
+    font-weight: bold;
+}
+.form-group textarea{
+    width: 100%;
+    min-height: 100px;
+    border-radius: 5px;
+    padding: 0.2rem;
+    border: 1px solid rgb(236, 230, 230);
+}
+
+.form-group input{
+    width: 100%;
+    border: 1px solid rgb(236, 230, 230);
+    min-height: 40px;
+}
+
+.single-product-thumbnail img{
+    position: absolute;
+    top: 0;
+    width: 20%;
+}
+.product-image{
+    margin: 1rem;
+}
+.slider-for img{
+    width: 70%;
+    margin: auto;
+    border-radius: 20px;
+    cursor: pointer;
+    overflow: hidden;
+}
+.slider-nav img{
+    width: 70%;
+    margin: auto;
+    border-radius: 20px;
+    cursor: pointer;
+    overflow: hidden;
+    border: 1px solid transparent;
+
+}
+.slider-nav img:hover{
+    border: 2px solid rgb(167, 167, 244);
+}
+.product-info{
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.product-cart input{
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid silver;
+    border-radius: 10px;
+}
+.btn-min, .btn-max{
+
+    width: 30px;
+    height: 35px;
+    text-align: center;
+    align-items: center;
+    border: 1px solid silver;
+    border-radius: 10px;
+}
+.review-username{
+    text-decoration: none;
+    color: black;
+}
+.review-time{
+    color: black;
+    border: 1px solid rgb(223, 220, 220);
+    padding: 0.5rem;
+    border-radius: 20px;
+}
+.review-time:hover{
+    color: rgb(63, 99, 208);
+    cursor: pointer;
+}
+.commenter{
+    align-items: center;
+}
