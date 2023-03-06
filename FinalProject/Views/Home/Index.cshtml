@@ -126,7 +126,7 @@
 
               <div class="product-hover-action">
                 <div class="cart-action">
-                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
+                  <a asp-controller="phone" asp-action="getphone" asp-route-id="@phone.Id" class="btn btn-outline-dark phone-modal-btn"
                     tabindex="0"><i class="las la-eye"></i></a>
                   <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
                   <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
@@ -507,4 +507,11 @@
         <!-- End .container -->
       </div>
     </section>
+    <!-- Product Modal -->
+    <div class="modal fade" id="quick-view-modal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            
+            
+        </div>
+    </div>
   </main>
