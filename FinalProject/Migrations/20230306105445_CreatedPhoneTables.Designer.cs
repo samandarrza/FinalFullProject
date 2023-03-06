@@ -4,6 +4,7 @@ using FinalProject.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(EtradeDbContext))]
-    partial class EtradeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230306105445_CreatedPhoneTables")]
+    partial class CreatedPhoneTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -150,14 +152,8 @@ namespace FinalProject.Migrations
                     b.Property<int>("DisplayId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsNew")
-                        .HasColumnType("bit");
-
                     b.Property<int>("MemoryId")
                         .HasColumnType("int");
-
-                    b.Property<bool>("MostPopular")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -201,32 +197,6 @@ namespace FinalProject.Migrations
                     b.HasIndex("RAMId");
 
                     b.ToTable("Phones");
-                });
-
-            modelBuilder.Entity("FinalProject.Models.PhoneImage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
-
-                    b.Property<int>("PhoneId")
-                        .HasColumnType("int");
-
-                    b.Property<bool?>("Status")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PhoneId");
-
-                    b.ToTable("PhoneImages");
                 });
 
             modelBuilder.Entity("FinalProject.Models.PhoneModel", b =>
@@ -650,17 +620,6 @@ namespace FinalProject.Migrations
                     b.Navigation("RAM");
                 });
 
-            modelBuilder.Entity("FinalProject.Models.PhoneImage", b =>
-                {
-                    b.HasOne("FinalProject.Models.Phone", "Phone")
-                        .WithMany("PhoneImages")
-                        .HasForeignKey("PhoneId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Phone");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -710,11 +669,6 @@ namespace FinalProject.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("FinalProject.Models.Phone", b =>
-                {
-                    b.Navigation("PhoneImages");
                 });
 #pragma warning restore 612, 618
         }

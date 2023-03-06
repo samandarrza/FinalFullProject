@@ -2,7 +2,7 @@
 
 namespace FinalProject.Models
 {
-    public class RAM
+    public class PhoneSystem
     {
         public int Id { get; set; }
         [MaxLength(40)]

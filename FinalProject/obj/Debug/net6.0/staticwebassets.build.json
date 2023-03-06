@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+XzSknu6S3WcV/o6eUUkjS/M1v8QFk7UoPjgPb+FpTA=",
+  "Hash": "qsTX3CxSNwlk7HARS3VvXVi/M3q1J6AfAaTr/4JNvB4=",
   "Source": "FinalProject",
   "BasePath": "_content/FinalProject",
   "Mode": "Default",
@@ -678,6 +678,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\cart-5.png"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\assets\\images\\desktop.ini",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "assets/images/desktop.ini",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\desktop.ini"
     },
     {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\assets\\images\\elec-1.png",

@@ -98,21 +98,29 @@
         </div>
       </div>
     </section>
-
     <section class="container mt-5 mb-5">
       <div class="explore-title p-3">
         <span> <i class="las la-shopping-basket"></i> Our Products</span>
         <h2 class="title">Explore our Products</h2>
       </div>
       <div class="product-one slider">
-        <div class="items">
+          @foreach (var phone in Model.DiscountedPhones)
+          {
+              <div class="items">
           <div class="product-style-one">
             <div class="content">
               <a class="product-content-image" href="#" tabindex="0">
-                <img class="product-image" src="assets/images/product-02.png" alt="Product Images">
-                <img class="hover-img" src="assets/images/product-01.png" alt="Product Images">
+                <img class="product-image" src="~/assets/images/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==false)?.Name" alt="Product Images">
+                <img class="hover-img" src="~/assets/images/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==true)?.Name" alt="Product Images">
                 <div class="label-block">
-                  <div class="product-badget">20% Off</div>
+                    @if (true)
+                    {
+                        <div class="product-badget">@phone.DiscountPercent.ToString("0.##")% Off</div>
+                    }
+                    else{
+                        <div class="product-badget">New</div>
+                    }
+                  
                 </div>
               </a>
 
@@ -137,346 +145,25 @@
                   </span>
                   <span class="rating-number">(64)</span>
                 </div>
-                <h5 class="title"><a href="#" tabindex="0">3D™ wireless headset</a></h5>
+                <h5 class="title"><a href="#" tabindex="0"> @phone.PhoneModel.Name @phone.Name @phone.Memory.Name GB</a></h5>
                 <div class="product-price">
-                  <span class="price current-price">$29.99</span>
-                  <del class="price old-price">$49.99</del>
+                    @if (phone.DiscountPercent>0)
+                   {
+                       <span class="price current-price">$@((phone.SalePrice*(100-phone.DiscountPercent)/100).ToString("0.00"))</span>
+                        <del class="price old-price">$@phone.SalePrice.ToString("0.00")</del>
+                   }
+                   else{
+                       <span class="price current-price">$@phone.SalePrice.ToString("0.00")</span>
+                   }
+                  
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="items">
-          <div class="product-style-one">
-            <div class="content">
-              <a class="product-content-image" href="#" tabindex="0">
-                <img class="product-image" src="assets/images/product-02.png" alt="Product Images">
-                <img class="hover-img" src="assets/images/product-01.png" alt="Product Images">
-                <div class="label-block">
-                  <div class="product-badget">20% Off</div>
-                </div>
-              </a>
-
-              <div class="product-hover-action">
-                <div class="cart-action">
-                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
-                    tabindex="0"><i class="las la-eye"></i></a>
-                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
-                  <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="product-content">
-              <div class="inner">
-                <div class="product-rating">
-                  <span class="product-rating">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                  </span>
-                  <span class="rating-number">(64)</span>
-                </div>
-                <h5 class="title"><a href="#" tabindex="0">3D™ wireless headset</a></h5>
-                <div class="product-price">
-                  <span class="price current-price">$29.99</span>
-                  <del class="price old-price">$49.99</del>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="items">
-          <div class="product-style-one">
-            <div class="content">
-              <a class="product-content-image" href="#" tabindex="0">
-                <img class="product-image" src="assets/images/product-02.png" alt="Product Images">
-                <img class="hover-img" src="assets/images/product-01.png" alt="Product Images">
-                <div class="label-block">
-                  <div class="product-badget">20% Off</div>
-                </div>
-              </a>
-
-              <div class="product-hover-action">
-                <div class="cart-action">
-                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
-                    tabindex="0"><i class="las la-eye"></i></a>
-                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
-                  <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="product-content">
-              <div class="inner">
-                <div class="product-rating">
-                  <span class="product-rating">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                  </span>
-                  <span class="rating-number">(64)</span>
-                </div>
-                <h5 class="title"><a href="#" tabindex="0">3D™ wireless headset</a></h5>
-                <div class="product-price">
-                  <span class="price current-price">$29.99</span>
-                  <del class="price old-price">$49.99</del>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="items">
-          <div class="product-style-one">
-            <div class="content">
-              <a class="product-content-image" href="#" tabindex="0">
-                <img class="product-image" src="assets/images/product-02.png" alt="Product Images">
-                <img class="hover-img" src="assets/images/product-01.png" alt="Product Images">
-                <div class="label-block">
-                  <div class="product-badget">20% Off</div>
-                </div>
-              </a>
-
-              <div class="product-hover-action">
-                <div class="cart-action">
-                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
-                    tabindex="0"><i class="las la-eye"></i></a>
-                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
-                  <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="product-content">
-              <div class="inner">
-                <div class="product-rating">
-                  <span class="product-rating">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                  </span>
-                  <span class="rating-number">(64)</span>
-                </div>
-                <h5 class="title"><a href="#" tabindex="0">3D™ wireless headset</a></h5>
-                <div class="product-price">
-                  <span class="price current-price">$29.99</span>
-                  <del class="price old-price">$49.99</del>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="items">
-          <div class="product-style-one">
-            <div class="content">
-              <a class="product-content-image" href="#" tabindex="0">
-                <img class="product-image" src="assets/images/product-02.png" alt="Product Images">
-                <img class="hover-img" src="assets/images/product-01.png" alt="Product Images">
-                <div class="label-block">
-                  <div class="product-badget">20% Off</div>
-                </div>
-              </a>
-
-              <div class="product-hover-action">
-                <div class="cart-action">
-                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
-                    tabindex="0"><i class="las la-eye"></i></a>
-                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
-                  <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="product-content">
-              <div class="inner">
-                <div class="product-rating">
-                  <span class="product-rating">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                  </span>
-                  <span class="rating-number">(64)</span>
-                </div>
-                <h5 class="title"><a href="#" tabindex="0">3D™ wireless headset</a></h5>
-                <div class="product-price">
-                  <span class="price current-price">$29.99</span>
-                  <del class="price old-price">$49.99</del>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="items">
-          <div class="product-style-one">
-            <div class="content">
-              <a class="product-content-image" href="#" tabindex="0">
-                <img class="product-image" src="assets/images/product-02.png" alt="Product Images">
-                <img class="hover-img" src="assets/images/product-01.png" alt="Product Images">
-                <div class="label-block">
-                  <div class="product-badget">20% Off</div>
-                </div>
-              </a>
-
-              <div class="product-hover-action">
-                <div class="cart-action">
-                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
-                    tabindex="0"><i class="las la-eye"></i></a>
-                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
-                  <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="product-content">
-              <div class="inner">
-                <div class="product-rating">
-                  <span class="product-rating">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                  </span>
-                  <span class="rating-number">(64)</span>
-                </div>
-                <h5 class="title"><a href="#" tabindex="0">3D™ wireless headset</a></h5>
-                <div class="product-price">
-                  <span class="price current-price">$29.99</span>
-                  <del class="price old-price">$49.99</del>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="items">
-          <div class="product-style-one">
-            <div class="content">
-              <a class="product-content-image" href="#" tabindex="0">
-                <img class="product-image" src="assets/images/product-02.png" alt="Product Images">
-                <img class="hover-img" src="assets/images/product-01.png" alt="Product Images">
-                <div class="label-block">
-                  <div class="product-badget">20% Off</div>
-                </div>
-              </a>
-
-              <div class="product-hover-action">
-                <div class="cart-action">
-                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
-                    tabindex="0"><i class="las la-eye"></i></a>
-                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
-                  <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="product-content">
-              <div class="inner">
-                <div class="product-rating">
-                  <span class="product-rating">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                  </span>
-                  <span class="rating-number">(64)</span>
-                </div>
-                <h5 class="title"><a href="#" tabindex="0">3D™ wireless headset</a></h5>
-                <div class="product-price">
-                  <span class="price current-price">$29.99</span>
-                  <del class="price old-price">$49.99</del>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="items">
-          <div class="product-style-one">
-            <div class="content">
-              <a class="product-content-image" href="#" tabindex="0">
-                <img class="product-image" src="assets/images/product-02.png" alt="Product Images">
-                <img class="hover-img" src="assets/images/product-01.png" alt="Product Images">
-                <div class="label-block">
-                  <div class="product-badget">20% Off</div>
-                </div>
-              </a>
-
-              <div class="product-hover-action">
-                <div class="cart-action">
-                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
-                    tabindex="0"><i class="las la-eye"></i></a>
-                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
-                  <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="product-content">
-              <div class="inner">
-                <div class="product-rating">
-                  <span class="product-rating">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                  </span>
-                  <span class="rating-number">(64)</span>
-                </div>
-                <h5 class="title"><a href="#" tabindex="0">3D™ wireless headset</a></h5>
-                <div class="product-price">
-                  <span class="price current-price">$29.99</span>
-                  <del class="price old-price">$49.99</del>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="items">
-          <div class="product-style-one">
-            <div class="content">
-              <a class="product-content-image" href="#" tabindex="0">
-                <img class="product-image" src="assets/images/product-02.png" alt="Product Images">
-                <img class="hover-img" src="assets/images/product-01.png" alt="Product Images">
-                <div class="label-block">
-                  <div class="product-badget">20% Off</div>
-                </div>
-              </a>
-
-              <div class="product-hover-action">
-                <div class="cart-action">
-                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
-                    tabindex="0"><i class="las la-eye"></i></a>
-                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
-                  <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="product-content">
-              <div class="inner">
-                <div class="product-rating">
-                  <span class="product-rating">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                  </span>
-                  <span class="rating-number">(64)</span>
-                </div>
-                <h5 class="title"><a href="#" tabindex="0">3D™ wireless headset</a></h5>
-                <div class="product-price">
-                  <span class="price current-price">$29.99</span>
-                  <del class="price old-price">$49.99</del>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          }
       </div>
     </section>
-
     <section class="review-main">
       <div class="container">
         <div class="review-slider">
@@ -603,508 +290,74 @@
         </div>
       </div>
     </section>
-
     <section class="container mt-5">
       <div class="this-title p-3">
         <span> <i class="las la-shopping-basket"></i> This Week’s</span>
         <h2 class="title">New Arrivals</h2>
       </div>
       <div class="product-one slider">
-        <div class="items">
-          <div class="product-arrival">
-            <div class="content">
-              <a class="arrival-image" href="#" tabindex="0">
-                <img class="product-image" src="assets/images/product-02.png" alt="Product Images">
-                <img class="hover-img" src="assets/images/product-01.png" alt="Product Images">
-                <div class="label-block">
-                  <div class="product-badget">20% Off</div>
-                </div>
-              </a>
+          @foreach (var phone in Model.IsNewPhones)
+          {
+                <div class="items">
+                    <div class="product-arrival">
+                        <div class="content">
+                            <a class="arrival-image" href="#" tabindex="0">
+                                <img class="product-image" src="assets/images/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==false)?.Name" alt="Product Images">
+                                <img class="hover-img" src="~/assets/images/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==true)?.Name" alt="Product Images">
+                                <div class="label-block">
+                                    @if (phone.DiscountPercent > 0)
+                                    {
+                                        <div class="product-badget">@phone.DiscountPercent.ToString("0.##")% Off</div>
+                                    }
+                                    else
+                                    {
+                                        <div class="product-badget">Is New</div>
+                                    }
+                                </div>
+                            </a>
 
-              <div class="product-hover">
-                <div class="cart-action">
-                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
-                    tabindex="0"><i class="las la-eye"></i></a>
-                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
-                  <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
+                            <div class="product-hover">
+                                <div class="cart-action">
+                                    <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
+                                   tabindex="0"><i class="las la-eye"></i></a>
+                                    <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
+                                    <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <div class="inner">
+                                <div class="product-rating">
+                                    <span class="product-rating">
+                                        <i class="las la-star"></i>
+                                        <i class="las la-star"></i>
+                                        <i class="las la-star"></i>
+                                        <i class="las la-star"></i>
+                                        <i class="las la-star"></i>
+                                    </span>
+                                    <span class="rating-number">(64)</span>
+                                </div>
+                                <h5 class="title"><a href="#" tabindex="0"> @phone.PhoneModel.Name @phone.Name @phone.Memory.Name GB</a></h5>
+                                <div class="product-price">
+                                    @if (phone.DiscountPercent > 0)
+                                    {
+                                        <span class="price current-price">$@((phone.SalePrice * (100 - phone.DiscountPercent) / 100).ToString("0.00"))</span>
+                                        <del class="price old-price">$@phone.SalePrice.ToString("0.00")</del>
+                                    }
+                                    else
+                                    {
+                                        <span class="price current-price">$@phone.SalePrice.ToString("0.00")</span>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="product-content">
-              <div class="inner">
-                <div class="product-rating">
-                  <span class="product-rating">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                  </span>
-                  <span class="rating-number">(64)</span>
-                </div>
-                <h5 class="title"><a href="#" tabindex="0">3D™ wireless headset</a></h5>
-                <div class="product-price">
-                  <span class="price current-price">$29.99</span>
-                  <del class="price old-price">$49.99</del>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="items">
-          <div class="product-arrival">
-            <div class="content">
-              <a class="arrival-image" href="#" tabindex="0">
-                <img class="product-image" src="assets/images/product-02.png" alt="Product Images">
-                <img class="hover-img" src="assets/images/product-01.png" alt="Product Images">
-                <div class="label-block">
-                  <div class="product-badget">20% Off</div>
-                </div>
-              </a>
+            }
 
-              <div class="product-hover">
-                <div class="cart-action">
-                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
-                    tabindex="0"><i class="las la-eye"></i></a>
-                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
-                  <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="product-content">
-              <div class="inner">
-                <div class="product-rating">
-                  <span class="product-rating">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                  </span>
-                  <span class="rating-number">(64)</span>
-                </div>
-                <h5 class="title"><a href="#" tabindex="0">3D™ wireless headset</a></h5>
-                <div class="product-price">
-                  <span class="price current-price">$29.99</span>
-                  <del class="price old-price">$49.99</del>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="items">
-          <div class="product-arrival">
-            <div class="content">
-              <a class="arrival-image" href="#" tabindex="0">
-                <img class="product-image" src="assets/images/product-02.png" alt="Product Images">
-                <img class="hover-img" src="assets/images/product-01.png" alt="Product Images">
-                <div class="label-block">
-                  <div class="product-badget">20% Off</div>
-                </div>
-              </a>
 
-              <div class="product-hover">
-                <div class="cart-action">
-                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
-                    tabindex="0"><i class="las la-eye"></i></a>
-                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
-                  <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="product-content">
-              <div class="inner">
-                <div class="product-rating">
-                  <span class="product-rating">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                  </span>
-                  <span class="rating-number">(64)</span>
-                </div>
-                <h5 class="title"><a href="#" tabindex="0">3D™ wireless headset</a></h5>
-                <div class="product-price">
-                  <span class="price current-price">$29.99</span>
-                  <del class="price old-price">$49.99</del>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="items">
-          <div class="product-arrival">
-            <div class="content">
-              <a class="arrival-image" href="#" tabindex="0">
-                <img class="product-image" src="assets/images/product-02.png" alt="Product Images">
-                <img class="hover-img" src="assets/images/product-01.png" alt="Product Images">
-                <div class="label-block">
-                  <div class="product-badget">20% Off</div>
-                </div>
-              </a>
-
-              <div class="product-hover">
-                <div class="cart-action">
-                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
-                    tabindex="0"><i class="las la-eye"></i></a>
-                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
-                  <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="product-content">
-              <div class="inner">
-                <div class="product-rating">
-                  <span class="product-rating">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                  </span>
-                  <span class="rating-number">(64)</span>
-                </div>
-                <h5 class="title"><a href="#" tabindex="0">3D™ wireless headset</a></h5>
-                <div class="product-price">
-                  <span class="price current-price">$29.99</span>
-                  <del class="price old-price">$49.99</del>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="items">
-          <div class="product-arrival">
-            <div class="content">
-              <a class="arrival-image" href="#" tabindex="0">
-                <img class="product-image" src="assets/images/product-02.png" alt="Product Images">
-                <img class="hover-img" src="assets/images/product-01.png" alt="Product Images">
-                <div class="label-block">
-                  <div class="product-badget">20% Off</div>
-                </div>
-              </a>
-
-              <div class="product-hover">
-                <div class="cart-action">
-                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
-                    tabindex="0"><i class="las la-eye"></i></a>
-                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
-                  <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="product-content">
-              <div class="inner">
-                <div class="product-rating">
-                  <span class="product-rating">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                  </span>
-                  <span class="rating-number">(64)</span>
-                </div>
-                <h5 class="title"><a href="#" tabindex="0">3D™ wireless headset</a></h5>
-                <div class="product-price">
-                  <span class="price current-price">$29.99</span>
-                  <del class="price old-price">$49.99</del>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="items">
-          <div class="product-arrival">
-            <div class="content">
-              <a class="arrival-image" href="#" tabindex="0">
-                <img class="product-image" src="assets/images/product-02.png" alt="Product Images">
-                <img class="hover-img" src="assets/images/product-01.png" alt="Product Images">
-                <div class="label-block">
-                  <div class="product-badget">20% Off</div>
-                </div>
-              </a>
-
-              <div class="product-hover">
-                <div class="cart-action">
-                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
-                    tabindex="0"><i class="las la-eye"></i></a>
-                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
-                  <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="product-content">
-              <div class="inner">
-                <div class="product-rating">
-                  <span class="product-rating">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                  </span>
-                  <span class="rating-number">(64)</span>
-                </div>
-                <h5 class="title"><a href="#" tabindex="0">3D™ wireless headset</a></h5>
-                <div class="product-price">
-                  <span class="price current-price">$29.99</span>
-                  <del class="price old-price">$49.99</del>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="items">
-          <div class="product-arrival">
-            <div class="content">
-              <a class="arrival-image" href="#" tabindex="0">
-                <img class="product-image" src="assets/images/product-02.png" alt="Product Images">
-                <img class="hover-img" src="assets/images/product-01.png" alt="Product Images">
-                <div class="label-block">
-                  <div class="product-badget">20% Off</div>
-                </div>
-              </a>
-
-              <div class="product-hover">
-                <div class="cart-action">
-                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
-                    tabindex="0"><i class="las la-eye"></i></a>
-                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
-                  <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="product-content">
-              <div class="inner">
-                <div class="product-rating">
-                  <span class="product-rating">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                  </span>
-                  <span class="rating-number">(64)</span>
-                </div>
-                <h5 class="title"><a href="#" tabindex="0">3D™ wireless headset</a></h5>
-                <div class="product-price">
-                  <span class="price current-price">$29.99</span>
-                  <del class="price old-price">$49.99</del>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="items">
-          <div class="product-arrival">
-            <div class="content">
-              <a class="arrival-image" href="#" tabindex="0">
-                <img class="product-image" src="assets/images/product-02.png" alt="Product Images">
-                <img class="hover-img" src="assets/images/product-01.png" alt="Product Images">
-                <div class="label-block">
-                  <div class="product-badget">20% Off</div>
-                </div>
-              </a>
-
-              <div class="product-hover">
-                <div class="cart-action">
-                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
-                    tabindex="0"><i class="las la-eye"></i></a>
-                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
-                  <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="product-content">
-              <div class="inner">
-                <div class="product-rating">
-                  <span class="product-rating">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                  </span>
-                  <span class="rating-number">(64)</span>
-                </div>
-                <h5 class="title"><a href="#" tabindex="0">3D™ wireless headset</a></h5>
-                <div class="product-price">
-                  <span class="price current-price">$29.99</span>
-                  <del class="price old-price">$49.99</del>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="items">
-          <div class="product-arrival">
-            <div class="content">
-              <a class="arrival-image" href="#" tabindex="0">
-                <img class="product-image" src="assets/images/product-02.png" alt="Product Images">
-                <img class="hover-img" src="assets/images/product-01.png" alt="Product Images">
-                <div class="label-block">
-                  <div class="product-badget">20% Off</div>
-                </div>
-              </a>
-
-              <div class="product-hover">
-                <div class="cart-action">
-                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
-                    tabindex="0"><i class="las la-eye"></i></a>
-                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
-                  <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="product-content">
-              <div class="inner">
-                <div class="product-rating">
-                  <span class="product-rating">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                  </span>
-                  <span class="rating-number">(64)</span>
-                </div>
-                <h5 class="title"><a href="#" tabindex="0">3D™ wireless headset</a></h5>
-                <div class="product-price">
-                  <span class="price current-price">$29.99</span>
-                  <del class="price old-price">$49.99</del>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="items">
-          <div class="product-arrival">
-            <div class="content">
-              <a class="arrival-image" href="#" tabindex="0">
-                <img class="product-image" src="assets/images/product-02.png" alt="Product Images">
-                <img class="hover-img" src="assets/images/product-01.png" alt="Product Images">
-                <div class="label-block">
-                  <div class="product-badget">20% Off</div>
-                </div>
-              </a>
-
-              <div class="product-hover">
-                <div class="cart-action">
-                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
-                    tabindex="0"><i class="las la-eye"></i></a>
-                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
-                  <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="product-content">
-              <div class="inner">
-                <div class="product-rating">
-                  <span class="product-rating">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                  </span>
-                  <span class="rating-number">(64)</span>
-                </div>
-                <h5 class="title"><a href="#" tabindex="0">3D™ wireless headset</a></h5>
-                <div class="product-price">
-                  <span class="price current-price">$29.99</span>
-                  <del class="price old-price">$49.99</del>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="items">
-          <div class="product-arrival">
-            <div class="content">
-              <a class="arrival-image" href="#" tabindex="0">
-                <img class="product-image" src="assets/images/product-02.png" alt="Product Images">
-                <img class="hover-img" src="assets/images/product-01.png" alt="Product Images">
-                <div class="label-block">
-                  <div class="product-badget">20% Off</div>
-                </div>
-              </a>
-
-              <div class="product-hover">
-                <div class="cart-action">
-                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
-                    tabindex="0"><i class="las la-eye"></i></a>
-                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
-                  <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="product-content">
-              <div class="inner">
-                <div class="product-rating">
-                  <span class="product-rating">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                  </span>
-                  <span class="rating-number">(64)</span>
-                </div>
-                <h5 class="title"><a href="#" tabindex="0">3D™ wireless headset</a></h5>
-                <div class="product-price">
-                  <span class="price current-price">$29.99</span>
-                  <del class="price old-price">$49.99</del>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="items">
-          <div class="product-arrival">
-            <div class="content">
-              <a class="arrival-image" href="#" tabindex="0">
-                <img class="product-image" src="assets/images/product-02.png" alt="Product Images">
-                <img class="hover-img" src="assets/images/product-01.png" alt="Product Images">
-                <div class="label-block">
-                  <div class="product-badget">20% Off</div>
-                </div>
-              </a>
-
-              <div class="product-hover">
-                <div class="cart-action">
-                  <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
-                    tabindex="0"><i class="las la-eye"></i></a>
-                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
-                  <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="product-content">
-              <div class="inner">
-                <div class="product-rating">
-                  <span class="product-rating">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                  </span>
-                  <span class="rating-number">(64)</span>
-                </div>
-                <h5 class="title"><a href="#" tabindex="0">3D™ wireless headset</a></h5>
-                <div class="product-price">
-                  <span class="price current-price">$29.99</span>
-                  <del class="price old-price">$49.99</del>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
-
     <section class="most-popular">
       <div class="most-sold-product">
         <div class="container">
@@ -1114,11 +367,13 @@
               <h2 class="title">Most Sold in eTrade Store</h2>
             </div>
             <div class="row row-cols-xl-2 row-cols-1">
+                @foreach (var phone in Model.MostSoldPhones)
+                {
               <div class="col most-item">
                 <div class="most-product-list">
                   <div class="most-images">
                     <a href="#">
-                      <img src="assets/images/product-09.png" alt="Yantiti Leather Bags">
+                      <img src="~/assets/images/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==true)?.Name" alt="Item Image">
                     </a>
                   </div>
                   <div class="product-content">
@@ -1132,10 +387,17 @@
                       </span>
                       <span class="rating-number"><span>100+</span> Reviews</span>
                     </div>
-                    <h6 class="product-title"><a href="#">Media Remote</a></h6>
+                    <h6 class="product-title"><a href="#">@phone.PhoneModel.Name @phone.Name @phone.Memory.Name GB</a></h6>
                     <div class="product-price">
-                      <span class="price current-price">$29.99</span>
-                      <span class="price old-price">$49.99</span>
+                                            @if (phone.DiscountPercent > 0)
+                                            {
+                                                <span class="price current-price">$@((phone.SalePrice * (100 - phone.DiscountPercent) / 100).ToString("0.00"))</span>
+                                                <del class="price old-price">$@phone.SalePrice.ToString("0.00")</del>
+                                            }
+                                            else
+                                            {
+                                                <span class="price current-price">$@phone.SalePrice.ToString("0.00")</span>
+                                            }
                     </div>
                     <div class="product-cart">
                       <a href="cart.html" class="btn btn-outline-primary"><i class="las la-shopping-cart"></i></a>
@@ -1144,162 +406,13 @@
                   </div>
                 </div>
               </div>
-              <div class="col most-item">
-                <div class="most-product-list">
-                  <div class="most-images">
-                    <a href="#">
-                      <img src="assets/images/product-09.png" alt="Yantiti Leather Bags">
-                    </a>
-                  </div>
-                  <div class="product-content">
-                    <div class="product-rating">
-                      <span class="rating-icon">
-                        <i class="las la-star"></i>
-                        <i class="las la-star"></i>
-                        <i class="las la-star"></i>
-                        <i class="las la-star"></i>
-                        <i class="fal fa-star"></i>
-                      </span>
-                      <span class="rating-number"><span>100+</span> Reviews</span>
-                    </div>
-                    <h6 class="product-title"><a href="#">Media Remote</a></h6>
-                    <div class="product-price">
-                      <span class="price current-price">$29.99</span>
-                      <span class="price old-price">$49.99</span>
-                    </div>
-                    <div class="product-cart">
-                      <a href="cart.html" class="btn btn-outline-primary"><i class="las la-shopping-cart"></i></a>
-                      <a href="wishlist.html" class="btn btn-outline-danger"><i class="las la-heart"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col most-item">
-                <div class="most-product-list">
-                  <div class="most-images">
-                    <a href="#">
-                      <img src="assets/images/product-09.png" alt="Yantiti Leather Bags">
-                    </a>
-                  </div>
-                  <div class="product-content">
-                    <div class="product-rating">
-                      <span class="rating-icon">
-                        <i class="las la-star"></i>
-                        <i class="las la-star"></i>
-                        <i class="las la-star"></i>
-                        <i class="las la-star"></i>
-                        <i class="fal fa-star"></i>
-                      </span>
-                      <span class="rating-number"><span>100+</span> Reviews</span>
-                    </div>
-                    <h6 class="product-title"><a href="#">Media Remote</a></h6>
-                    <div class="product-price">
-                      <span class="price current-price">$29.99</span>
-                      <span class="price old-price">$49.99</span>
-                    </div>
-                    <div class="product-cart">
-                      <a href="cart.html" class="btn btn-outline-primary"><i class="las la-shopping-cart"></i></a>
-                      <a href="wishlist.html" class="btn btn-outline-danger"><i class="las la-heart"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col most-item">
-                <div class="most-product-list">
-                  <div class="most-images">
-                    <a href="#">
-                      <img src="assets/images/product-09.png" alt="Yantiti Leather Bags">
-                    </a>
-                  </div>
-                  <div class="product-content">
-                    <div class="product-rating">
-                      <span class="rating-icon">
-                        <i class="las la-star"></i>
-                        <i class="las la-star"></i>
-                        <i class="las la-star"></i>
-                        <i class="las la-star"></i>
-                        <i class="fal fa-star"></i>
-                      </span>
-                      <span class="rating-number"><span>100+</span> Reviews</span>
-                    </div>
-                    <h6 class="product-title"><a href="#">Media Remote</a></h6>
-                    <div class="product-price">
-                      <span class="price current-price">$29.99</span>
-                      <span class="price old-price">$49.99</span>
-                    </div>
-                    <div class="product-cart">
-                      <a href="cart.html" class="btn btn-outline-primary"><i class="las la-shopping-cart"></i></a>
-                      <a href="wishlist.html" class="btn btn-outline-danger"><i class="las la-heart"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col most-item">
-                <div class="most-product-list">
-                  <div class="most-images">
-                    <a href="#">
-                      <img src="assets/images/product-09.png" alt="Yantiti Leather Bags">
-                    </a>
-                  </div>
-                  <div class="product-content">
-                    <div class="product-rating">
-                      <span class="rating-icon">
-                        <i class="las la-star"></i>
-                        <i class="las la-star"></i>
-                        <i class="las la-star"></i>
-                        <i class="las la-star"></i>
-                        <i class="fal fa-star"></i>
-                      </span>
-                      <span class="rating-number"><span>100+</span> Reviews</span>
-                    </div>
-                    <h6 class="product-title"><a href="#">Media Remote</a></h6>
-                    <div class="product-price">
-                      <span class="price current-price">$29.99</span>
-                      <span class="price old-price">$49.99</span>
-                    </div>
-                    <div class="product-cart">
-                      <a href="cart.html" class="btn btn-outline-primary"><i class="las la-shopping-cart"></i></a>
-                      <a href="wishlist.html" class="btn btn-outline-danger"><i class="las la-heart"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col most-item">
-                <div class="most-product-list">
-                  <div class="most-images">
-                    <a href="#">
-                      <img src="assets/images/product-09.png" alt="Yantiti Leather Bags">
-                    </a>
-                  </div>
-                  <div class="product-content">
-                    <div class="product-rating">
-                      <span class="rating-icon">
-                        <i class="las la-star"></i>
-                        <i class="las la-star"></i>
-                        <i class="las la-star"></i>
-                        <i class="las la-star"></i>
-                        <i class="fal fa-star"></i>
-                      </span>
-                      <span class="rating-number"><span>100+</span> Reviews</span>
-                    </div>
-                    <h6 class="product-title"><a href="#">Media Remote</a></h6>
-                    <div class="product-price">
-                      <span class="price current-price">$29.99</span>
-                      <span class="price old-price">$49.99</span>
-                    </div>
-                    <div class="product-cart">
-                      <a href="cart.html" class="btn btn-outline-primary"><i class="las la-shopping-cart"></i></a>
-                      <a href="wishlist.html" class="btn btn-outline-danger"><i class="las la-heart"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    
+                }
             </div>
           </div>
         </div>
       </div>
     </section>
-
     <section class="service-whyus">
       <div class="container">
         <div class="service-title">
@@ -1350,19 +463,20 @@
         </div>
       </div>
     </section>
-
     <section>
       <div class="new-poster">
         <div class="container">
-          <div class="row">
-            <div class="col-lg-6">
+            <div class="row">
+              @foreach (var poster in Model.BtmPromotions)
+              {
+                  <div class="col-lg-6">
               <div class="single-poster">
-                <a href="shop.html">
-                  <img src="assets/images/poster-01.png" alt="eTrade promotion poster">
-                  <div class="poster-content">
+                <a href="@poster.RedirectUrl">
+                  <img src="~/assets/images/@poster.Image" alt="eTrade promotion poster">
+                  <div class="poster-content @(poster.Id%2==0? "content-left":"content-right")">
                     <div class="inner">
-                      <h3 class="title">Rich sound, <br> for less.</h3>
-                      <span class="sub-title">Collections <i class="las la-long-arrow-alt-right"></i></span>
+                      <h3 class="title">@poster.Title</h3>
+                      <span class="sub-title">@poster.BtnText <i class="las la-long-arrow-alt-right"></i></span>
                     </div>
                   </div>
                   <!-- End .poster-content -->
@@ -1370,22 +484,9 @@
               </div>
               <!-- End .single-poster -->
             </div>
-            <div class="col-lg-6 mb--30">
-              <div class="single-poster">
-                <a href="shop-sidebar.html">
-                  <img src="assets/images/poster-02.png" alt="eTrade promotion poster">
-                  <div class="poster-content content-left">
-                    <div class="inner">
-                      <span class="sub-title">50% Offer In Winter</span>
-                      <h3 class="title">Get VR <br> Reality Glass</h3>
-                    </div>
-                  </div>
-                  <!-- End .poster-content -->
-                </a>
-              </div>
-              <!-- End .single-poster -->
+              }
+            
             </div>
-          </div>
         </div>
       </div>
       <div class="newsletter">

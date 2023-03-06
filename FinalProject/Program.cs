@@ -1,4 +1,5 @@
 using FinalProject.DAL;
+using FinalProject.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +8,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<EtradeDbContext>(opt =>{
     opt.UseSqlServer("Server=DESKTOP-HO9CBPN\\SQLEXPRESS;Database=EtradeDb; Trusted_Connection=TRUE");
 });
-
+builder.Services.AddScoped<LayoutService>();
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
