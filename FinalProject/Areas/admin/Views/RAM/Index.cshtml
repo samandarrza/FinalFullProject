@@ -1,0 +1,65 @@
+﻿@model List<RAM>
+@{
+    int selectedPage = ViewBag.Page;
+    int totalPage = ViewBag.TotalPage;
+    int order = (selectedPage - 1) * 5;
+}
+<main class="container p-2">
+    <div class="d-flex justify-content-between">
+        <h2>RAMs</h2>
+        <a asp-action="create" class="btn btn-primary">Create</a>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 m-auto">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">RAM</th>
+                        <th scope="col">Phones Count</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        order++;
+                        <tr>
+                            <th scope="row">@order</th>
+                            <td>@item.Name</td>
+                            <td>@item.Phones.Count()</td>
+                            <td><a class="btn btn-primary" asp-action="edit" asp-route-id="@item.Id">Edit</a></td>
+                            <td><a class="trash-btn btn btn-danger" asp-action="delete" asp-route-id="@item.Id">Delete</a></td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item @(selectedPage == 1 ? "disabled":"")">
+                        <a class="page-link" asp-action="index" asp-route-page="@(selectedPage-1)" tabindex="-1">Previous</a>
+                    </li>
+                    @for (var i = 1; i <= totalPage; i++)
+                    {
+                        <li class="page-item @(i==selectedPage?"active":"")"><a class="page-link" asp-action="index" asp-route-page="@i">@i</a></li>
+                    }
+                    <li class="page-item  @(selectedPage == totalPage ? "disabled":"") ">
+                        <a class="page-link" asp-action="index" asp-route-page="@(selectedPage+1)">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</main>
+
+
+
