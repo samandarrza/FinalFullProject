@@ -1,7 +1,95 @@
-﻿
+﻿@using FinalProject.Areas.admin.ViewModels
+@model PaginatedList<Phone>
 @{
-    ViewData["Title"] = "Index";
+    int order = (Model.PageIndex - 1) * Model.PageSize;
+    int firstpage = 1;
+    int pages = Model.TotalPages;
+    int currentPage = 1;
 }
+<div class="container-fluid">
+    <div class="d-flex justify-content-between mx-2">
+        <h3><b>Phones</b></h3>
+        <a class="btn btn-primary" asp-action="create">Create</a>
+    </div>
+    <div class="row">
+        <table class="table table-hover text-center align-items-center">
+            <thead>
+                <tr class="bg-light">
+                    <th class="col-md-1">#</th>
+                    <th class="col-md-1">Model</th>
+                    <th class="col-md-3">Name</th>
+                    <th class="col-md-1">RAM</th>
+                    <th class="col-md-1">Memory</th>
+                    <th class="col-md-1">Color</th>
+                    <th class="col-md-1">Battery</th>
+                    <th class="col-md-1">Processor</th>
+                    <th class="col-md-1">SalePrice</th>
+                    <th class="col-md-1">CostPrice</th>
+                    <th class="col-md-1">Discount</th>
+                    <th class="col-md-1">Image</th>
+                    <th class="col-md-1">Edit</th>
+                    <th class="col-md-1">Delete</th>
 
-<h1>Index</h1>
 
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var phone in Model)
+                {
+                    order++;
+                    <tr>
+                        <td>@order</td>
+                        <td>@phone.PhoneModel.Name</td>
+                        <td>@phone.Name</td>
+                        <td>@phone.RAM.Name GB</td>
+                        <td>@phone.Memory.Name GB</td>
+                        <td>@phone.Color.Name</td>
+                        <td>@phone.Battery.Name</td>
+                        <td>@phone.ProcessorName.Name</td>
+                        <td>@phone.SalePrice</td>
+                        <td>@phone.CostPrice</td>
+                        <td>@phone.DiscountPercent.ToString("0.##")%</td>
+                        <td><img width="50px" max-height="40px" src="~/assets/images/@phone.PhoneImages.FirstOrDefault(x=>x.Status==true)?.Name" /></td>
+                        <td>
+                        <a class="btn btn-primary" asp-action="edit" asp-route-id="@phone.Id">Edit</a>
+                        </td>
+                        <td>
+                            <a class="trash-btn btn btn-danger" asp-action="delete" asp-route-id="@phone.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item @(!Model.HasPrevious? "disabled":"")">
+                        <a class="page-link" asp-action="index" asp-route-page="@(Model.PageIndex-1)" tabindex="-1">Previous</a>
+                    </li>
+                    @for (var i = 1; i <= pages; i++)
+                    {
+                        if (pages > 5)
+                        {
+                            pages = 5;
+                        }
+                        if (Model.PageIndex > 3 && pages < Model.TotalPages)
+                        {
+                            pages = Model.PageIndex + 2;
+
+                        }
+
+                        <li class="page-item @(i==Model.PageIndex?"active":"")"><a class="page-link" asp-action="index" asp-route-page="@i">@i</a></li>
+                    }
+
+                    <li class="page-item  @(!Model.HasNext? "disabled":"") ">
+                        <a class="page-link" asp-action="index" asp-route-page="@(Model.PageIndex+1)">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+</div>
