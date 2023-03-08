@@ -1,1 +1,31 @@
-﻿
+﻿.delete-item {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: white;
+    background-color: red;
+    border-radius: 20px;
+}
+
+    .delete-item:hover {
+        cursor: pointer;
+    }
+
+.img-box {
+    position: relative;
+}
+
+.connection-status {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.offline {
+    background-color: gray;
+}
+
+.online {
+    background-color: green;
+}

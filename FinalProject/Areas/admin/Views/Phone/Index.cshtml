@@ -6,9 +6,9 @@
     int pages = Model.TotalPages;
     int currentPage = 1;
 }
-<div class="container-fluid">
+<div class="container p-2">
     <div class="d-flex justify-content-between mx-2">
-        <h3><b>Phones</b></h3>
+        <h2>Phones</h2>
         <a class="btn btn-primary" asp-action="create">Create</a>
     </div>
     <div class="row">
@@ -50,7 +50,7 @@
                         <td>@phone.SalePrice</td>
                         <td>@phone.CostPrice</td>
                         <td>@phone.DiscountPercent.ToString("0.##")%</td>
-                        <td><img width="50px" max-height="40px" src="~/assets/images/@phone.PhoneImages.FirstOrDefault(x=>x.Status==true)?.Name" /></td>
+                        <td><img width="50px" max-height="40px" src="~/uploads/phones/@phone.PhoneImages.FirstOrDefault(x=>x.Status==true)?.Name" /></td>
                         <td>
                         <a class="btn btn-primary" asp-action="edit" asp-route-id="@phone.Id">Edit</a>
                         </td>

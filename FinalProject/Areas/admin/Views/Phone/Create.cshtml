@@ -1,0 +1,133 @@
+﻿@model Phone
+<div class="container p-2">
+    <h2>Create</h2>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-9">
+                <form asp-action="create" method="post" enctype="multipart/form-data">
+                    <div class="form-group p-1 mx-1">
+                        <label asp-for="Name">Name</label>
+                        <input asp-for="Name" class="form-control">
+                        <span class="text-danger" asp-validation-for="Name"></span>
+                    </div>
+                      
+                    <div class="d-flex justify-content-between p-1">
+
+                        <div class="form-group w-25 mx-1">
+                            <label asp-for="RAMId">RAM</label>
+                            <select asp-for="RAMId" class="form-control" asp-items="@(new SelectList(ViewBag.RAMs,nameof(RAM.Id),nameof(RAM.Name)))">
+                            </select>
+                            <span class="text-danger" asp-validation-for="RAMId"></span>
+                        </div>
+                        <div class="form-group w-25 mx-1">
+                            <label asp-for="MemoryId">Memory</label>
+                            <select asp-for="MemoryId" class="form-control" asp-items="@(new SelectList(ViewBag.Memories,nameof(Memory.Id),nameof(Memory.Name)))">
+                            </select>
+                            <span class="text-danger" asp-validation-for="MemoryId"></span>
+                        </div>
+                        <div class="form-group w-25 mx-1">
+                            <label asp-for="PhoneModelId">Model</label>
+                            <select asp-for="PhoneModelId" class="form-control" asp-items="@(new SelectList(ViewBag.PhoneModels,nameof(PhoneModel.Id),nameof(PhoneModel.Name)))">
+                            </select>
+                            <span class="text-danger" asp-validation-for="PhoneModelId"></span>
+                        </div>
+                        <div class="form-group w-25 mx-1">
+                            <label asp-for="PhoneSystemId">Phone System</label>
+                            <select asp-for="PhoneSystemId" class="form-control" asp-items="@(new SelectList(ViewBag.PhoneSystems,nameof(PhoneSystem.Id),nameof(PhoneSystem.Name)))">
+                            </select>
+                            <span class="text-danger" asp-validation-for="PhoneSystemId"></span>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between p-1">
+                        <div class="form-group w-25 mx-1">
+                            <label asp-for="ProcessorNameId">Processor Name</label>
+                            <select asp-for="ProcessorNameId" class="form-control" asp-items="@(new SelectList(ViewBag.ProcessorNames,nameof(ProcessorName.Id),nameof(ProcessorName.Name)))">
+                            </select>
+                            <span class="text-danger" asp-validation-for="ProcessorNameId"></span>
+                        </div>
+                        <div class="form-group w-25 mx-1">
+                            <label asp-for="ColorId">Color</label>
+                            <select asp-for="ColorId" class="form-control" asp-items="@(new SelectList(ViewBag.Colors,nameof(Color.Id),nameof(Color.Name)))">
+                            </select>
+                            <span class="text-danger" asp-validation-for="ColorId"></span>
+                        </div>
+                        <div class="form-group w-25 mx-1">
+                            <label asp-for="BatteryId">Battery</label>
+                            <select asp-for="BatteryId" class="form-control" asp-items="@(new SelectList(ViewBag.Batteries,nameof(Battery.Id),nameof(Battery.Name)))">
+                            </select>
+                            <span class="text-danger" asp-validation-for="BatteryId"></span>
+                        </div>
+
+                        <div class="form-group w-25 mx-1">
+                            <label asp-for="DisplayId">Display</label>
+                            <select asp-for="DisplayId" class="form-control" asp-items="@(new SelectList(ViewBag.Displays,nameof(Display.Id),nameof(Display.Name)))">
+                            </select>
+                            <span class="text-danger" asp-validation-for="DisplayId"></span>
+                        </div>
+                    </div>
+                     <div class="d-flex justify-content-between p-1">
+                        <div class="form-group w-25 mx-1">
+                            <label asp-for="PhoneTagId">Phone Tag</label>
+                            <select asp-for="PhoneTagId" class="form-control" asp-items="@(new SelectList(ViewBag.PhoneTags,nameof(PhoneTag.Id),nameof(PhoneTag.Name)))">
+                            </select>
+                            <span class="text-danger" asp-validation-for="PhoneTagId"></span>
+                        </div>
+                        <div class="form-group w-25 mx-1">
+                        <label asp-for="SalePrice">SalePrice</label>
+                        <input asp-for="SalePrice" class="form-control">
+                        <span class="text-danger" asp-validation-for="SalePrice"></span>
+                        </div>
+                        <div class="form-group w-25 mx-1">
+                        <label asp-for="CostPrice">CostPrice</label>
+                        <input asp-for="CostPrice" class="form-control">
+                        <span class="text-danger" asp-validation-for="CostPrice"></span>
+                        </div>
+                        <div class="form-group w-25 mx-1">
+                            <label asp-for="DiscountPercent">DiscountPercent</label>
+                            <input asp-for="DiscountPercent" class="form-control">
+                            <span class="text-danger" asp-validation-for="DiscountPercent"></span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-start p-1">
+                        <div class="form-group mx-4">
+                            <input asp-for="StockStatus">
+                            <label asp-for="StockStatus">StockStatus</label>
+                            <span class="text-danger" asp-validation-for="StockStatus"></span>
+                        </div>
+                        <div class="form-group mx-4">
+                            <input asp-for="MostPopular">
+                            <label asp-for="MostPopular">IsSpecial</label>
+                            <span class="text-danger" asp-validation-for="MostPopular"></span>
+                        </div>
+                        <div class="form-group mx-4">
+                            <input asp-for="IsNew">
+                            <label asp-for="IsNew">IsNew</label>
+                            <span class="text-danger" asp-validation-for="IsNew"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group mx-1 p-1">
+                        <label asp-for="PosterFile">Poster File</label>
+                        <input asp-for="PosterFile" class="form-control">
+                        <span class="text-danger" asp-validation-for="PosterFile"></span>
+                    </div>
+                    <div class="form-group mx-1 p-1">
+                        <label asp-for="HoverPosterFile">Hover Poster File</label>
+                        <input asp-for="HoverPosterFile" class="form-control">
+                        <span class="text-danger" asp-validation-for="HoverPosterFile"></span>
+                    </div>
+                    <div class="form-group mx-1 p-1">
+                        <label asp-for="ImageFiles">ImageFiles</label>
+                        <input asp-for="ImageFiles" class="form-control">
+                        <span class="text-danger" asp-validation-for="ImageFiles"></span>
+                    </div>
+                    <div asp-validation-summary="ModelOnly"></div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary m-2">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
