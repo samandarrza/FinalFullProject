@@ -34,7 +34,9 @@
 		}
 	})
 })
-
+$(document).on("click", ".delete-item", function (e) {
+	$(this).parent().remove();
+})
 document.addEventListener("DOMContentLoaded", function () {
 	var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");
 	var gradient = ctx.createLinearGradient(0, 0, 0, 225);

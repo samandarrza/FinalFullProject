@@ -1,12 +1,16 @@
 ﻿using FinalProject.DAL;
 using FinalProject.Helpers;
 using FinalProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace FinalProject.Areas.admin.Controllers
 {
     [Area("admin")]
+    [Authorize(Roles = "SuperAdmin,Admin,Editor")]
+
     public class SliderController : Controller
     {
         private readonly EtradeDbContext _context;

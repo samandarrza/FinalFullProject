@@ -2,12 +2,16 @@
 using FinalProject.DAL;
 using FinalProject.Helpers;
 using FinalProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace FinalProject.Areas.admin.Controllers
 {
     [Area("admin")]
+    [Authorize(Roles = "SuperAdmin,Admin,Editor")]
+
     public class PhoneController : Controller
     {
         private readonly EtradeDbContext _context;
@@ -245,14 +249,17 @@ namespace FinalProject.Areas.admin.Controllers
                 FileManager.Delete(_env.WebRootPath, "uploads/phones", poster.Name);
                 poster.Name = newPosterName;
             }
+
+
+
             if (phone.HoverPosterFile != null)
             {
-                var hoverPoster = existPhone.PhoneImages.FirstOrDefault(x => x.Status == false);
-                var newhoverPosterName = FileManager.Save(phone.HoverPosterFile, _env.WebRootPath, "uploads/phones");
-                FileManager.Delete(_env.WebRootPath, "uploads/phones", hoverPoster.Name);
-                hoverPoster.Name = newhoverPosterName;
+                var hover = existPhone.PhoneImages.FirstOrDefault(x => x.Status == false);
+                var newHoverName = FileManager.Save(phone.HoverPosterFile, _env.WebRootPath, "uploads/phones");
+                FileManager.Delete(_env.WebRootPath, "uploads/phones", hover.Name);
+                hover.Name = newHoverName;
             }
-            var removedFiles = existPhone.PhoneImages.FindAll(x => x.Status == false && !phone.PhoneImageIds.Contains(x.Id));
+            var removedFiles = existPhone.PhoneImages.FindAll(x => x.Status == null && !phone.PhoneImageIds.Contains(x.Id));
             foreach (var item in removedFiles)
             {
                 FileManager.Delete(_env.WebRootPath, "uploads/phones", item.Name);
@@ -289,7 +296,24 @@ namespace FinalProject.Areas.admin.Controllers
             existPhone.PhoneTagId = phone.PhoneTagId;
             _context.SaveChanges();
             return RedirectToAction("index");
+        }
 
+
+        public IActionResult Delete(int id)
+        {
+            Phone phone = _context.Phones.FirstOrDefault(x => x.Id == id);
+
+            PhoneImage phoneImage = _context.PhoneImages.FirstOrDefault(x => x.PhoneId == id);
+            if (phone == null)
+                return RedirectToAction("error", "dashboard");
+            if (phoneImage != null)
+            {
+                FileManager.Delete(_env.WebRootPath, "uploads/phones", phoneImage.Name);
+            }
+
+            _context.Phones.Remove(phone);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

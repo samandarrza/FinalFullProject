@@ -107,11 +107,11 @@
           @foreach (var phone in Model.DiscountedPhones)
           {
               <div class="items">
-          <div class="product-style-one">
+                    <div class="product-style-one">
             <div class="content">
               <a class="product-content-image" href="#" tabindex="0">
                                 <img class="product-image" src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==false)?.Name" alt="Product Images">
-                                <img class="hover-img" src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==true)?.Name" alt="Product Images">
+                                <img height="300px" class="hover-img" src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==true)?.Name" alt="Product Images">
                 <div class="label-block">
                     @if (true)
                     {
@@ -145,7 +145,7 @@
                   </span>
                   <span class="rating-number">(64)</span>
                 </div>
-                <h5 class="title"><a href="#" tabindex="0"> @phone.PhoneModel.Name @phone.Name @phone.Memory.Name GB</a></h5>
+                <h6 class="title"><a href="#" tabindex="0"> @phone.PhoneModel.Name @phone.Name @phone.Memory.Name GB</a></h6>
                 <div class="product-price">
                     @if (phone.DiscountPercent>0)
                    {

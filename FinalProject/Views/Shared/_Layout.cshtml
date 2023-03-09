@@ -1,6 +1,13 @@
 ﻿@using FinalProject.Services
+@using Microsoft.AspNetCore.Identity
 @inject LayoutService layoutService
+@inject UserManager<AppUser> _userManager
 @{
+    AppUser user = null;
+    if (User.Identity.IsAuthenticated && User.IsInRole("Member"))
+    {
+        user = _userManager.FindByNameAsync(User.Identity.Name).Result;
+    }
     Dictionary<string, string> Settings = layoutService.GetSettings();
 }
 <!DOCTYPE html>
@@ -18,6 +25,7 @@
     href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
   <link rel="stylesheet" href="~/assets/css/main-slider.css">
   <link rel="stylesheet" href="~/assets/css/navbar.css">
+  <link rel="stylesheet" href="~/assets/css/breadcrub.css">
   <link rel="stylesheet" href="~/assets/css/main.css">
 </head>
 <body>
@@ -42,7 +50,46 @@
             <a href="~/"><i class="las la-heart"></i></a>
             <a href="~/" data-bs-toggle="offcanvas" data-bs-target="#addtocart" aria-controls="addtocart"><i
                 class="las la-shopping-cart"></i></a>
-            <a href="~/"><i class="las la-user"></i></a>
+                        <div class="dropdown">
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Member"))
+                               {
+                                <a role="button" id="dropdownMenuLink"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                               
+                                    @if (user.Image != null)
+                                    {
+                                        <i>
+                                            <img width="35px" height="35px" style="border-radius:10px" src="~/uploads/userImage/@user.Image">
+
+                                        </i>
+                                    }
+                                    else
+                                    {
+                                        <i class="las la-user"></i>
+                                    }
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li class="px-1"><b>@user.FullName</b></li>
+                                    <li class="dropdown-item"><a asp-action="index" asp-controller="account">My Account</a></li>
+                                    <li class="dropdown-item"><a href="~/">Wishlist</a></li>
+                                    <li class="dropdown-item"><a asp-action="logout" asp-controller="account">Logout</a></li>
+                                </ul>
+
+                                
+                            }
+                            else{
+                                <a role="button" id="dropdownMenuLink"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="las la-user"></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a href="~/account/login" class="dropdown-item" href="#">Login</a></li>
+                                    <li><a href="~/account/register" class="dropdown-item" href="#">Register</a></li>
+                                </ul>
+                            }
+
+                        </div>
+          </div>
           </div>
           <div class="mobile">
             <span><i class="las la-bars"></i></span>

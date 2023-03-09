@@ -1,14 +1,18 @@
 ﻿using FinalProject.DAL;
 using FinalProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Update.Internal;
 using NuGet.Protocol.Plugins;
+using System.Data;
 
 namespace FinalProject.Areas.admin.Controllers
 {
     [Area("admin")]
+    [Authorize(Roles = "SuperAdmin,Admin,Editor")]
+
     public class BatteryController : Controller
     {
         private readonly EtradeDbContext _context;
