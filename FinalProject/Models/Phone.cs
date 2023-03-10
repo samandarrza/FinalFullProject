@@ -27,6 +27,7 @@ namespace FinalProject.Models
         public int RAMId { get; set; }
         public int PhoneSystemId { get; set; }
         public int? PhoneTagId { get; set; }
+        public byte AvgRate { get; set; }
         public Battery? Battery { get; set; }
         public Color? Color { get; set; }
         public Display? Display { get; set; }
@@ -36,6 +37,8 @@ namespace FinalProject.Models
         public ProcessorName? ProcessorName { get; set; }
         public RAM? RAM { get; set; }
         public PhoneSystem? PhoneSystem { get; set; }
+        public List<Review>? Reviews { get; set; }
+
         public List<PhoneImage>? PhoneImages { get; set; }
         [NotMapped]
         public List<int>? PhoneImageIds { get; set; } = new List<int>();

@@ -109,8 +109,8 @@
               <div class="items">
                     <div class="product-style-one">
             <div class="content">
-              <a class="product-content-image" href="#" tabindex="0">
-                                <img class="product-image" src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==false)?.Name" alt="Product Images">
+                            <a class="product-content-image" asp-action="detail" asp-controller="phone" asp-route-id="@phone.Id" tabindex="0">
+                                <img height="300px" class="product-image" src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==false)?.Name" alt="Product Images">
                                 <img height="300px" class="hover-img" src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==true)?.Name" alt="Product Images">
                 <div class="label-block">
                     @if (true)
@@ -137,15 +137,14 @@
               <div class="inner">
                 <div class="product-rating">
                   <span class="product-rating">
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
-                    <i class="las la-star"></i>
+                                        @for (var i = 1; i <= 5; i++)
+                                        {
+                                            <i class="las la-star  @(phone.AvgRate>=i?"star-on":"")"></i>
+                                        }
                   </span>
-                  <span class="rating-number">(64)</span>
+                  <span class="rating-number">(@phone.Reviews.Count())</span>
                 </div>
-                <h6 class="title"><a href="#" tabindex="0"> @phone.PhoneModel.Name @phone.Name @phone.Memory.Name GB</a></h6>
+                <h6 class="title"><a asp-action="detail" asp-controller="phone" asp-route-id="@phone.Id" tabindex="0"> @phone.PhoneModel.Name @phone.Name @phone.Memory.Name GB</a></h6>
                 <div class="product-price">
                     @if (phone.DiscountPercent>0)
                    {
@@ -302,8 +301,8 @@
                     <div class="product-arrival">
                         <div class="content">
                             <a class="arrival-image" href="#" tabindex="0">
-                                <img class="product-image" src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==false)?.Name" alt="Product Images">
-                                <img class="hover-img" src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==true)?.Name" alt="Product Images">
+                                <img width="300px" height="300px" class="product-image" src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==false)?.Name" alt="Product Images">
+                                <img width="300px" height="300px" class="hover-img" src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==true)?.Name" alt="Product Images">
                                 <div class="label-block">
                                     @if (phone.DiscountPercent > 0)
                                     {
@@ -337,7 +336,7 @@
                                     </span>
                                     <span class="rating-number">(64)</span>
                                 </div>
-                                <h5 class="title"><a href="#" tabindex="0"> @phone.PhoneModel.Name @phone.Name @phone.Memory.Name GB</a></h5>
+                                <h5 class="title"><a asp-action="detail" asp-controller="phone" asp-route-id="@phone.Id" tabindex="0"> @phone.PhoneModel.Name @phone.Name @phone.Memory.Name GB</a></h5>
                                 <div class="product-price">
                                     @if (phone.DiscountPercent > 0)
                                     {
@@ -364,7 +363,7 @@
           <div class="product-area">
             <div class="most-title">
               <span><i class="las la-star"></i> Most Sold</span>
-              <h2 class="title">Most Sold in eTrade Store</h2>
+              <h2 class="">Most Sold in eTrade Store</h2>
             </div>
             <div class="row row-cols-xl-2 row-cols-1">
                 @foreach (var phone in Model.MostSoldPhones)

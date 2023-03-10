@@ -291,6 +291,7 @@ namespace FinalProject.Areas.admin.Controllers
             existPhone.PhoneModelId = phone.PhoneModelId;
             existPhone.ProcessorNameId = phone.ProcessorNameId;
             existPhone.PhoneSystemId = phone.PhoneSystemId;
+            existPhone.RAMId = phone.RAMId;
             existPhone.IsNew = phone.IsNew;
             existPhone.MostPopular = phone.MostPopular;
             existPhone.PhoneTagId = phone.PhoneTagId;

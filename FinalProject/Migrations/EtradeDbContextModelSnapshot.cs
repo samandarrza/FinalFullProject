@@ -135,6 +135,9 @@ namespace FinalProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<byte>("AvgRate")
+                        .HasColumnType("tinyint");
+
                     b.Property<int>("BatteryId")
                         .HasColumnType("int");
 
@@ -322,6 +325,46 @@ namespace FinalProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RAMs");
+                });
+
+            modelBuilder.Entity("FinalProject.Models.Review", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PhoneId")
+                        .HasColumnType("int");
+
+                    b.Property<byte>("Rate")
+                        .HasColumnType("tinyint");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("PhoneId");
+
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("FinalProject.Models.Setting", b =>
@@ -689,6 +732,25 @@ namespace FinalProject.Migrations
                     b.Navigation("Phone");
                 });
 
+            modelBuilder.Entity("FinalProject.Models.Review", b =>
+                {
+                    b.HasOne("FinalProject.Models.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FinalProject.Models.Phone", "phone")
+                        .WithMany("Reviews")
+                        .HasForeignKey("PhoneId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("phone");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -763,6 +825,8 @@ namespace FinalProject.Migrations
             modelBuilder.Entity("FinalProject.Models.Phone", b =>
                 {
                     b.Navigation("PhoneImages");
+
+                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("FinalProject.Models.PhoneModel", b =>

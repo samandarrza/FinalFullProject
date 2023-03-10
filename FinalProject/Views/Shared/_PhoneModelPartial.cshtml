@@ -6,19 +6,19 @@
             </div>
             <div class="modal-body modal-product">
                 <div class="modal-image">
-                    <img src="~/assets/images/@Model.PhoneImages.FirstOrDefault(x=>x.Status==true)?.Name" alt="">
+                    <img src="~/uploads/phones/@Model.PhoneImages.FirstOrDefault(x=>x.Status==true)?.Name" alt="">
                 </div>
                 <div class="product-content">
                     <div class="inner">
                         <div class="product-rating">
                             <span class="product-rating">
-                                <i class="las la-star"></i>
-                                <i class="las la-star"></i>
-                                <i class="las la-star"></i>
-                                <i class="las la-star"></i>
-                                <i class="las la-star"></i>
+                        @for (var i = 1; i <= 5; i++)
+                        {
+                            <i class="las la-star  @(Model.AvgRate>=i?"star-on":"")"></i>
+                        }
+
                             </span>
-                            <span class="rating-number">(64)</span>
+                            <span class="rating-number">()</span>
                         </div>
                         <h5 class="title"><a href="~/#" tabindex="0">@Model.Name</a></h5>
                         <div class="product-price">

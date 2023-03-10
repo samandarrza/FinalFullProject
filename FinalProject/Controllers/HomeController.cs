@@ -26,7 +26,7 @@ namespace FinalProject.Controllers
                 .Include(x => x.PhoneModel).Include(x => x.Memory).Where(x=>x.IsNew).Take(20).ToList(),
                 MostSoldPhones = _context.Phones.Include(x => x.PhoneImages)
                 .Include(x => x.PhoneModel).Include(x => x.Memory).Where(x => x.MostPopular).Take(6).ToList(),
-                DiscountedPhones = _context.Phones.Include(x => x.PhoneImages)
+                DiscountedPhones = _context.Phones.Include(x => x.PhoneImages).Include(x => x.Reviews)
                 .Include(x => x.PhoneModel).Include(x => x.Memory).Where(x => x.DiscountPercent>0).Take(20).ToList(),
 
             };
