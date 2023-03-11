@@ -1,0 +1,47 @@
+﻿@model BasketVM
+
+
+    <div class="offcanvas-header">
+        <div class="addtocartLabel">
+            <h2 class="header-title">Cart review</h2>
+        </div>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        @foreach (var item in Model.Items)
+        {
+            <div class="cart-item">
+                <div class="item-img">
+                    <a href="~/#"><img width="100px" height="100px" src="~/uploads/phones/@item.Phone.PhoneImages.FirstOrDefault(x => x.Status==true)?.Name" alt="Cart Product"></a>
+                    <button class="close-btn"><i class="las la-times"></i></button>
+                </div>
+                <div class="item-content">
+                    <div class="product-rating">
+                        <span class="product-icon">
+                            <i class="las la-star"></i>
+                            <i class="las la-star"></i>
+                            <i class="las la-star"></i>
+                            <i class="las la-star"></i>
+                            <i class="las la-star"></i>
+                        </span>
+                    </div>
+                    <p class="h6 item-title"><a href="~/#">@item.Phone.Name</a></p>
+                    <div class="item-price"><span class="currency-symbol">@item.Count - ₼</span>@((item.Phone.SalePrice * (100 - item.Phone.DiscountPercent) / 100).ToString("0.00"))</div>
+                </div>
+            </div>
+
+        }
+
+
+    </div>
+    <div class="offcanvas-footer text-center p-3">
+        <div class="d-flex justify-content-between p-3">
+            <span class="fw-bold">Total:</span><span>₼@Model.TotalPrice.ToString("0.00")</span>
+        </div>
+        <div class="d-flex justify-content-between px-3">
+            <button class="btn btn-primary">View Cart</button>
+            <button class="btn btn-danger">Checkout</button>
+        </div>
+
+
+    </div>

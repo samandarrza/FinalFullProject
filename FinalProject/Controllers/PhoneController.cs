@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System.Data;
 
 namespace FinalProject.Controllers
@@ -68,7 +69,10 @@ namespace FinalProject.Controllers
 
 
             if (phone == null)
-                return NotFound();
+            {
+                TempData["error"] = "Phone not found";
+                return RedirectToAction("index", "home");
+            }
 
             return View(detailVM);
         }
@@ -124,5 +128,107 @@ namespace FinalProject.Controllers
             return RedirectToAction("detail", new { id = phone.Id });
         }
 
+        public async Task<IActionResult> AddToBasket(int phoneId)
+        {
+            AppUser user = null;
+
+            if (User.Identity.IsAuthenticated)
+            {
+                user = await _userManager.FindByNameAsync(User.Identity.Name);
+            }
+
+            BasketVM basket = new BasketVM();
+
+            if (!_context.Phones.Any(x => x.Id == phoneId && x.StockStatus))
+            {
+                return NotFound();
+            }
+
+            if (user != null)
+            {
+                BasketItem basketItem = _context.BasketItems.FirstOrDefault(x => x.PhoneId == phoneId && x.AppUserId == user.Id);
+
+                if (basketItem == null)
+                {
+                    basketItem = new BasketItem
+                    {
+                        AppUserId = user.Id,
+                        PhoneId = phoneId,
+                        Count = 1,
+                        CreatedAt = DateTime.UtcNow.AddHours(4)
+                    };
+                    _context.BasketItems.Add(basketItem);
+                }
+                else
+                {
+                    basketItem.Count++;
+                }
+
+                _context.SaveChanges();
+
+                var model = _context.BasketItems.Include(x => x.Phone).ThenInclude(x => x.PhoneImages)
+                    .Where(x => x.AppUserId == user.Id).ToList();
+
+                foreach (var item in model)
+                {
+                    BasketItemVM itemVM = new BasketItemVM
+                    {
+                        Phone = item.Phone,
+                        Count = item.Count,
+                        Id = item.Id
+                    };
+                    basket.Items.Add(itemVM);
+                    basket.TotalPrice += item.Count * (item.Phone.SalePrice * (100 - item.Phone.DiscountPercent) / 100);
+                }
+            }
+            else
+            {
+                var basketStr = HttpContext.Request.Cookies["basket"];
+                List<BasketItemCookieVM> basketItemsCookie = null;
+
+                if (basketStr == null)
+                {
+                    basketItemsCookie = new List<BasketItemCookieVM>();
+                }
+                else
+                {
+                    basketItemsCookie = JsonConvert.DeserializeObject<List<BasketItemCookieVM>>(basketStr);
+                }
+
+                BasketItemCookieVM basketCookieItem = basketItemsCookie.FirstOrDefault(x => x.PhoneId == phoneId);
+
+                if (basketCookieItem == null)
+                {
+                    basketCookieItem = new BasketItemCookieVM
+                    {
+                        PhoneId = phoneId,
+                        Count = 1
+                    };
+
+                    basketItemsCookie.Add(basketCookieItem);
+                }
+                else
+                {
+                    basketCookieItem.Count++;
+                }
+
+                var jsonStr = JsonConvert.SerializeObject(basketItemsCookie);
+                HttpContext.Response.Cookies.Append("basket", jsonStr);
+
+                foreach (var item in basketItemsCookie)
+                {
+                    Phone Phone = _context.Phones.Include(x => x.PhoneImages).FirstOrDefault(x => x.Id == item.PhoneId);
+                    BasketItemVM itemVM = new BasketItemVM
+                    {
+                        Phone = Phone,
+                        Count = item.Count,
+                        Id = 0
+                    };
+                    basket.Items.Add(itemVM);
+                    basket.TotalPrice += item.Count * (itemVM.Phone.SalePrice * (100 - itemVM.Phone.DiscountPercent) / 100);
+                }
+            }
+            return PartialView("_BasketPartial", basket);
+        }
     }
 }

@@ -1112,6 +1112,9 @@ a{
     font-weight: bold;
 }
 
+    .icon i {
+        position: relative;
+    }
 
 
 .mobile i, .icon i{
@@ -1127,6 +1130,17 @@ a{
     background-color: #ff497c;
     border-radius: 50%;
     border: 10px solid #ff497c;
+}
+    .cart-num {
+        color: red;
+        font-size: 16px;
+        font-weight: bold;
+        position: absolute;
+        top: 0%;
+        right: 0%;
+    }
+.icon i:hover .cart-num{
+    color: white;
 }
 .mobile-menu{
     display: none;
@@ -1297,8 +1311,16 @@ a{
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
-
-.product-icon{
+.product-icon {
+    width: 60px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+}
+.product-icon-detail{
     width: 60px;
     height: 60px;
     background-color: white;
@@ -1307,9 +1329,8 @@ a{
     align-items: center;
     display: flex;
     justify-content: center;
-
 }
-.product-icon img{
+.product-icon-detail img{
     width: 50%;
     height: 50%;
     background-color: white;

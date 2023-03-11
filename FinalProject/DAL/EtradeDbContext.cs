@@ -27,6 +27,6 @@ namespace FinalProject.DAL
         public DbSet<PhoneImage> PhoneImages { get; set; }
         public DbSet<PhoneTag> PhoneTags { get; set; }
         public DbSet<Review> Reviews { get; set; }
-
+        public DbSet<BasketItem> BasketItems { get; set; }
     }
 }

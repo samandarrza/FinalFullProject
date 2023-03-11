@@ -5,9 +5,9 @@
         {
             <div class="main-slider-items">
         <div class="row">
-          <div class="col-lg-1">
+          <div class="col-lg-2">
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-5">
             <div class="slider-main">
               <span class="subtitle"><i class="fas fa-fire"></i> @slider.Title1</span>
               <h1 class="title">@slider.Title2</h1>
@@ -128,7 +128,7 @@
                 <div class="cart-action">
                   <a asp-controller="phone" asp-action="getphone" asp-route-id="@phone.Id" class="btn btn-outline-dark phone-modal-btn"
                     tabindex="0"><i class="las la-eye"></i></a>
-                  <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
+                 <a asp-action="addtobasket" asp-controller="phone" asp-route-phoneId="@phone.Id" class="add-to-basket btn btn-danger color-btn" tabindex="0">Add to Cart</a>
                   <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
                 </div>
               </div>
@@ -148,11 +148,11 @@
                 <div class="product-price">
                     @if (phone.DiscountPercent>0)
                    {
-                       <span class="price current-price">$@((phone.SalePrice*(100-phone.DiscountPercent)/100).ToString("0.00"))</span>
-                        <del class="price old-price">$@phone.SalePrice.ToString("0.00")</del>
-                   }
+                                        <span class="price current-price">₼@((phone.SalePrice * (100 - phone.DiscountPercent) / 100).ToString("0.00"))</span>
+                                        <del class="price old-price">₼@phone.SalePrice.ToString("0.00")</del>
+                                    }
                    else{
-                       <span class="price current-price">$@phone.SalePrice.ToString("0.00")</span>
+                                        <span class="price current-price">₼@phone.SalePrice.ToString("0.00")</span>
                    }
                   
                 </div>
