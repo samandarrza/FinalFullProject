@@ -27,6 +27,7 @@
                     <th class="col-md-1">CostPrice</th>
                     <th class="col-md-1">Discount</th>
                     <th class="col-md-1">Image</th>
+                    <th class="col-md-1">Stock</th>
                     <th class="col-md-1">Edit</th>
                     <th class="col-md-1">Delete</th>
 
@@ -51,9 +52,21 @@
                         <td>@phone.CostPrice</td>
                         <td>@phone.DiscountPercent.ToString("0.##")%</td>
                         <td><img width="50px" max-height="40px" src="~/uploads/phones/@phone.PhoneImages.FirstOrDefault(x=>x.Status==true)?.Name" /></td>
+                        <th class="justify-content-center">
+                            @if (phone.StockStatus == true)
+                            {
+                                <form method="post" asp-action="stockOff" asp-route-id="@phone.Id"><button class="badge bg-primary m-1" type="submit">ON</button></form>
+                            }
+                            else
+                            {
+                                <form method="post" asp-action="stockOn" asp-route-id="@phone.Id"><button class="badge bg-success m-1" type="submit">OFF</button></form>
+                            }
+                        </th>
+
                         <td>
                         <a class="btn btn-primary" asp-action="edit" asp-route-id="@phone.Id">Edit</a>
                         </td>
+
                         <td>
                             <a class="trash-btn btn btn-danger" asp-action="delete" asp-route-id="@phone.Id">Delete</a>
                         </td>

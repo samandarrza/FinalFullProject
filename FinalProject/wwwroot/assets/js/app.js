@@ -5,11 +5,11 @@
     fetch(url)
         .then(response => {
             if (!response.ok) {
-                toastr["error"]("Məhsul bitib!")
+                toastr["error"]("Product is out of stock")
                 return;
             }
             else {
-                toastr["success"]("Məhsul səbətə əlavə edildi")
+                toastr["success"]("Product has been added")
                 return response.text();
             }
         }).then(html => {

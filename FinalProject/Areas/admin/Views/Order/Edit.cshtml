@@ -1,0 +1,68 @@
+﻿@using FinalProject.Enums
+@model Order
+<div class="container p-2">
+    <h2>Edit</h2>
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-12">
+            <div class="card" style="width:100%;">
+                <div class="card-body">
+                    <h4 class="card-title">Order</h4>
+                    <p class="card-text">
+                        <h4>Fullname: <b>@Model.Fullname</b></h4>
+                        <h4>Email: <b>@Model.Email</b> </h4>
+                        <h4>Note: <b>@Model.Note</b></h4>
+                        <h4>Date: <b>@Model.CreatedAt.ToString("dd MMMM, yyyy HH:mm")</b></h4>
+                    </p>
+                </div>
+                <div class="row">
+
+                    @foreach (var item in Model.OrderItems)
+                    {
+                        <div class="col-lg-3 col-md-6">
+                            <ul class="list-group list-order m-1">
+                                <li class="list-group-item">Name:<b> @item.Name</b></li>
+                                <li class="list-group-item">SalePrice:<b>₼@item.SalePrice</b></li>
+                                <li class="list-group-item">DiscountPercent:<b>@item.DiscountPercent.ToString("0.##")%</b></li>
+                                <li class="list-group-item">CostPrice: <b>₼@item.CostPrice</b></li>
+                                <li class="list-group-item">Count: <b>@item.Count</b></li>
+                                <li class="list-group-item">Total Price:<b> ₼@(((item.SalePrice * (100 - item.DiscountPercent) / 100)*item.Count).ToString("0.00"))</b></li>
+                                <li class="list-group-item">Profit:<b> ₼@(((item.SalePrice * (100 - item.DiscountPercent) / 100 - item.CostPrice) * item.Count).ToString("0.00"))</b></li>
+                            </ul>
+                        </div>
+                    }
+                    <span class="h3 m-2">Total Price:<b>₼@((Model.OrderItems.Sum(x => (x.SalePrice * (100 - x.DiscountPercent) / 100) * x.Count)).ToString("0.00"))</b></span>
+                    <span class="h3 m-2">Total Profit:<b>₼@((Model.OrderItems.Sum(x => (((x.SalePrice * (100 - x.DiscountPercent) / 100) - x.CostPrice) * x.Count))).ToString("0.00"))</b></span>
+
+                </div>
+
+
+
+                
+
+                <div class="card-body">
+                    <div class="row justify-content-end">
+                        @if (Model.Status == OrderStatus.Pending)
+                        {
+                            <form method="post" asp-action="accept" asp-route-id="@Model.Id">
+                                <button class="btn btn-primary m-1" type="submit">Accept</button>
+                            </form>
+                            <form method="post" asp-action="reject" asp-route-id="@Model.Id">
+                                <button class="btn btn-danger m-1" type="submit">Reject</button>
+                            </form>
+                        }
+                        else if (Model.Status == OrderStatus.Accepted)
+                        { 
+                            <form method="post" asp-action="delivered" asp-route-id="@Model.Id">
+                                <button class="btn btn-success m-1" type="submit">Delivered</button>
+                            </form>
+                        }
+                        else{
+                           
+                        }                     
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

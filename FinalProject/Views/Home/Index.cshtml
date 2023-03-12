@@ -112,16 +112,19 @@
                             <a class="product-content-image" asp-action="detail" asp-controller="phone" asp-route-id="@phone.Id" tabindex="0">
                                 <img height="300px" class="product-image" src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==false)?.Name" alt="Product Images">
                                 <img height="300px" class="hover-img" src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==true)?.Name" alt="Product Images">
-                <div class="label-block">
-                    @if (true)
+                    @if (phone.StockStatus==false)
                     {
-                        <div class="product-badget">@phone.DiscountPercent.ToString("0.##")% Off</div>
+                                    <div class="label-block" style="background-color:red"><div class="product-badget">StoctOut</div></div>
+                    }
+                    else if(phone.DiscountPercent>0){
+                         <div class="label-block"><div class="product-badget">@phone.DiscountPercent.ToString("0.##")% Off</div></div>
+
+
                     }
                     else{
-                        <div class="product-badget">New</div>
+                        <div class="label-block"><div class="product-badget">New</div></div>
                     }
                   
-                </div>
               </a>
 
               <div class="product-hover-action">

@@ -316,5 +316,34 @@ namespace FinalProject.Areas.admin.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public IActionResult StockOff(int id)
+        {
+            Phone phone = _context.Phones.Include(x => x.PhoneImages).FirstOrDefault(x => x.Id == id);
+
+            if (phone == null)
+                return RedirectToAction("error", "dashboard");
+
+            phone.StockStatus = false;
+
+            _context.SaveChanges();
+
+            return RedirectToAction("index");
+        }
+        [HttpPost]
+        public IActionResult StockOn(int id)
+        {
+            Phone phone = _context.Phones.Include(x => x.PhoneImages).FirstOrDefault(x => x.Id == id);
+
+            if (phone == null)
+                return RedirectToAction("error", "dashboard");
+
+            phone.StockStatus = true;
+
+            _context.SaveChanges();
+
+            return RedirectToAction("index");
+        }
     }
 }

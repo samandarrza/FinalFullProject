@@ -29,3 +29,7 @@
 .online {
     background-color: green;
 }
+.list-order{
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
