@@ -1,0 +1,49 @@
+﻿@model Order
+
+<div class="col-lg-6">
+	<form id="order-form" method="post">
+
+    <div class="checkout-billing">
+        <h4 class="title mb--40">Billing details</h4>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                <label asp-for="Fullname">Full Name</label>
+                <input asp-for="Fullname" type="text" placeholder="Full Name">
+                <span asp-validation-for="Fullname" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label asp-for="Email">Email</label>
+                    <input asp-for="Email" type="text" placeholder="Email">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Address">Address</label>
+            <input asp-for="Address" type="text" placeholder="Address">
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="City">City</label>
+            <input asp-for="City" type="text" placeholder="City">
+            <span asp-validation-for="City" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ZipCode">ZipCode</label>
+            <input asp-for="ZipCode" type="text" placeholder="ZipCode">
+            <span asp-validation-for="ZipCode" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Note">Order notes</label>
+            <textarea asp-for="Note" id="order-note" cols="30" rows="10" class="order-note"
+                      placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+            <span asp-validation-for="Note" class="text-danger"></span>
+        </div>
+    </div>
+    </form>
+</div>

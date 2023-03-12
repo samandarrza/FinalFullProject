@@ -49,11 +49,13 @@
             <a href="~/about"><span class="menu-button">About</span></a>
           </div>
           <div class="icon">
-            <a href="~/" data-bs-toggle="modal" data-bs-target="#search"><i class="las la-search"></i></a>
-            <a href="~/"><i class="las la-heart"></i></a>
-                        <a href="~/" data-bs-toggle="offcanvas" data-bs-target="#addtocart" aria-controls="addtocart">
-                            <i class="las la-shopping-cart"><sup class="cart-num">@basket.Items.Count</sup> </i>                        
-                        </a>
+            <a href="~/" data-bs-toggle="modal" data-bs-target="#search"><i class="main-icon las la-search"></i></a>
+            <a href="~/"><i class="main-icon las la-heart"></i></a>
+            <span class="main-shopping-cart">
+                            <a data-bs-toggle="offcanvas" data-bs-target="#addtocart" aria-controls="addtocart"><i class="main-icon las la-shopping-cart"></i></a>
+                            <span id="addtobasket">@await Html.PartialAsync("_BasketPartial",basket)</span>
+            </span>
+            
                 <div class="dropdown">
                             @if (User.Identity.IsAuthenticated && User.IsInRole("Member"))
                                {
@@ -83,7 +85,7 @@
                             else{
                                 <a role="button" id="dropdownMenuLink"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="las la-user"></i>
+                                    <i class="main-icon las la-user"></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <li><a href="~/account/login" class="dropdown-item" href="#">Login</a></li>
@@ -94,7 +96,7 @@
                         </div>
           </div>
                     <div class="mobile">
-                        <i class="las la-bars"></i>
+                        <i class="main-icon las la-bars"></i>
                     </div>
                     <div class="mobile-menu">
                         <a href="~/./index.html"><span class="menu-button">Home</span></a>
@@ -104,11 +106,7 @@
                         <a href="~/./about.html"><span class="menu-button">About</span></a>
                     </div>
       </div>
-            <div class="shopping-cart-modal">
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="addtocart" aria-labelledby="addtocartLabel">
-                    @await Html.PartialAsync("_BasketPartial",basket)
-                </div>
-            </div>
+            
     </nav>
     </div>
     

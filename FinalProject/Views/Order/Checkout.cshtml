@@ -1,0 +1,81 @@
+﻿@model CheckoutVM
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-8">
+                <div>
+                    <span class="px-2">
+                        <a class="breadcrub-home" href="index.html">Home</a><span class="breadcrub-title"> | </span><span class="breadcrub-blue">
+                            Checkout
+                        </span>
+                    </span>
+                    <h1 class="breadcrumb-title">Checkout</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-4">
+                <div class="bradcrumb-image">
+                    <img width="20%" src="~/assets/images/product-45.png" alt="Image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main>
+    <!-- Start Checkout Area  -->
+    <div class="checkout-area">
+        <div class="container">
+                <div class="row">
+                    @await Html.PartialAsync("_CheckoutFormPartial",Model.Order)
+                    <div class="col-lg-6">
+                        <div class="order-summery">
+                            <h5 class="title mb--20">Your Order</h5>
+                            <div class="summery-table-wrap">
+                                <table class="table summery-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Subtotal</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.CheckoutItems)
+                                        {
+                                            <tr class="order-product">
+                                                <td>@item.Name <span class="quantity">x @item.Count</span></td>
+                                                <td>₼@item.TotalPrice.ToString("0.00")</td>
+                                            </tr>
+                                        }
+                                        <tr class="order-shipping">
+                                            <td colspan="2">
+                                                <div class="shipping-amount">
+                                                    <span class="title">Shipping Method</span>
+                                                </div>
+                                                <div class="input">
+                                                    <input type="radio" id="radio1" name="shipping" checked>
+                                                    <label for="radio1">Free Shippping (7 days)</label>
+                                                    <span class="amount">₼0.00</span>
+                                                </div>
+                                                <div class="input">
+                                                    <input type="radio" id="radio2" name="shipping">
+                                                    <label for="radio2">Fast Shippping (1 day)</label>
+                                                    <span class="amount">₼5.99</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr class="order-total">
+                                            <td>Total</td>
+                                            <td class="order-total-amount">₼@Model.Total.ToString("0.00")</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <button form="order-form" type="submit" class="btn btn-primary">Process to Checkout</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <!-- End Checkout Area  -->
+</main>

@@ -1112,12 +1112,8 @@ a{
     font-weight: bold;
 }
 
-    .icon i {
-        position: relative;
-    }
 
-
-.mobile i, .icon i{
+.mobile i, .main-icon{
     color: black;
     font-size: 24px;
     cursor: pointer;
@@ -1125,23 +1121,26 @@ a{
     transition: 0.25s ease-in-out;
     border-radius: 50%;
 }
-.mobile i:hover, .icon i:hover{
-    color: white;
-    background-color: #ff497c;
-    border-radius: 50%;
-    border: 10px solid #ff497c;
-}
-    .cart-num {
-        color: red;
-        font-size: 16px;
-        font-weight: bold;
-        position: absolute;
-        top: 0%;
-        right: 0%;
+    .mobile i:hover, .main-icon:hover {
+        color: white;
+        background-color: #ff497c;
+        border-radius: 50%;
+        border: 10px solid #ff497c;
     }
-.icon i:hover .cart-num{
-    color: white;
+.main-shopping-cart{
+    position: relative;
 }
+.cart-num {
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    right: 20%;
+}
+    main-icon:hover .cart-num{
+    color: white;
+    }
 .mobile-menu{
     display: none;
 }

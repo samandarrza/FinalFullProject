@@ -1,6 +1,9 @@
 ﻿@model BasketVM
 
 
+<sup class="cart-num">@Model.Items.Count</sup>
+<span class="shopping-cart-modal">
+<div class="offcanvas offcanvas-end" tabindex="-1" id="addtocart" aria-labelledby="addtocartLabel">                                
     <div class="offcanvas-header">
         <div class="addtocartLabel">
             <h2 class="header-title">Cart review</h2>
@@ -31,17 +34,17 @@
             </div>
 
         }
-
-
     </div>
     <div class="offcanvas-footer text-center p-3">
         <div class="d-flex justify-content-between p-3">
             <span class="fw-bold">Total:</span><span>₼@Model.TotalPrice.ToString("0.00")</span>
         </div>
         <div class="d-flex justify-content-between px-3">
-            <button class="btn btn-primary">View Cart</button>
-            <button class="btn btn-danger">Checkout</button>
+            <a class="btn btn-primary">View Cart</a>
+            <a asp-action="checkout" asp-controller="order" class="btn btn-danger">Checkout</a>
         </div>
 
 
     </div>
+</div>
+</span>

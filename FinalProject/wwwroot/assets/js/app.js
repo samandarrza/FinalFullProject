@@ -13,7 +13,7 @@
                 return response.text();
             }
         }).then(html => {
-            $("#addtocart").html(html)
+            $("#addtobasket").html(html)
         })
 })
 

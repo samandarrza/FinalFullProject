@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Enums\" />
     <Folder Include="wwwroot\uploads\userImage\" />
     <Folder Include="wwwroot\uploads\phones\" />
     <Folder Include="wwwroot\uploads\sliders\" />
