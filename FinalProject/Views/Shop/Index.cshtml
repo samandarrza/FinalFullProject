@@ -117,7 +117,7 @@
                         @foreach (var battery in Model.Batteries)
                         {
                             <div class="form-check">
-                                <input form="filter-form" type="checkbox" @(ViewBag.SelectedBatteryIds.Contains(battery.Id)?"checked":"") name="batteryId" id="battery-@battery.Id" value="@battery.Id">
+                                <input form="filter-form" type="checkbox" @(ViewBag.SelectedProcessorNameIds.Contains(battery.Id)?"checked":"") name="batteryId" id="processorName-@battery.Id" value="@battery.Id">
                                 <label class="form-check-label" for="battery-@battery.Id">
                                     @battery.Name
                                 </label>
@@ -188,33 +188,44 @@
                                         <a asp-action="detail" asp-controller="phone" asp-route-id="@phone.Id" class="product-content-image" tabindex="0">
                                                 <img height="300px" class="product-image" src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==false)?.Name" alt="Product Images">
                                                 <img height="300px" class="hover-img" src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==true)?.Name" alt="Product Images">
-                                            <div class="label-block">
-                                                <div class="product-badget">@phone.DiscountPercent.ToString("0.##")% Off</div>
-                                            </div>
+                                                @if (phone.StockStatus == false)
+                                                {
+                                                    <div class="label-block" style="background-color:red"><div class="product-badget">StoctOut</div></div>
+                                                }
+                                                else if (phone.DiscountPercent > 0)
+                                                {
+                                                    <div class="label-block"><div class="product-badget">@phone.DiscountPercent.ToString("0.##")% Off</div></div>
+
+
+                                                }
+                                                else
+                                                {
+                                                    <div class="label-block"><div class="product-badget">New</div></div>
+                                                }
                                         </a>
 
-                                        <div class="product-hover-action">
-                                            <div class="cart-action">
-                                                <a class="btn btn-danger" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal" tabindex="0"><i class="las la-eye"></i></a>
-                                                <a class="btn btn-danger" href="#" tabindex="0">Add to Cart</a>
-                                                <a class="btn btn-danger" href="#" tabindex="0"><i class="las la-heart"></i></a>
+                                            <div class="product-hover-action">
+                                                <div class="cart-action">
+                                                    <a asp-controller="phone" asp-action="getphone" asp-route-id="@phone.Id" class="btn btn-outline-dark phone-modal-btn"
+                                                   tabindex="0"><i class="las la-eye"></i></a>
+                                                    <a asp-action="addtobasket" asp-controller="phone" asp-route-phoneId="@phone.Id" class="add-to-basket btn btn-danger color-btn" tabindex="0">Add to Cart</a>
+                                                    <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
+                                                </div>
                                             </div>
-                                        </div>
                                     </div>
-                                    <div class="product-content">
-                                        <div class="inner">
-                                            <div class="product-rating">
-                                                <span class="shop-icon">
-                                                    <i class="las la-star"></i>
-                                                    <i class="las la-star"></i>
-                                                    <i class="las la-star"></i>
-                                                    <i class="las la-star"></i>
-                                                    <i class="las la-star"></i>
-                                                </span>
-                                                <span class="rating-number">(64)</span>
-                                            </div>
-                                            <h5 class="title"><a href="#" tabindex="0">@phone.PhoneModel.Name @phone.Name</a></h5>
-                                            <div class="product-price-variant">
+                                        <div class="product-content">
+                                            <div class="inner">
+                                                <div class="product-rating">
+                                                    <span class="product-rating">
+                                                        @for (var i = 1; i <= 5; i++)
+                                                        {
+                                                            <i class="las la-star  @(phone.AvgRate>=i?"star-on":"")"></i>
+                                                        }
+                                                    </span>
+                                                    <span class="rating-number">(@phone.Reviews.Count())</span>
+                                                </div>
+                                                <h6 class="title"><a asp-action="detail" asp-controller="phone" asp-route-id="@phone.Id" tabindex="0"> @phone.PhoneModel.Name @phone.Name @phone.Memory.Name GB</a></h6>
+                                                <div class="product-price">
                                                     @if (phone.DiscountPercent > 0)
                                                     {
                                                         <span class="price current-price">₼@((phone.SalePrice * (100 - phone.DiscountPercent) / 100).ToString("0.00"))</span>
@@ -224,9 +235,11 @@
                                                     {
                                                         <span class="price current-price">₼@phone.SalePrice.ToString("0.00")</span>
                                                     }
+
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>

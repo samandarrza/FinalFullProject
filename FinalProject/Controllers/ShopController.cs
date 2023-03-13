@@ -38,6 +38,7 @@ namespace FinalProject.Controllers
                 .Include(x => x.PhoneModel)
                 .Include(x => x.PhoneSystem)
                 .Include(x => x.ProcessorName)
+                .Include(x => x.Reviews).ThenInclude(x => x.AppUser)
                 .Include(x => x.RAM).AsQueryable();
 
             if (bateryId != null && bateryId.Count > 0)

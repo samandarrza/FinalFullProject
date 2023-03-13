@@ -1,13 +1,12 @@
 ﻿@model HomeVM
 <main>
-    <section class="center slider main_slider">
+    <section class="center slider main_slider container">
         @foreach (var slider in Model.Sliders)
         {
-            <div class="main-slider-items">
+      <div class="main-slider-items">
         <div class="row">
-          <div class="col-lg-2">
-          </div>
-          <div class="col-lg-5">
+         
+          <div class="col-lg-8">
             <div class="slider-main">
               <span class="subtitle"><i class="fas fa-fire"></i> @slider.Title1</span>
               <h1 class="title">@slider.Title2</h1>
@@ -40,7 +39,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-4">
             <div class="slider-image">
               <img src="~/uploads/sliders/@slider.Image" alt="">
             </div>
@@ -306,23 +305,25 @@
                             <a class="arrival-image" href="#" tabindex="0">
                                 <img width="300px" height="300px" class="product-image" src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==false)?.Name" alt="Product Images">
                                 <img width="300px" height="300px" class="hover-img" src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==true)?.Name" alt="Product Images">
-                                <div class="label-block">
-                                    @if (phone.DiscountPercent > 0)
+                                    @if (phone.StockStatus == false)
                                     {
-                                        <div class="product-badget">@phone.DiscountPercent.ToString("0.##")% Off</div>
+                                        <div class="label-block" style="background-color:red"><div class="product-badget">StoctOut</div></div>
+                                    }
+                                    else if (phone.DiscountPercent > 0)
+                                    {
+                                    <div class="label-block"><div class="product-badget">@phone.DiscountPercent.ToString("0.##")% Off</div></div>
                                     }
                                     else
                                     {
-                                        <div class="product-badget">Is New</div>
+                                    <div class="label-block"><div class="product-badget">Is New</div></div>
                                     }
-                                </div>
                             </a>
 
                             <div class="product-hover">
                                 <div class="cart-action">
-                                    <a class="btn btn-outline-dark" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal"
+                                    <a asp-controller="phone" asp-action="getphone" asp-route-id="@phone.Id" class="btn btn-outline-dark phone-modal-btn"
                                    tabindex="0"><i class="las la-eye"></i></a>
-                                    <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
+                                    <a asp-action="addtobasket" asp-controller="phone" asp-route-phoneId="@phone.Id" class="add-to-basket btn btn-danger color-btn" tabindex="0">Add to Cart</a>
                                     <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
                                 </div>
                             </div>
@@ -331,28 +332,29 @@
                             <div class="inner">
                                 <div class="product-rating">
                                     <span class="product-rating">
-                                        <i class="las la-star"></i>
-                                        <i class="las la-star"></i>
-                                        <i class="las la-star"></i>
-                                        <i class="las la-star"></i>
-                                        <i class="las la-star"></i>
+                                        @for (var i = 1; i <= 5; i++)
+                                        {
+                                            <i class="las la-star  @(phone.AvgRate>=i?"star-on":"")"></i>
+                                        }
                                     </span>
-                                    <span class="rating-number">(64)</span>
+                                    <span class="rating-number">(@phone.Reviews.Count())</span>
                                 </div>
-                                <h5 class="title"><a asp-action="detail" asp-controller="phone" asp-route-id="@phone.Id" tabindex="0"> @phone.PhoneModel.Name @phone.Name @phone.Memory.Name GB</a></h5>
+                                <h6 class="title"><a asp-action="detail" asp-controller="phone" asp-route-id="@phone.Id" tabindex="0"> @phone.PhoneModel.Name @phone.Name @phone.Memory.Name GB</a></h6>
                                 <div class="product-price">
                                     @if (phone.DiscountPercent > 0)
                                     {
-                                        <span class="price current-price">$@((phone.SalePrice * (100 - phone.DiscountPercent) / 100).ToString("0.00"))</span>
-                                        <del class="price old-price">$@phone.SalePrice.ToString("0.00")</del>
+                                        <span class="price current-price">₼@((phone.SalePrice * (100 - phone.DiscountPercent) / 100).ToString("0.00"))</span>
+                                        <del class="price old-price">₼@phone.SalePrice.ToString("0.00")</del>
                                     }
                                     else
                                     {
-                                        <span class="price current-price">$@phone.SalePrice.ToString("0.00")</span>
+                                        <span class="price current-price">₼@phone.SalePrice.ToString("0.00")</span>
                                     }
+
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             }
@@ -401,8 +403,10 @@
                                                 <span class="price current-price">$@phone.SalePrice.ToString("0.00")</span>
                                             }
                     </div>
+                                       
                     <div class="product-cart">
-                      <a href="cart.html" class="btn btn-outline-primary"><i class="las la-shopping-cart"></i></a>
+
+                      <a asp-action="addtobasket" asp-controller="phone" asp-route-phoneId="@phone.Id" class="add-to-basket btn btn-outline-primary"><i class="las la-shopping-cart"></i></a>
                       <a href="wishlist.html" class="btn btn-outline-danger"><i class="las la-heart"></i></a>
                     </div>
                   </div>
