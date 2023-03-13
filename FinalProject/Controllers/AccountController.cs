@@ -5,11 +5,14 @@ using FinalProject.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Data;
+using System.Linq;
+
 
 namespace FinalProject.Controllers
 {
-	public class AccountController : Controller
+	public class AccountController : BaseController
 	{
         private readonly EtradeDbContext _context;
         private readonly UserManager<AppUser> _userManager;
@@ -27,6 +30,8 @@ namespace FinalProject.Controllers
         {
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
 
+            var order = _context.Orders.Include(x => x.OrderItems).Where(x => x.AppUserId == UserId).ToList();
+
             MemberUpdateVM memberVM = new MemberUpdateVM
             {
                 UserName = user.UserName,
@@ -34,8 +39,16 @@ namespace FinalProject.Controllers
                 Image = user.Image,
                 Email = user.Email,
             };
-            return View(memberVM);
+
+            AccountVM accountVM = new AccountVM
+            {
+                MemberUpdateVM = memberVM,
+                Orders = order
+            };
+            return View(accountVM);
         }
+
+
         [Authorize(Roles = "Member")]
         [HttpPost]
         public async Task<IActionResult> Index(MemberUpdateVM memberVM)

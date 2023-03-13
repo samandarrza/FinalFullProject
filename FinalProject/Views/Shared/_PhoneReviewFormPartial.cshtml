@@ -27,7 +27,14 @@
         <input type="hidden" name="PhoneId" value="@Model.PhoneId" />
         <div class="col-lg-12">
             <div class="form-submit">
-                <button type="submit" class="btn btn-primary">Post Comment</button>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Member"))
+                {
+                    <button type="submit" class="btn btn-primary">Post Comment</button>
+
+                }
+                else{
+                    <a asp-controller="account" asp-action="login" class="btn btn-primary p-3 m-2 fw-bold">Post Comment</a>
+                }
 
             </div>
         </div>

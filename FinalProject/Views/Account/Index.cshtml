@@ -1,4 +1,5 @@
-﻿@model MemberUpdateVM
+﻿@using FinalProject.Enums
+@model AccountVM
 <div class="breadcrumb-area">
     <div class="container">
         <div class="row align-items-center">
@@ -27,10 +28,10 @@
                 <div class="new-dashboard-author">
                     <div class="media">
                         <div class="thumbnail">
-                            <img width="35px" style="border-radius:10px" src="~/uploads/userImage/@Model.Image" alt="Hello Annie">
+                            <img width="35px" style="border-radius:10px" src="~/uploads/userImage/@Model.MemberUpdateVM.Image" alt="Image">
                         </div>
                         <div class="media-body">
-                            <h5 class="title mb-0">Hello @Model.FullName</h5>
+                            <h5 class="title mb-0">Hello @Model.MemberUpdateVM.FullName</h5>
                             <span class="joining-date">eTrade Member Since Jan 2023</span>
                         </div>
                     </div>
@@ -54,7 +55,7 @@
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="nav-dashboard" role="tabpanel">
                                 <div class="new-dashboard-overview">
-                                    <div class="welcome-text">Hello @Model.FullName (not <span>@Model.FullName?</span> <a asp-action="logout" asp-controller="account">Log Out</a>)</div>
+                                    <div class="welcome-text">Hello @Model.MemberUpdateVM.FullName (not <span>@Model.MemberUpdateVM.FullName ?</span> <a asp-action="logout" asp-controller="account">Log Out</a>)</div>
                                     <p>From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.</p>
                                 </div>
                             </div>
@@ -64,7 +65,7 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Order</th>
+                                                    <th scope="col">Orders</th>
                                                     <th scope="col">Date</th>
                                                     <th scope="col">Status</th>
                                                     <th scope="col">Total</th>
@@ -72,41 +73,18 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <th class="color-red">#6523</th>
-                                                    <td>September 10, 2020</td>
-                                                    <td>Processing</td>
-                                                    <td>$326.63 for 3 items</td>
-                                                    <td><a href="#" class="btn btn-primary">View</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="color-red">#6523</th>
-                                                    <td>September 10, 2020</td>
-                                                    <td>On Hold</td>
-                                                    <td>$326.63 for 3 items</td>
-                                                    <td><a href="#" class="btn btn-primary">View</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="color-red">#6523</th>
-                                                    <td>September 10, 2020</td>
-                                                    <td>Processing</td>
-                                                    <td>$326.63 for 3 items</td>
-                                                    <td><a href="#" class="btn btn-primary">View</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="color-red">#6523</th>
-                                                    <td>September 10, 2020</td>
-                                                    <td>Processing</td>
-                                                    <td>$326.63 for 3 items</td>
-                                                    <td><a href="#" class="btn btn-primary">View</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="color-red">#6523</th>
-                                                    <td>September 10, 2020</td>
-                                                    <td>Processing</td>
-                                                    <td>$326.63 for 3 items</td>
-                                                    <td><a href="#" class="btn btn-primary">View</a></td>
-                                                </tr>
+                                                @foreach (var item in Model.Orders)
+                                                {
+                                                    <tr>
+                                                        <th class="color-red">#6523</th>
+                                                        <td>@item.CreatedAt.ToString("dd MMMM, yyyy")</td>
+                                                        <td> <span class="badge bg-@(item.Status==OrderStatus.Accepted?"primary":(item.Status==OrderStatus.Delivered?"success":item.Status==OrderStatus.Rejected?"danger":"warning"))">@item.Status</span></td>
+                                                        <td>$@((item.OrderItems.Sum(x => (x.SalePrice * (100 - x.DiscountPercent) / 100) * x.Count)).ToString("0.00")) for @item.OrderItems.Count items</td>
+                                                        <td><a href="#" class="btn btn-primary">View</a></td>
+                                                    </tr>
+
+                                                }
+                                               
                                             </tbody>
                                         </table>
                                     </div>
