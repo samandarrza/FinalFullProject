@@ -114,7 +114,7 @@
                                 <img height="300px" class="hover-img" src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==true)?.Name" alt="Product Images">
                     @if (phone.StockStatus==false)
                     {
-                                    <div class="label-block" style="background-color:red"><div class="product-badget">StoctOut</div></div>
+                          <div class="label-block" style="background-color:red"><div class="product-badget">StoctOut</div></div>
                     }
                     else if(phone.DiscountPercent>0){
                          <div class="label-block"><div class="product-badget">@phone.DiscountPercent.ToString("0.##")% Off</div></div>

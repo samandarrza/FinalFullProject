@@ -40,43 +40,46 @@
 					<li class="sidebar-header">
 						Phone Pages
 					</li>
-
-					<li class="sidebar-item">
+					<li class="sidebar-item @(ViewContext.RouteData.Values["Area"].ToString()=="admin"?(ViewContext.RouteData.Values["Controller"].ToString()=="Battery"?"active":""):"")">
 						<a asp-controller="battery" asp-action="index" class="sidebar-link">
 							<i class="align-middle" data-feather="book"></i> <span class="align-middle">Batteries</span>
 						</a>
 					</li>
-					<li class="sidebar-item">
+					
+					<li class="sidebar-item @(ViewContext.RouteData.Values["Area"].ToString()=="admin"?(ViewContext.RouteData.Values["Controller"].ToString()=="Color"?"active":""):"")">
 						<a asp-controller="color" asp-action="index" class="sidebar-link">
-							<i class="align-middle" data-feather="book"></i> <span class="align-middle">Colors</span>
+							<i class="align-middle" data-feather="book"></i> <span class="align-middle">Colors
+								@Html.ActionLink("","Index","color", new { area = "admin"}, new{})
+
+							</span>
 						</a>
 					</li>
-					<li class="sidebar-item">
+					<li class="sidebar-item @(ViewContext.RouteData.Values["Area"].ToString()=="admin"?(ViewContext.RouteData.Values["Controller"].ToString()=="Display"?"active":""):"")">
 						<a asp-controller="display" asp-action="index" class="sidebar-link">
 							<i class="align-middle" data-feather="book"></i> <span class="align-middle">Displays</span>
 						</a>
 					</li>
-					<li class="sidebar-item">
+					<li class="sidebar-item @(ViewContext.RouteData.Values["Area"].ToString()=="admin"?(ViewContext.RouteData.Values["Controller"].ToString()=="Memory"?"active":""):"")">
 						<a asp-controller="memory" asp-action="index" class="sidebar-link">
 							<i class="align-middle" data-feather="book"></i> <span class="align-middle">Memories</span>
 						</a>
 					</li>
-					<li class="sidebar-item">
+					<li class="sidebar-item @(ViewContext.RouteData.Values["Area"].ToString()=="admin"?(ViewContext.RouteData.Values["Controller"].ToString()=="Model"?"active":""):"")">
 						<a asp-controller="model" asp-action="index" class="sidebar-link">
 							<i class="align-middle" data-feather="book"></i> <span class="align-middle">Models</span>
 						</a>
 					</li>
-					<li class="sidebar-item">
+					<li class="sidebar-item @(ViewContext.RouteData.Values["Area"].ToString()=="admin"?(ViewContext.RouteData.Values["Controller"].ToString()=="System"?"active":""):"")">		
 						<a asp-controller="system" asp-action="index" class="sidebar-link">
 							<i class="align-middle" data-feather="book"></i> <span class="align-middle">Systems</span>
 						</a>
 					</li>
-					<li class="sidebar-item">
+					<li class="sidebar-item @(ViewContext.RouteData.Values["Area"].ToString()=="admin"?(ViewContext.RouteData.Values["Controller"].ToString()=="Processor"?"active":""):"")">
 						<a asp-controller="processor" asp-action="index" class="sidebar-link">
 							<i class="align-middle" data-feather="book"></i> <span class="align-middle">Processor Names</span>
 						</a>
 					</li>
-					<li class="sidebar-item">
+					<li class="sidebar-item @(ViewContext.RouteData.Values["Area"].ToString()=="admin"?(ViewContext.RouteData.Values["Controller"].ToString()=="RAM"?"active":""):"")">
 						<a asp-controller="ram" asp-action="index" class="sidebar-link">
 							<i class="align-middle" data-feather="book"></i> <span class="align-middle">RAMs</span>
 						</a>
@@ -85,12 +88,12 @@
 						Main Pages
 					</li>
 
-					<li class="sidebar-item">
+					<li class="sidebar-item @(ViewContext.RouteData.Values["Area"].ToString()=="admin"?(ViewContext.RouteData.Values["Controller"].ToString()=="Phone"?"active":""):"")">
 						<a asp-controller="phone" asp-action="index" class="sidebar-link">
 							<i class="align-middle" data-feather="square"></i> <span class="align-middle">Phones</span>
 						</a>
 					</li>
-					<li class="sidebar-item">
+					<li class="sidebar-item @(ViewContext.RouteData.Values["Area"].ToString()=="admin"?(ViewContext.RouteData.Values["Controller"].ToString()=="Order"?"active":""):"")">
 						<a asp-controller="order" asp-action="index" class="sidebar-link">
 							<i class="align-middle" data-feather="square"></i> <span class="align-middle">Orders</span>
 						</a>
@@ -98,17 +101,17 @@
 					<li class="sidebar-header">
 						Other Pages
 					</li>
-					<li class="sidebar-item">
+					<li class="sidebar-item @(ViewContext.RouteData.Values["Area"].ToString()=="admin"?(ViewContext.RouteData.Values["Controller"].ToString()=="Setting"?"active":""):"")">
 						<a asp-controller="setting" asp-action="index" class="sidebar-link">
 							<i class="align-middle" data-feather="settings"></i> <span class="align-middle">Settings</span>
 						</a>
 					</li>
-					<li class="sidebar-item">
+					<li class="sidebar-item @(ViewContext.RouteData.Values["Area"].ToString()=="admin"?(ViewContext.RouteData.Values["Controller"].ToString()=="Slider"?"active":""):"")">
 						<a asp-controller="slider" asp-action="index" class="sidebar-link">
 							<i class="align-middle" data-feather="book"></i> <span class="align-middle">Sliders</span>
 						</a>
 					</li>
-					<li class="sidebar-item">
+					<li class="sidebar-item @(ViewContext.RouteData.Values["Area"].ToString()=="admin"?(ViewContext.RouteData.Values["Controller"].ToString()=="User"?"active":""):"")">
 						<a asp-controller="user" asp-action="index" class="sidebar-link">
 							<i class="align-middle" data-feather="book"></i> <span class="align-middle">Users</span>
 						</a>

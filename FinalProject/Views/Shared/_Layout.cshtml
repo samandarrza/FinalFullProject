@@ -42,11 +42,11 @@
             
           </div>
           <div class="menu">
-            <a href="~/"><span class="menu-button active">Home</span></a>
-            <a href="~/shop"><span class="menu-button">Shop</span></a>
-            <a href="~/blog"><span class="menu-button">Blog</span></a>
-            <a href="~/contact"><span class="menu-button">Contact</span></a>
-            <a href="~/about"><span class="menu-button">About</span></a>
+                        <li class="menu-button mx-2  fw-bold @(ViewContext.RouteData.Values["Controller"].ToString()=="Home"?"active":"")">@Html.ActionLink("Home","Index","Home", new { area = ""}, new{})</li></a>
+                        <li class="menu-button mx-2  fw-bold @(ViewContext.RouteData.Values["Controller"].ToString()=="Shop"?"active":"")">@Html.ActionLink("Shop","Index","Shop", new { area = ""}, new{})</li></a>
+                        <li class="menu-button mx-2  fw-bold @(ViewContext.RouteData.Values["Controller"].ToString()=="Blog"?"active":"")">@Html.ActionLink("Blog","Index","Shop", new { area = ""}, new{})</li></a>
+                        <li class="menu-button mx-2  fw-bold @(ViewContext.RouteData.Values["Controller"].ToString()=="Contact"?"active":"")">@Html.ActionLink("Contact","Index","Shop", new { area = ""}, new{})</li></a>
+                        <li class="menu-button mx-2  fw-bold @(ViewContext.RouteData.Values["Controller"].ToString()=="About"?"active":"")">@Html.ActionLink("About","Index","Shop", new { area = ""}, new{})</li></a>
           </div>
           <div class="icon">
             <a href="~/" data-bs-toggle="modal" data-bs-target="#search"><i class="main-icon las la-search"></i></a>

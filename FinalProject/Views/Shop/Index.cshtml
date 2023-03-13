@@ -1,0 +1,241 @@
+﻿@model ShopVM
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-8">
+                <div>
+                    <span class="px-2">
+                        <a class="breadcrub-home" href="index.html">Home</a><span class="breadcrub-title"> | </span><span class="breadcrub-blue">
+                            Shop
+                        </span>
+                    </span>
+                    <h1 class="breadcrumb-title">Shop</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-4">
+                <div class="bradcrumb-image">
+                    <img width="20%" src="~/assets/images/product-45.png" alt="Image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section>
+    <div class="shop container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="toggle-list">
+
+                    <div class="shop-submenu">
+                        <h6 class="title">PHONES</h6>
+                        @foreach (var phoneModel in Model.PhoneModels)
+                        {
+                            <div class="form-check">
+                                <input form="filter-form" type="checkbox" @(ViewBag.SelectedPhoneModelIds.Contains(phoneModel.Id)?"checked":"") name="phoneModelId" id="phoneModel-@phoneModel.Id" value="@phoneModel.Id">
+                                <label class="form-check-label" for="phoneModel-@phoneModel.Id">
+                                    @phoneModel.Name
+                                </label>
+                                    <span class="categorey-no"> - @phoneModel.Phones.Count</span>
+                            </div>
+                        }
+                        
+                    </div>
+                </div>
+                <div class="toggle-list">
+
+                    <div class="shop-submenu">
+                        <h6 class="title">SYSTEM</h6>
+                        @foreach (var phoneSystem in Model.PhoneSystems)
+                        {
+                                <div class="form-check">
+                                <input form="filter-form" type="checkbox" @(ViewBag.SelectedPhoneSystemIds.Contains(phoneSystem.Id)?"checked":"") name="phoneSystemId" id="phoneSystem-@phoneSystem.Id" value="@phoneSystem.Id">
+                                    <label class="form-check-label" for="phoneSystem-@phoneSystem.Id">
+                                    @phoneSystem.Name
+                                    </label>
+                                        <span class="categorey-no"> - @phoneSystem.Phones.Count</span>
+                                </div>
+                        }
+                        
+                    </div>
+                </div>
+                <div class="toggle-list">
+
+                    <div class="shop-submenu">
+                        <h6 class="title">MEMORY</h6>
+                        @foreach (var memory in Model.Memories)
+                        {
+                                    <div class="form-check">
+                                    <input form="filter-form" type="checkbox" @(ViewBag.SelectedMemoryIds.Contains(memory.Id)?"checked":"") name="memoryId" id="memory-@memory.Id" value="@memory.Id">
+                                        <label class="form-check-label" for="memory-@memory.Id">
+                                    @memory.Name GB
+                                        </label>
+                                            <span class="categorey-no"> - @memory.Phones.Count</span>
+                                    </div>
+                        }
+                        
+                    </div>
+                </div>
+                <div class="toggle-list">
+
+                    <div class="shop-submenu">
+                        <h6 class="title">RAM</h6>
+                        @foreach (var ram in Model.RAMs)
+                        {
+                            <div class="form-check">
+                                <input form="filter-form" type="checkbox" @(ViewBag.SelectedRAMIds.Contains(ram.Id)?"checked":"") name="RAMId" id="ram-@ram.Id" value="@ram.Id">
+                                <label class="form-check-label" for="ram-@ram.Id">
+                                    @ram.Name GB
+                                </label>
+                                <span class="categorey-no"> - @ram.Phones.Count</span>
+                            </div>
+                        }
+                        
+                    </div>
+                </div>
+                <div class="toggle-list">
+
+                    <div class="shop-submenu">
+                        <h6 class="title">PROCESSOR NAME</h6>
+                        @foreach (var processorName in Model.ProcessorNames)
+                        {
+                            <div class="form-check">
+                                <input form="filter-form" type="checkbox" @(ViewBag.SelectedProcessorNameIds.Contains(processorName.Id)?"checked":"") name="processorNameId" id="processorName-@processorName.Id" value="@processorName.Id">
+                                <label class="form-check-label" for="processorName-@processorName.Id">
+                                    @processorName.Name
+                                </label>
+                                <span class="categorey-no"> - @processorName.Phones.Count</span>
+                            </div>
+                        }
+
+                       
+                    </div>
+                </div>
+                <div class="toggle-list">
+
+                    <div class="shop-submenu">
+                        <h6 class="title">BATTERY</h6>
+                        @foreach (var battery in Model.Batteries)
+                        {
+                            <div class="form-check">
+                                <input form="filter-form" type="checkbox" @(ViewBag.SelectedBatteryIds.Contains(battery.Id)?"checked":"") name="batteryId" id="battery-@battery.Id" value="@battery.Id">
+                                <label class="form-check-label" for="battery-@battery.Id">
+                                    @battery.Name
+                                </label>
+                                <span class="categorey-no"> - @battery.Phones.Count</span>
+                            </div>
+                        }
+                        
+                    </div>
+                </div>
+                <div class="toggle-list">
+                    <div class="shop-submenu">
+                        <h6 class="title">DISPLAY</h6>
+                        @foreach (var display in Model.Displays)
+                        {
+                            <div class="form-check">
+                                <input form="filter-form" type="checkbox" @(ViewBag.SelectedDisplayIds.Contains(display.Id)?"checked":"") name="displayId" id="display-@display.Id" value="@display.Id">
+                                <label class="form-check-label" for="ram-@display.Id">
+                                    @display.Name Inch
+                                </label>
+                                <span class="categorey-no"> - @display.Phones.Count</span>
+                            </div>
+                        }
+                        
+                    </div>
+                </div>
+                <div class="toggle-list">
+                    <div class="shop-submenu">
+                        <h6 class="title">COLOUR</h6>
+                        @foreach (var color in Model.Colors)
+                        {
+                            <div class="form-check">
+                                <input form="filter-form" type="checkbox" @(ViewBag.SelectedColorIds.Contains(color.Id)?"checked":"") name="colorId" id="color-@color.Id" value="@color.Id">
+                                <label class="form-check-label" for="ram-@color.Id">
+                                    @color.Name
+                                </label>
+                                <span class="categorey-no"> - @color.Phones.Count</span>
+                            </div>
+                        }
+                        
+                    </div>
+                </div>
+                <div class="toggle-list">
+                    <div class="shop-submenu">
+                        <h6 class="title">PRICE</h6>
+                        <label for="customRange1" class="form-label">Select Price</label>
+                        <input type="range" class="form-range" id="customRange1">
+                    </div>
+                </div>
+                <div class="shop-filter">
+                    <form id="filter-form" method="get">
+                    <button type="submit" class="btn btn-primary">FILTER</button>
+                    </form>
+
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div>
+                    <p class="shop-desc">Showing 1-@Model.Phones.Count of 64 results</p>
+                </div>
+                <div class="row">
+                    @foreach (var phone in Model.Phones)
+                    {
+                    <div class="col-lg-4 col-md-6 col-sm-12 single-product">
+                        <div class="shop-product">
+                            <div class="items">
+                                <div class="product-style-one">
+                                    <div class="content">
+                                        <a asp-action="detail" asp-controller="phone" asp-route-id="@phone.Id" class="product-content-image" tabindex="0">
+                                                <img height="300px" class="product-image" src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==false)?.Name" alt="Product Images">
+                                                <img height="300px" class="hover-img" src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==true)?.Name" alt="Product Images">
+                                            <div class="label-block">
+                                                <div class="product-badget">@phone.DiscountPercent.ToString("0.##")% Off</div>
+                                            </div>
+                                        </a>
+
+                                        <div class="product-hover-action">
+                                            <div class="cart-action">
+                                                <a class="btn btn-danger" href="#" data-bs-toggle="modal" data-bs-target="#quick-view-modal" tabindex="0"><i class="las la-eye"></i></a>
+                                                <a class="btn btn-danger" href="#" tabindex="0">Add to Cart</a>
+                                                <a class="btn btn-danger" href="#" tabindex="0"><i class="las la-heart"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="inner">
+                                            <div class="product-rating">
+                                                <span class="shop-icon">
+                                                    <i class="las la-star"></i>
+                                                    <i class="las la-star"></i>
+                                                    <i class="las la-star"></i>
+                                                    <i class="las la-star"></i>
+                                                    <i class="las la-star"></i>
+                                                </span>
+                                                <span class="rating-number">(64)</span>
+                                            </div>
+                                            <h5 class="title"><a href="#" tabindex="0">@phone.PhoneModel.Name @phone.Name</a></h5>
+                                            <div class="product-price-variant">
+                                                    @if (phone.DiscountPercent > 0)
+                                                    {
+                                                        <span class="price current-price">₼@((phone.SalePrice * (100 - phone.DiscountPercent) / 100).ToString("0.00"))</span>
+                                                        <del class="price old-price">₼@phone.SalePrice.ToString("0.00")</del>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="price current-price">₼@phone.SalePrice.ToString("0.00")</span>
+                                                    }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    }
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
