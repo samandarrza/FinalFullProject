@@ -30,5 +30,7 @@ namespace FinalProject.DAL
         public DbSet<BasketItem> BasketItems { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Team> Teams { get; set; }
     }
 }

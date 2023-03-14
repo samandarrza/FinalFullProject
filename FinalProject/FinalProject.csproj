@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\uploads\team\" />
     <Folder Include="wwwroot\uploads\userImage\" />
     <Folder Include="wwwroot\uploads\phones\" />
     <Folder Include="wwwroot\uploads\sliders\" />

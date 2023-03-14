@@ -1,7 +1,35 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-}
-
-<h1>Index</h1>
-
+﻿@model List<Setting>
+<div class="container-fluid">
+    <div class="d-flex justify-content-between mx-2">
+        <h3><b>Settings</b></h3>
+    </div>
+    <div class="row">
+        <table class="table table-hover text-center align-items-center col-lg-12">
+            <thead>
+                <tr class="bg-light">
+                    <th class="col-md-2">Key</th>
+                    <th class="col-md-2">Value</th>
+                    <th class="col-md-1">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var setting in Model)
+                {
+                    <tr>
+                        <td class="col-md-1">@setting.Key</td>
+                        <td class="col-md-1">
+                        @if (setting.Value.Contains(".png") || setting.Value.Contains(".jpg"))
+                        {
+                            <img width="100px" style="border-radius: 10px" src="~/assets/images/@setting.Value" />
+                        }
+                        else{
+                                @setting.Value
+                        }
+                        </td>
+                        <td><a class="btn btn-primary" asp-action="edit" asp-route-id="@setting.Id" asp-route-key="@setting.Key">Edit</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

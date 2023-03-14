@@ -1,0 +1,15 @@
+﻿@model List<Phone> 
+@foreach (var item in Model)
+{
+    <div class="d-flex align-items-center">
+        <div class="p-2 m-2">
+            <a asp-action="detail" asp-controller="phone" asp-route-id="@item.Id">
+                <img width="50px" height="50px" src="~/uploads/phones/@item.PhoneImages.FirstOrDefault(x => x.Status==true)?.Name">
+            </a>
+        </div>
+        <div>
+            <h6 class="search_phone_name"><a asp-action="detail" asp-controller="phone" asp-route-id="@item.Id">@item.PhoneModel.Name  - <b> @((item.SalePrice * (100 - item.DiscountPercent) / 100).ToString("0.00"))₼</b></a></h6>
+            <h6 class="search_phone_name fw-bold"><a asp-action="detail" asp-controller="phone" asp-route-id="@item.Id">@item.Name @item.Memory.Name GB</a></h6>
+        </div>
+    </div>
+}

@@ -1,5 +1,5 @@
 ﻿@using FinalProject.Enums
-@model AccountVM
+@model MemberUpdateVM
 <div class="breadcrumb-area">
     <div class="container">
         <div class="row align-items-center">
@@ -28,10 +28,16 @@
                 <div class="new-dashboard-author">
                     <div class="media">
                         <div class="thumbnail">
-                            <img width="35px" style="border-radius:10px" src="~/uploads/userImage/@Model.MemberUpdateVM.Image" alt="Image">
+                            @if (@Model.Image == null)
+                            {
+                                <img width="35px" style="border-radius:10px" src="~/uploads/userImage/default.jpg" alt="Image">
+                            }
+                            else{
+                                <img width="35px" style="border-radius:10px" src="~/uploads/userImage/@Model.Image" alt="Image">
+                            }
                         </div>
                         <div class="media-body">
-                            <h5 class="title mb-0">Hello @Model.MemberUpdateVM.FullName</h5>
+                            <h5 class="title mb-0">Hello @Model.FullName</h5>
                             <span class="joining-date">eTrade Member Since Jan 2023</span>
                         </div>
                     </div>
@@ -43,8 +49,6 @@
                                 <div class="nav nav-tabs" role="tablist">
                                     <a class="nav-item nav-link active" data-bs-toggle="tab" href="#nav-dashboard" role="tab" aria-selected="true"><i class="fas fa-th-large"></i>Dashboard</a>
                                     <a class="nav-item nav-link" data-bs-toggle="tab" href="#nav-orders" role="tab" aria-selected="false"><i class="fas fa-shopping-basket"></i>Orders</a>
-                                    <a class="nav-item nav-link" data-bs-toggle="tab" href="#nav-downloads" role="tab" aria-selected="false"><i class="fas fa-file-download"></i>Downloads</a>
-                                    <a class="nav-item nav-link" data-bs-toggle="tab" href="#nav-address" role="tab" aria-selected="false"><i class="fas fa-home"></i>Addresses</a>
                                     <a class="nav-item nav-link" data-bs-toggle="tab" href="#nav-account" role="tab" aria-selected="false"><i class="fas fa-user"></i>Account Details</a>
                                     <a class="nav-item nav-link" href=""><i class="fal fa-sign-out"></i>Logout</a>
                                 </div>
@@ -55,7 +59,7 @@
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="nav-dashboard" role="tabpanel">
                                 <div class="new-dashboard-overview">
-                                    <div class="welcome-text">Hello @Model.MemberUpdateVM.FullName (not <span>@Model.MemberUpdateVM.FullName ?</span> <a asp-action="logout" asp-controller="account">Log Out</a>)</div>
+                                    <div class="welcome-text">Hello @Model.FullName (not <span>@Model.FullName ?</span> <a asp-action="logout" asp-controller="account">Log Out</a>)</div>
                                     <p>From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.</p>
                                 </div>
                             </div>
@@ -90,101 +94,66 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="nav-downloads" role="tabpanel">
-                                <div class="new-dashboard-order">
-                                    <p>You don't have any download</p>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="nav-address" role="tabpanel">
-                                <div class="new-dashboard-address">
-                                    <p class="notice-text">The following addresses will be used on the checkout page by default.</p>
-                                    <div class="row row--30">
-                                        <div class="col-lg-6">
-                                            <div class="address-info mb--40">
-                                                <div class="addrss-header d-flex align-items-center justify-content-between">
-                                                    <h4 class="title">Shipping Address</h4>
-                                                    <a href="#" class="address-edit"><i class="lar la-edit"></i></a>
-                                                </div>
-                                                <ul class="address-details">
-                                                    <li>Name: Annie Mario</li>
-                                                    <li>Email: annie@example.com</li>
-                                                    <li>Phone: 1234 567890</li>
-                                                    <li class="mt--30">
-                                                        7398 Smoke Ranch Road <br>
-                                                        Las Vegas, Nevada 89128
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="address-info">
-                                                <div class="addrss-header d-flex align-items-center justify-content-between">
-                                                    <h4 class="title">Billing Address</h4>
-                                                    <a href="#" class="address-edit"><i class="lar la-edit"></i></a>
-                                                </div>
-                                                <ul class="address-details">
-                                                    <li>Name: Annie Mario</li>
-                                                    <li>Email: annie@example.com</li>
-                                                    <li>Phone: 1234 567890</li>
-                                                    <li class="mt--30">
-                                                        7398 Smoke Ranch Road <br>
-                                                        Las Vegas, Nevada 89128
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="tab-pane fade" id="nav-account" role="tabpanel">
                                 <div class="col-lg-9">
                                     <div class="new-dashboard-account">
-                                        <form class="account-details-form">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label>First Name</label>
-                                                        <input type="text" class="form-control" value="Annie">
-                                                    </div>
+                                        <form method="post" enctype="multipart/form-data">
+                                            <div class="row mb-50">
+                                                <div class="col-md-6 form-group">
+                                                    <label>Fullname:</label>
+                                                    <input asp-for="FullName" type="text" name="FullName">
+                                                    <span class="text-danger" asp-validation-for="FullName"></span>
                                                 </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label>Last Name</label>
-                                                        <input type="text" class="form-control" value="Mario">
+                                                <div class="col-md-6 form-group">
+                                                    <label>Profil Image:</label>
+                                                    <div class="d-flex justify-content-between">
+                                                        @if (@Model.Image == null)
+                                                        {
+                                                            <img width="40px" height="40px" style="border-radius: 25px" src="~/uploads/userImage/default.jpg" />
+
+                                                        }
+                                                        else
+                                                        {
+                                                            <img width="40px" height="40px" style="border-radius: 25px" src="~/uploads/userImage/@Model.Image" />
+                                                        }
+                                                        <input class="form-control" asp-for="ImageFile" placeholder="Image">
                                                     </div>
+                                                   
+                                                    <span class="text-danger" asp-validation-for="ImageFile"></span>
                                                 </div>
-                                                <div class="col-12">
-                                                    <div class="form-group pt-2">
-                                                        <label>City/ Region</label>
-                                                        <select class="select">
-                                                            <option value="1">Baku</option>
-                                                            <option value="1">Sumgait</option>
-                                                            <option value="1">Gabala</option>
-                                                            <option value="1">Gence</option>
-                                                        </select>
-                                                        <p class="b3">This will be how your name will be displayed in the account section and in reviews</p>
-                                                    </div>
+                                                <div class="col-md-6 form-group">
+                                                    <label>Username:</label>
+                                                    <input asp-for="UserName" type="text" name="UserName" placeholder="UserName">
+                                                    <span class="text-danger" asp-validation-for="UserName"></span>
                                                 </div>
-                                                <div class="col-12">
-                                                    <h5 class="title">Password Change</h5>
-                                                    <div class="form-group">
-                                                        <label>Password</label>
-                                                        <input type="password" class="form-control" value="123456789101112131415">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>New Password</label>
-                                                        <input type="password" class="form-control">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Confirm New Password</label>
-                                                        <input type="password" class="form-control">
-                                                    </div>
-                                                    <div class="form-group pt-2">
-                                                        <input type="submit" class="btn btn-primary" value="Save Changes">
-                                                    </div>
+                                                <div class="col-md-6 form-group">
+                                                    <label>Email:</label>
+                                                    <input asp-for="Email" type="email" name="Email" placeholder="Email">
+                                                    <span class="text-danger" asp-validation-for="Email"></span>
                                                 </div>
                                             </div>
+                                            <fieldset>
+                                                <legend>Password change</legend>
+                                                <div class="row">
+                                                    <div class="col-md-12 form-group">
+                                                        <label>Current password:</label>
+                                                        <input asp-for="CurrentPassword">
+                                                        <span class="text-danger" asp-validation-for="CurrentPassword"></span>
+                                                        <label>New password:</label>
+                                                        <input asp-for="Password">
+                                                        <span class="text-danger" asp-validation-for="Password"></span>
+                                                        <label>Confirm new password:</label>
+                                                        <input asp-for="ConfirmPassword">
+                                                        <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                                            <div class="btn-wrapper">
+                                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                                            </div>
                                         </form>
+
                                     </div>
                                 </div>
                             </div>

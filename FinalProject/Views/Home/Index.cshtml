@@ -426,46 +426,46 @@
           <h3 class="title">Why People Choose Us</h3>
         </div>
         <div class="row service-items">
-          <div class="col">
-            <div class="service-why-box">
+          <div class="col-lg-3">
+            <div class="service-why-box my-2">
               <div class="service-icon">
                 <img src="assets/images/service6.png" alt="Service">
               </div>
               <h6 class="title">Fast & Secure Delivery</h6>
             </div>
           </div>
-          <div class="col">
-            <div class="service-why-box">
+          <div class="col-lg-3">
+            <div class="service-why-box my-2">
               <div class="service-icon">
                 <img src="assets/images/service7.png" alt="Service">
               </div>
               <h6 class="title">100% Guarantee On Product</h6>
             </div>
           </div>
-          <div class="col">
-            <div class="service-why-box">
+          <div class="col-lg-3">
+            <div class="service-why-box my-2">
               <div class="service-icon">
                 <img src="assets/images/service8.png" alt="Service">
               </div>
               <h6 class="title">24 Hour Return Policy</h6>
             </div>
           </div>
-          <div class="col">
-            <div class="service-why-box">
+          <div class="col-lg-3">
+            <div class="service-why-box my-2">
               <div class="service-icon">
                 <img src="assets/images/service9.png" alt="Service">
               </div>
               <h6 class="title">24 Hour Return Policy</h6>
             </div>
           </div>
-          <div class="col">
+          @*<div class="col-lg-3">
             <div class="service-why-box">
               <div class="service-icon">
                 <img src="assets/images/service10.png" alt="Service">
               </div>
               <h6 class="title">Next Level Pro Quality</h6>
             </div>
-          </div>
+          </div>*@
         </div>
       </div>
     </section>
@@ -475,7 +475,7 @@
             <div class="row">
               @foreach (var poster in Model.BtmPromotions)
               {
-                  <div class="col-lg-6">
+                  <div class="col-lg-6 py-2">
               <div class="single-poster">
                 <a href="@poster.RedirectUrl">
                   <img src="~/assets/images/@poster.Image" alt="eTrade promotion poster">
@@ -515,9 +515,6 @@
     </section>
     <!-- Product Modal -->
     <div class="modal fade" id="quick-view-modal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            
-            
-        </div>
+        <div class="modal-dialog"> </div>
     </div>
   </main>

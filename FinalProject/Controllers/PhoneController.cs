@@ -230,5 +230,12 @@ namespace FinalProject.Controllers
             }
             return PartialView("_BasketPartial", basket);
         }
+        public IActionResult GetSearch(string search)
+        {
+            var model = _context.Phones.Include(x=>x.PhoneModel).Include(x=>x.Memory)
+                .Include(x => x.PhoneImages)
+                .Where(x => x.Name.Contains(search)).Take(4).ToList();
+            return PartialView("_SearchPartial", model);
+        }
     }
 }

@@ -1,0 +1,94 @@
+﻿@model Contact
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-8">
+                <div>
+                    <span class="px-2">
+                        <a class="breadcrub-home" href="index.html">Home</a><span class="breadcrub-title"> | </span><span class="breadcrub-blue">Contact Us</span>
+                    </span>
+                    <h1 class="breadcrumb-title">Contact Us</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-4">
+                <div class="bradcrumb-image">
+                    <img width="20%" src="~/assets/images/product-45.png" alt="Image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main>
+    <div class="contact-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="contact-form">
+                        <h3 class="title">We would love to hear from you.</h3>
+                        <p>If you’ve got great products your making or looking to work with us then drop us a line.</p>
+
+                        <form id="contact-form" method="post">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label asp-for="FullName">Full Name</label>
+                                        <input asp-for="FullName" type="text" placeholder="Full Name">
+                                        <span asp-validation-for="FullName" class="text-danger"></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label asp-for="Email">Email</label>
+                                            <input asp-for="Email" type="text" placeholder="Email">
+                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                        </div>
+
+                                    </div>
+                                </div>  
+                                <div class="form-group">
+                                    <label asp-for="Note">Order notes</label>
+                                    <textarea asp-for="Note" id="order-note" cols="30" rows="10" class="order-note"
+                                              placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                    <span asp-validation-for="Note" class="text-danger"></span>
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn btn-primary m-2 p-2">Submit</button>
+                                </div>
+                        </form>
+
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-location">
+                        <h4 class="title">Our Store</h4>
+                        <span class="address">8212 E. Glen Creek Street Orchard Park, NY 14127, United States of America</span>
+                        <span class="phone">Phone: +123 456 7890</span>
+                        <span class="email">Email: Hello@etrade.com</span>
+                    </div>
+                    <div class="contact-career">
+                        <h4 class="title">Careers</h4>
+                        <p>Instead of buying six things, one that you really like.</p>
+                    </div>
+                    <div class="opening-hour">
+                        <h4 class="title">Opening Hours:</h4>
+                        <p>
+                            Monday to Saturday: 9am - 10pm
+                            <br> Sundays: 10am - 6pm
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Start Google Map Area  -->
+        <div class="google-map container">
+            <div>
+                <div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3031.2173839204847!2d49.6921163!3d40.5588765!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4030911fc25b1931%3A0xabfa0185d99ff68f!2s48th%20Block%2C%20Sumqayit!5e0!3m2!1sen!2saz!4v1677008200982!5m2!1sen!2saz"></iframe>
+                </div>
+            </div>
+        </div>
+        <!-- End Google Map Area  -->
+    </div>
+</main>

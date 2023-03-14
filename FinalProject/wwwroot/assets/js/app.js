@@ -29,5 +29,3 @@ $(document).on("click", ".phone-modal-btn", function (e) {
     $("#quick-view-modal").modal("show")
     
 })
-
-

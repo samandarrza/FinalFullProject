@@ -1,0 +1,31 @@
+﻿@model Setting
+<div class="container-fluid">
+    <h4>@Model.Key Edit</h4>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form asp-action="edit" method="post" enctype="multipart/form-data">
+                    <input hidden name="Key" value="@Model.Key" />
+                    @if (Model.Value.Contains(".png") || Model.Value.Contains(".jpg"))
+                    {
+                        <div class="form-group">
+                            <label asp-for="ImageFile">@Model.Key</label>
+                            <input asp-for="ImageFile" class="form-control">
+                            <img width="100px" style="border-radius: 10px" src="~/assets/images/@Model.Value" />
+                            <span class="text-danger" asp-validation-for="ImageFile"></span>
+                        </div>
+                    }
+                    else{
+                        <div class="form-group">
+                            <label asp-for="Value">@Model.Key</label>
+                            <input asp-for="Value" type="text" class="form-control" id="nameInput">
+                            <span class="text-danger" asp-validation-for="Value"></span>
+                        </div>
+                    }
+                    
+                    <button type="submit" class="btn btn-primary m-2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

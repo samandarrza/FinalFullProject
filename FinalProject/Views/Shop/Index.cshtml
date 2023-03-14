@@ -174,9 +174,31 @@
                 </div>
             </div>
             <div class="col-md-9">
-                <div>
-                    <p class="shop-desc">Showing 1-@Model.Phones.Count of 64 results</p>
+                <div class="row">
+                    <div class="shop_sort col-lg-3 p-2 d-flex align-items-center">
+                        <div class="short-by text-center">
+                            <select class="form-control rounded" onchange="this.form.submit()" form="filter-form" name="sort" class="nice-select">
+                                <option value="">Default Sorting</option>
+                                <option value="AToZ">Sort by: A to Z</option>
+                                <option value="ZToA">Sort by: Z to A</option>
+                                <option value="LowToHigh">Sort by price: low to high</option>
+                                <option value="HighToLow">Sort by price: high to low</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="shop_search col-lg-6 p-2">
+                        <form action="#">
+                            <div class="input-group">
+                            <input class="form-control rounded" form="filter-form" type="text" name="search" placeholder="Search your Phone...">
+                            <button class="btn btn-outline-primary" form="filter-form" type="submit"><i class="las la-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="shop_show col-lg-3 p-1 d-flex align-items-center">
+                        <p class="shop-desc">Showing 1-@Model.Phones.Count of 64 results</p>
+                    </div>
                 </div>
+                
                 <div class="row">
                     @foreach (var phone in Model.Phones)
                     {
@@ -222,7 +244,14 @@
                                                             <i class="las la-star  @(phone.AvgRate>=i?"star-on":"")"></i>
                                                         }
                                                     </span>
-                                                    <span class="rating-number">(@phone.Reviews.Count())</span>
+                                                    @if (@phone.Reviews.Count > 0)
+                                                    {
+                                                        <span class="rating-number">(@phone.Reviews.Count reviews)</span>
+                                                    }
+                                                    else{
+                                                        <span class="rating-number">(Not review)</span>
+
+                                                    }
                                                 </div>
                                                 <h6 class="title"><a asp-action="detail" asp-controller="phone" asp-route-id="@phone.Id" tabindex="0"> @phone.PhoneModel.Name @phone.Name @phone.Memory.Name GB</a></h6>
                                                 <div class="product-price">

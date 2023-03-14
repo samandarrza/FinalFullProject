@@ -202,6 +202,7 @@ li{
 .service-box{
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 0.5rem;
 }
 
@@ -288,7 +289,20 @@ input:is(:focus){
 
 @media only screen and (max-width: 479px) {
     .single-poster .poster-content {
-        padding: 20px
+        padding: 20px;
+    }
+    .new-footer-widget{
+        text-align: center;
+    }
+    .most-product-list {
+        position: relative;
+        border: 1px solid rgb(240, 236, 236);
+        border-radius: 5px;
+        text-align: center;
+    }
+    .product-price,.price,.title{
+        justify-content: center;
+        text-align: center; 
     }
 }
 
@@ -514,8 +528,8 @@ input:is(:focus){
     position: relative;
     border: 1px solid  rgb(240, 236, 236);
     border-radius: 10px;
-    padding: 2rem;
-    margin: 2rem;
+    padding: 1rem;
+    margin: 0.5rem;
 }
 .product-content{
     padding: 1rem;
@@ -1651,3 +1665,14 @@ a{
             opacity: 1;
         }
 
+.shop_search input {
+    outline: 0;
+    border: 1px solid silver;
+}
+
+.header-search-1-form{
+    width: 100%;
+}
+.header-search-1-form input{
+    width: 100%;
+}

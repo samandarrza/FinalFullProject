@@ -7,6 +7,6 @@ namespace FinalProject.Models
     {
         [MaxLength(30)]
         public string? FullName { get; set; }
-        public string? Image { get; set; }
+        public string? Image { get; set; } = "default.jpeg";
     }
 }

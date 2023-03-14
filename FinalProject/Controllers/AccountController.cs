@@ -38,14 +38,10 @@ namespace FinalProject.Controllers
                 FullName = user.FullName,
                 Image = user.Image,
                 Email = user.Email,
-            };
-
-            AccountVM accountVM = new AccountVM
-            {
-                MemberUpdateVM = memberVM,
                 Orders = order
+
             };
-            return View(accountVM);
+            return View(memberVM);
         }
 
 
@@ -69,10 +65,10 @@ namespace FinalProject.Controllers
 
             if (memberVM.ImageFile != null)
             {
-                var newImage = FileManager.Save(memberVM.ImageFile, _env.WebRootPath, "main/uploads/userImage");
+                var newImage = FileManager.Save(memberVM.ImageFile, _env.WebRootPath, "uploads/userImage");
 
                 if (user.Image != null)
-                    FileManager.Delete(_env.WebRootPath, "main/uploads/userImage", user.Image);
+                    FileManager.Delete(_env.WebRootPath, "uploads/userImage", user.Image);
 
                 user.Image = newImage;
             }

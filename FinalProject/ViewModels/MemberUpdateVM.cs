@@ -1,6 +1,7 @@
 ﻿using FinalProject.Attributes;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using FinalProject.Models;
 
 namespace FinalProject.ViewModels
 {
@@ -28,5 +29,8 @@ namespace FinalProject.ViewModels
         [MaxFileSize(2048)]
         [AllowedFileTypes("image/jpeg", "image/png")]
         public IFormFile? ImageFile { get; set; }
+
+        public List<Order>? Orders { get; set; }
+        public List<OrderItem>? OrderItems { get; set; }
     }
 }
