@@ -55,5 +55,60 @@ namespace FinalProject.Areas.admin.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult Edit(int id)
+        {
+            Blog blog = _context.Blogs.FirstOrDefault(x => x.Id == id);
+            
+            if (blog == null)
+                return RedirectToAction("error", "dashboard");
+
+            return View(blog);
+        }
+        [HttpPost]
+        public IActionResult Edit(Blog blog)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            if (_context.Blogs.Any(x => x.Name == blog.Name && x.Id != blog.Id))
+            {
+                ModelState.AddModelError("Name", "Bu adda data var");
+                return View();
+            }
+            if (blog == null)
+            {
+                return View();
+            }
+            Blog existBlog = _context.Blogs.FirstOrDefault(x => x.Id == blog.Id);
+
+            if (existBlog == null)
+            {
+                return RedirectToAction("Index");
+            }
+            if (blog.ImageFile != null)
+            {
+                var newImage = FileManager.Save(blog.ImageFile, _env.WebRootPath, "uploads/blog");
+                FileManager.Delete(_env.WebRootPath, "uploads/blog", existBlog.Image);
+                existBlog.Image = newImage;
+            }
+            existBlog.Name = blog.Name;
+            existBlog.Tag = blog.Tag;
+            existBlog.Description = blog.Description;
+
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            Blog blog = _context.Blogs.FirstOrDefault(x => x.Id == id);
+            if (blog == null)
+                return RedirectToAction("error", "dashboard");
+            _context.Blogs.Remove(blog);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

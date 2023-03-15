@@ -117,7 +117,7 @@
                         @foreach (var battery in Model.Batteries)
                         {
                             <div class="form-check">
-                                <input form="filter-form" type="checkbox" @(ViewBag.SelectedProcessorNameIds.Contains(battery.Id)?"checked":"") name="batteryId" id="processorName-@battery.Id" value="@battery.Id">
+                                <input form="filter-form" type="checkbox" @(ViewBag.SelectedBatteryIds.Contains(battery.Id)?"checked":"") name="batteryId" id="battery-@battery.Id" value="@battery.Id">
                                 <label class="form-check-label" for="battery-@battery.Id">
                                     @battery.Name
                                 </label>
@@ -134,7 +134,7 @@
                         {
                             <div class="form-check">
                                 <input form="filter-form" type="checkbox" @(ViewBag.SelectedDisplayIds.Contains(display.Id)?"checked":"") name="displayId" id="display-@display.Id" value="@display.Id">
-                                <label class="form-check-label" for="ram-@display.Id">
+                                <label class="form-check-label" for="display-@display.Id">
                                     @display.Name Inch
                                 </label>
                                 <span class="categorey-no"> - @display.Phones.Count</span>
@@ -150,7 +150,7 @@
                         {
                             <div class="form-check">
                                 <input form="filter-form" type="checkbox" @(ViewBag.SelectedColorIds.Contains(color.Id)?"checked":"") name="colorId" id="color-@color.Id" value="@color.Id">
-                                <label class="form-check-label" for="ram-@color.Id">
+                                <label class="form-check-label" for="color-@color.Id">
                                     @color.Name
                                 </label>
                                 <span class="categorey-no"> - @color.Phones.Count</span>
@@ -162,8 +162,16 @@
                 <div class="toggle-list">
                     <div class="shop-submenu">
                         <h6 class="title">PRICE</h6>
-                        <label for="customRange1" class="form-label">Select Price</label>
-                        <input type="range" class="form-range" id="customRange1">
+                        <input name="minPrice" form="filter-form" type="hidden" id="minPriceInput" value="@ViewBag.SelectedMinPrice" />
+                        <input name="maxPrice" form="filter-form" type="hidden" id="maxPriceInput" value="@ViewBag.SelectedMaxPrice" />
+
+                        <div class="slider-box">
+                            <input type="text" id="priceRange" readonly>
+                            <div id="price-range" class="slider-range"></div>
+                        </div>
+
+
+
                     </div>
                 </div>
                 <div class="shop-filter">
@@ -195,7 +203,7 @@
                         </form>
                     </div>
                     <div class="shop_show col-lg-3 p-1 d-flex align-items-center">
-                        <p class="shop-desc">Showing 1-@Model.Phones.Count of 64 results</p>
+                        <p class="shop-desc">Showing 1-12 of @Model.Phones.Count results</p>
                     </div>
                 </div>
                 
@@ -274,10 +282,38 @@
                         </div>
                     </div>
                         
-                    }
-                    
+                    }         
+                        @if (Model.Phones.Count<=12)
+                        {
+                            
+                        }
+                        else{
+                            <a href="" class="load-more btn btn-outline-dark text-center">Load More</a>
+                        }
                 </div>
+
             </div>
         </div>
     </div>
 </section>
+
+ @section Scripts{
+    <script>
+               $(function () {
+            $("#price-range").slider({
+                step: 1,
+                range: true,
+                min: @Model.MinPrice,
+                max: @Model.MaxPrice,
+                values: [@ViewBag.SelectedMinPrice, @ViewBag.SelectedMaxPrice],
+                slide: function (event, ui) { $("#priceRange").val(ui.values[0] + " - " + ui.values[1]); },
+                change: function (event, ui){
+                    $("#minPriceInput").val(ui.values[0]);
+                    $("#maxPriceInput").val(ui.values[1]);
+                }
+            });
+            $("#priceRange").val($("#price-range").slider("values", 0) + " - " + $("#price-range").slider("values", 1));
+
+        });
+    </script>
+}

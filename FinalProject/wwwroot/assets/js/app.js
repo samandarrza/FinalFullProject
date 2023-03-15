@@ -56,3 +56,48 @@ $(document).on("click", ".phone-modal-btn", function (e) {
     $("#quick-view-modal").modal("show")
     
 })
+
+$(function () {
+    $(".comment").slice(0, 3).show();
+    $("body").on('click touchstart', '.load-more', function (e) {
+        e.preventDefault();
+        $(".comment:hidden").slice(0, 3).slideDown();
+        if ($(".comment:hidden").length == 0) {
+            $(".load-more").css('visibility', 'hidden');
+        }
+        $('html,body').animate({
+            scrollTop: $(this).offset().top
+        }, 100);
+    });
+});
+
+
+$(function () {
+    $(".single-product").slice(0, 12).show();
+    $("body").on('click touchstart', '.load-more', function (e) {
+        e.preventDefault();
+        $(".single-product:hidden").slice(0, 12).slideDown();
+        if ($(".single-product:hidden").length == 0) {
+            $(".load-more").css('visibility', 'hidden');
+        }
+        $('html,body').animate({
+            scrollTop: $(this).offset().top
+        }, 100);
+    });
+});
+
+/*-------------------------------------
+    --> Range Slider
+---------------------------------------*/
+//$(function () {
+//    $("#price-range").slider({
+//        step: 500,
+//        range: true,
+//        min: 0,
+//        max: 20000,
+//        values: [0, 20000],
+//        slide: function (event, ui) { $("#priceRange").val(ui.values[0] + " - " + ui.values[1]); }
+//    });
+//    $("#priceRange").val($("#price-range").slider("values", 0) + " - " + $("#price-range").slider("values", 1));
+
+//});

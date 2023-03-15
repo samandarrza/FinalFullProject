@@ -91,7 +91,7 @@ namespace FinalProject.Controllers
 
             ShopVM model = new ShopVM
             {
-                Phones = PaginatedList<Phone>.Create(phones, page, 12),
+                Phones = PaginatedList<Phone>.Create(phones, page, 100),
                 Batteries = _context.Batteries.Include(x => x.Phones).Where(x => x.Phones.Count > 0).ToList(),
                 Colors = _context.Colors.Include(x => x.Phones).Where(x => x.Phones.Count > 0).ToList(),
                 Displays = _context.Displays.Include(x => x.Phones).Where(x => x.Phones.Count > 0).ToList(),
@@ -104,6 +104,9 @@ namespace FinalProject.Controllers
                 MinPrice = _context.Phones.Min(x => x.SalePrice),
                 MaxPrice = _context.Phones.Max(x => x.SalePrice)
             };
+
+            ViewBag.SelectedMinPrice = minPrice ?? model.MinPrice;
+            ViewBag.SelectedMaxPrice = maxPrice ?? model.MaxPrice;
 
             return View(model);
         }

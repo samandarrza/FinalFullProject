@@ -278,7 +278,7 @@
                                                 <!-- Start Single Comment  -->
                                                 @foreach (var review in Model.Phone.Reviews)
                                                 {
-                                                     <li class="comment">
+                                                <li class="comment">
                                                     <div class="comment-body">
                                                         <div class="single-comment">
                                                             <div class="comment-inner">
@@ -300,20 +300,27 @@
                                                                     <span class="review-time">
                                                                         <span>@review.CreatedAt.ToString("dd MMMM, yyyy")</span>
                                                                     </span>
-                                                                </h6>
-                                                                
+                                                                </h6>      
                                                             </div>
-
                                                         </div>
                                                         <div class="comment-text">
-                                                                    <p>
-                                                                       @review.Text
-                                                                    </p>
-                                                                </div>
+                                                         <p> @review.Text </p>
+                                                        </div>
                                                     </div>
                                                 </li>
                                                 }
                                             </ul>
+                                            <div class="text-center">
+                                                @if (Model.Phone.Reviews.Count<=3)
+                                                {
+                                                    
+                                                }
+                                                else{
+                                                <a href="" class="load-more btn btn-outline-dark text-center">Load More</a>
+
+                                                }
+                                            </div>
+
                                         </div>
                                         <!-- End .new-commnet-area -->
                                     </div>

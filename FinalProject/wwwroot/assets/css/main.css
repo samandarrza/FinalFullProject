@@ -1677,6 +1677,38 @@ a{
     width: 100%;
 }
 
-.team-title{
-    text-align: center!important;
+.team-title {
+    text-align: center !important;
+}
+.comment, .single-product{
+    display: none;
+}
+
+
+
+
+
+.slider-box{
+    width: 90%;
+    margin: 5px auto
+}
+
+    .slider-box label, .slider-box input{
+        border: none;
+        display: inline-block;
+        margin-right: -4px;
+        vertical-align: top;
+        width: 20%
+    }
+
+.slider-box input{
+    width: 100%
+}
+
+.slider-range{
+    margin: 5px 0
+}
+
+#priceRange{
+    background-color: transparent;
 }

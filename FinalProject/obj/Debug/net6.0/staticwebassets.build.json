@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TdpR8it6MJl+MsINecgrcDL7Gulw0eCBA5oFll7M5es=",
+  "Hash": "aVUGxZTN558yTAj7Sue+xMCti+HHtMmeJpc4dvY5pOE=",
   "Source": "FinalProject",
   "BasePath": "_content/FinalProject",
   "Mode": "Default",
@@ -355,6 +355,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\css\\main.css"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\assets\\css\\plugins.css",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "assets/css/plugins.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\css\\plugins.css"
     },
     {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\assets\\css\\slick.css",
@@ -2822,12 +2839,12 @@
       "OriginalItemSpec": "wwwroot\\uploads\\blog\\2c87f3b1-10f7-4f41-becd-c7ca95154b9cblog-12.png"
     },
     {
-      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\blog\\3a36a2fe-d295-4023-ae9b-e67a9eae8568blog-10.png",
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\blog\\7c62e9ea-d662-4f3a-9396-977a704bd368blog-12.png",
       "SourceId": "FinalProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
       "BasePath": "_content/FinalProject",
-      "RelativePath": "uploads/blog/3a36a2fe-d295-4023-ae9b-e67a9eae8568blog-10.png",
+      "RelativePath": "uploads/blog/7c62e9ea-d662-4f3a-9396-977a704bd368blog-12.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2836,7 +2853,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\blog\\3a36a2fe-d295-4023-ae9b-e67a9eae8568blog-10.png"
+      "OriginalItemSpec": "wwwroot\\uploads\\blog\\7c62e9ea-d662-4f3a-9396-977a704bd368blog-12.png"
     },
     {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\blog\\fbc6315d-9f57-405a-8864-cda69703246dblog-11.png",
@@ -2856,6 +2873,23 @@
       "OriginalItemSpec": "wwwroot\\uploads\\blog\\fbc6315d-9f57-405a-8864-cda69703246dblog-11.png"
     },
     {
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\0298505d-bfd9-46ba-b85b-0a4ef88d9861a135-black.jpg",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "uploads/phones/0298505d-bfd9-46ba-b85b-0a4ef88d9861a135-black.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\phones\\0298505d-bfd9-46ba-b85b-0a4ef88d9861a135-black.jpg"
+    },
+    {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\06ba9bf8-edc4-49da-839c-f5b6b57135e814-midn.jpg",
       "SourceId": "FinalProject",
       "SourceType": "Discovered",
@@ -2871,6 +2905,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\phones\\06ba9bf8-edc4-49da-839c-f5b6b57135e814-midn.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\0b865cff-8c7e-42a6-b86e-ebfeb36f993da23456-1.png",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "uploads/phones/0b865cff-8c7e-42a6-b86e-ebfeb36f993da23456-1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\phones\\0b865cff-8c7e-42a6-b86e-ebfeb36f993da23456-1.png"
     },
     {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\0f2a3ce6-e8a0-4358-a242-bb01d2037bcadmi-a1-tek.png",
@@ -2924,23 +2975,6 @@
       "OriginalItemSpec": "wwwroot\\uploads\\phones\\14bc2abe-031d-4634-8817-a53d99f4a66bredmi-a1.png"
     },
     {
-      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\165c0140-10e9-4445-b86a-fb97b23d1e95redmi-a1.png",
-      "SourceId": "FinalProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
-      "BasePath": "_content/FinalProject",
-      "RelativePath": "uploads/phones/165c0140-10e9-4445-b86a-fb97b23d1e95redmi-a1.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\phones\\165c0140-10e9-4445-b86a-fb97b23d1e95redmi-a1.png"
-    },
-    {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\17d38fe1-8bc7-47da-8530-d90e2840cd81redmi-a1.png",
       "SourceId": "FinalProject",
       "SourceType": "Discovered",
@@ -2975,6 +3009,23 @@
       "OriginalItemSpec": "wwwroot\\uploads\\phones\\1c40a33f-f0e1-42fa-9690-561b5067cd0ddmi-a1-tek.png"
     },
     {
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\230d3c6b-768f-4733-bee3-b78d983b983ae9f2a6b987.jpg",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "uploads/phones/230d3c6b-768f-4733-bee3-b78d983b983ae9f2a6b987.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\phones\\230d3c6b-768f-4733-bee3-b78d983b983ae9f2a6b987.jpg"
+    },
+    {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\24ae0e68-3b55-4a4a-bb8a-e7f3a257ac24dmi-a1-tek.png",
       "SourceId": "FinalProject",
       "SourceType": "Discovered",
@@ -2990,23 +3041,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\phones\\24ae0e68-3b55-4a4a-bb8a-e7f3a257ac24dmi-a1-tek.png"
-    },
-    {
-      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\254e72e0-ed8e-46e0-a1de-b889b7e21605product-01.png",
-      "SourceId": "FinalProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
-      "BasePath": "_content/FinalProject",
-      "RelativePath": "uploads/phones/254e72e0-ed8e-46e0-a1de-b889b7e21605product-01.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\phones\\254e72e0-ed8e-46e0-a1de-b889b7e21605product-01.png"
     },
     {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\299fcd9b-1091-4335-b821-7a6f6094a654product-01.png",
@@ -3092,6 +3126,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\phones\\361ec25f-313a-4b84-9381-408049a10dad6-black(1).jpg"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\37fe6eea-96c5-4c2d-98f5-539b6ea4656fa135-black.jpg",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "uploads/phones/37fe6eea-96c5-4c2d-98f5-539b6ea4656fa135-black.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\phones\\37fe6eea-96c5-4c2d-98f5-539b6ea4656fa135-black.jpg"
     },
     {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\391319c0-3a81-40db-922b-534cd7fb1f0f14p-sblack.jpg",
@@ -3213,40 +3264,6 @@
       "OriginalItemSpec": "wwwroot\\uploads\\phones\\5a9db29e-c1ca-4517-8bea-e3cff17bd00914p-silver.jpg"
     },
     {
-      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\634898b1-d22d-4089-8f8a-5797fc5e3d1314-midn.jpg",
-      "SourceId": "FinalProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
-      "BasePath": "_content/FinalProject",
-      "RelativePath": "uploads/phones/634898b1-d22d-4089-8f8a-5797fc5e3d1314-midn.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\phones\\634898b1-d22d-4089-8f8a-5797fc5e3d1314-midn.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\643f0715-b1b5-40b4-92ce-d827250cc0aeproduct-01.png",
-      "SourceId": "FinalProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
-      "BasePath": "_content/FinalProject",
-      "RelativePath": "uploads/phones/643f0715-b1b5-40b4-92ce-d827250cc0aeproduct-01.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\phones\\643f0715-b1b5-40b4-92ce-d827250cc0aeproduct-01.png"
-    },
-    {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\64da2750-6669-41ab-b515-84ec7d2f0ad5redmi-a1.png",
       "SourceId": "FinalProject",
       "SourceType": "Discovered",
@@ -3298,6 +3315,23 @@
       "OriginalItemSpec": "wwwroot\\uploads\\phones\\696015d7-0ff5-4f62-b535-f04a45c30fae14p-silver.jpg"
     },
     {
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\6cde1733-b553-4926-8f09-49e907a056ef14-midn.jpg",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "uploads/phones/6cde1733-b553-4926-8f09-49e907a056ef14-midn.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\phones\\6cde1733-b553-4926-8f09-49e907a056ef14-midn.jpg"
+    },
+    {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\729f7a31-9b0c-48df-9da9-6e9e50f10bf814p-silver.jpg",
       "SourceId": "FinalProject",
       "SourceType": "Discovered",
@@ -3313,6 +3347,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\phones\\729f7a31-9b0c-48df-9da9-6e9e50f10bf814p-silver.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\7378e192-8b6b-4122-bee9-4ed164b9f5396-black(1).jpg",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "uploads/phones/7378e192-8b6b-4122-bee9-4ed164b9f5396-black(1).jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\phones\\7378e192-8b6b-4122-bee9-4ed164b9f5396-black(1).jpg"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\74e1b077-e316-4743-9336-224b51c4286aa-black(1).jpg",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "uploads/phones/74e1b077-e316-4743-9336-224b51c4286aa-black(1).jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\phones\\74e1b077-e316-4743-9336-224b51c4286aa-black(1).jpg"
     },
     {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\75e0a547-c224-427d-840b-f01d2d512b62redmi-a1.png",
@@ -3332,12 +3400,12 @@
       "OriginalItemSpec": "wwwroot\\uploads\\phones\\75e0a547-c224-427d-840b-f01d2d512b62redmi-a1.png"
     },
     {
-      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\7995eedf-efcf-424e-bf2c-257163bcfe7dproduct-01.png",
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\792cd7c5-e503-4f5f-88bf-88a5e25733d9as2.png",
       "SourceId": "FinalProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
       "BasePath": "_content/FinalProject",
-      "RelativePath": "uploads/phones/7995eedf-efcf-424e-bf2c-257163bcfe7dproduct-01.png",
+      "RelativePath": "uploads/phones/792cd7c5-e503-4f5f-88bf-88a5e25733d9as2.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3346,7 +3414,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\phones\\7995eedf-efcf-424e-bf2c-257163bcfe7dproduct-01.png"
+      "OriginalItemSpec": "wwwroot\\uploads\\phones\\792cd7c5-e503-4f5f-88bf-88a5e25733d9as2.png"
     },
     {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\7c3ccee5-f91c-4adb-8601-179a5b1057a214p-sblack.jpg",
@@ -3383,6 +3451,23 @@
       "OriginalItemSpec": "wwwroot\\uploads\\phones\\7d51eb43-a789-4f61-b18f-f6a69f7a70fcredmi-a1.png"
     },
     {
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\846de14e-719f-46ee-ba9e-b7e29285ad54x7a-black.jpg",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "uploads/phones/846de14e-719f-46ee-ba9e-b7e29285ad54x7a-black.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\phones\\846de14e-719f-46ee-ba9e-b7e29285ad54x7a-black.jpg"
+    },
+    {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\8482143c-8417-4805-ba75-6473e7c10a70dmi-a1-tek.png",
       "SourceId": "FinalProject",
       "SourceType": "Discovered",
@@ -3398,6 +3483,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\phones\\8482143c-8417-4805-ba75-6473e7c10a70dmi-a1-tek.png"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\854b6943-3e8b-430e-a6fb-2da2faad01c214p-silver.jpg",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "uploads/phones/854b6943-3e8b-430e-a6fb-2da2faad01c214p-silver.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\phones\\854b6943-3e8b-430e-a6fb-2da2faad01c214p-silver.jpg"
     },
     {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\8ceb663d-81b7-4424-a874-3d61a84d1ee3product-01.png",
@@ -3434,40 +3536,6 @@
       "OriginalItemSpec": "wwwroot\\uploads\\phones\\8f55e7bf-87c6-4670-94f2-700392dce038redmi-a1.png"
     },
     {
-      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\9097ba63-6b1d-4a51-a405-13f40da33cadproduct-01.png",
-      "SourceId": "FinalProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
-      "BasePath": "_content/FinalProject",
-      "RelativePath": "uploads/phones/9097ba63-6b1d-4a51-a405-13f40da33cadproduct-01.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\phones\\9097ba63-6b1d-4a51-a405-13f40da33cadproduct-01.png"
-    },
-    {
-      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\954c757c-461a-4b92-9e54-3caa1525971aproduct-01.png",
-      "SourceId": "FinalProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
-      "BasePath": "_content/FinalProject",
-      "RelativePath": "uploads/phones/954c757c-461a-4b92-9e54-3caa1525971aproduct-01.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\phones\\954c757c-461a-4b92-9e54-3caa1525971aproduct-01.png"
-    },
-    {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\9784944a-a104-42fd-b0b6-53d5c78c3c24e9f2a6b987.jpg",
       "SourceId": "FinalProject",
       "SourceType": "Discovered",
@@ -3485,40 +3553,6 @@
       "OriginalItemSpec": "wwwroot\\uploads\\phones\\9784944a-a104-42fd-b0b6-53d5c78c3c24e9f2a6b987.jpg"
     },
     {
-      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\9b0b0a9c-b411-4181-93c4-1e8c0f2bc488product-01.png",
-      "SourceId": "FinalProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
-      "BasePath": "_content/FinalProject",
-      "RelativePath": "uploads/phones/9b0b0a9c-b411-4181-93c4-1e8c0f2bc488product-01.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\phones\\9b0b0a9c-b411-4181-93c4-1e8c0f2bc488product-01.png"
-    },
-    {
-      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\9f01c518-87c7-48ec-815e-d32f67f9b707product-01.png",
-      "SourceId": "FinalProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
-      "BasePath": "_content/FinalProject",
-      "RelativePath": "uploads/phones/9f01c518-87c7-48ec-815e-d32f67f9b707product-01.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\phones\\9f01c518-87c7-48ec-815e-d32f67f9b707product-01.png"
-    },
-    {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\a2e4639e-05c4-4a62-bda0-3a55e99597a7redmi-a1.png",
       "SourceId": "FinalProject",
       "SourceType": "Discovered",
@@ -3534,6 +3568,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\phones\\a2e4639e-05c4-4a62-bda0-3a55e99597a7redmi-a1.png"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\a65a4ebd-2fe1-4077-abc9-00b92be224586-black(1).jpg",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "uploads/phones/a65a4ebd-2fe1-4077-abc9-00b92be224586-black(1).jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\phones\\a65a4ebd-2fe1-4077-abc9-00b92be224586-black(1).jpg"
     },
     {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\a83cbb26-9acb-4b4c-b0bb-0fedc2fc76e1redmi-a1.png",
@@ -3604,23 +3655,6 @@
       "OriginalItemSpec": "wwwroot\\uploads\\phones\\b2d858ee-f454-4e45-9838-bee14edcd65a1-black(1).jpg"
     },
     {
-      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\b5b49f0c-316d-4122-b6b5-7c9385b3a048product-01.png",
-      "SourceId": "FinalProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
-      "BasePath": "_content/FinalProject",
-      "RelativePath": "uploads/phones/b5b49f0c-316d-4122-b6b5-7c9385b3a048product-01.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\phones\\b5b49f0c-316d-4122-b6b5-7c9385b3a048product-01.png"
-    },
-    {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\b6fc5435-1057-4e6b-8d2a-53dae9ba5f1814-midn.jpg",
       "SourceId": "FinalProject",
       "SourceType": "Discovered",
@@ -3653,23 +3687,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\phones\\cc077c74-7603-4dd0-aa22-d2779f56a886e9f2a6b987.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\ccd3715f-06c6-43e4-8b54-f5776eebc0daproduct-01.png",
-      "SourceId": "FinalProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
-      "BasePath": "_content/FinalProject",
-      "RelativePath": "uploads/phones/ccd3715f-06c6-43e4-8b54-f5776eebc0daproduct-01.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\phones\\ccd3715f-06c6-43e4-8b54-f5776eebc0daproduct-01.png"
     },
     {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\d6a8509e-5bf5-464f-869b-65289528ede7dmi-a1-tek.png",
@@ -3808,6 +3825,23 @@
       "OriginalItemSpec": "wwwroot\\uploads\\phones\\f4f15c91-5ed7-4926-a628-041e4369848114p-sblack.jpg"
     },
     {
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\f7cbc780-4377-4ef4-bf12-f6b4770b22d3a23456-1.png",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "uploads/phones/f7cbc780-4377-4ef4-bf12-f6b4770b22d3a23456-1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\phones\\f7cbc780-4377-4ef4-bf12-f6b4770b22d3a23456-1.png"
+    },
+    {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\fdfd6f21-4220-4f95-a9aa-ed813b5b09a014p-silver.jpg",
       "SourceId": "FinalProject",
       "SourceType": "Discovered",
@@ -3823,6 +3857,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\phones\\fdfd6f21-4220-4f95-a9aa-ed813b5b09a014p-silver.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\ffbe7bfc-c60b-46ba-9741-37a065e52839a536-black.jpg",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "uploads/phones/ffbe7bfc-c60b-46ba-9741-37a065e52839a536-black.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\phones\\ffbe7bfc-c60b-46ba-9741-37a065e52839a536-black.jpg"
     },
     {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\sliders\\8b1cb3fb-c75d-4390-898b-ba8a44336564product-38.png",
