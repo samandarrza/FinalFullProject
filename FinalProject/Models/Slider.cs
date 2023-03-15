@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using FinalProject.Attributes;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FinalProject.Models
@@ -18,6 +19,8 @@ namespace FinalProject.Models
         public string RedirectUrl { get; set; }
         public int Order { get; set; }
         [NotMapped]
+        [MaxFileSize(2048)]
+        [AllowedFileTypes("image/jpeg", "image/png")]
         public IFormFile? ImageFile { get; set; }
     }
 }

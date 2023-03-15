@@ -32,5 +32,6 @@ namespace FinalProject.DAL
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Team> Teams { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
     }
 }

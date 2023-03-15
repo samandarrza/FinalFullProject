@@ -17,6 +17,33 @@
         })
 })
 
+$(document).on("click", ".close-items", function (e) {
+    e.preventDefault();
+    let link = $(this).attr("href");
+
+    fetch(link)
+        .then(response => {
+            if (!response.ok) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'This product is out of stock',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                })
+                throw new Error("something went wrong");
+                return;
+            }
+            return response.text();
+        })
+        .then(data => {
+            console.log(data)
+            $("#addtobasket").html(data);
+        })
+        .catch(error => {
+            console.log(error)
+        })
+
+})
 
 
 $(document).on("click", ".phone-modal-btn", function (e) {

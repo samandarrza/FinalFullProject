@@ -1,4 +1,5 @@
-﻿<div class="breadcrumb-area">
+﻿@model AboutVM
+<div class="breadcrumb-area">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-8">
@@ -25,30 +26,25 @@
             <div class="row align-items-center">
                 <div class="col-xl-4 col-lg-6">
                     <div class="about-image">
-                        <img width="100%" src="~/assets/images/about-01.png" alt="About Us">
+                        <img width="100%" src="~/assets/images/@Model.Settings["About-Feature-Img-1"]" alt="About Us">
                     </div>
                 </div>
                 <div class="col-xl-8 col-lg-6">
                     <div class="about-content">
-                        <span>About Store</span>
-                        <h3 class="py-2">Online shopping includes both buying things online.</h3>
+                        <span>@Model.Settings["About-Feature-1"]</span>
+                        <h3 class="py-2">@Model.Settings["About-Feature-Title-1"]</h3>
                         <span>
-                            Salesforce B2C Commerce can help you create unified, intelligent digital commerce
-                            experiences — both online and in the store.
+                            @Model.Settings["About-Feature-Desc-1"]
                         </span>
                         <div class="row">
                             <div class="col-xl-6">
                                 <p class="py-2">
-                                    Empower your sales teams with industry tailored solutions that
-                                    support
-                                    manufacturers as they go digital, and adapt to changing markets & customers
-                                    faster by creating new business.
+                                    @Model.Settings["About-Feature-Part-1"]
                                 </p>
                             </div>
                             <div class="col-xl-6">
                                 <p class="py-2">
-                                    Salesforce B2B Commerce offers buyers the seamless, self-service
-                                    experience of online shopping with all the B2B
+                                    @Model.Settings["About-Feature-Part-2"]
                                 </p>
                             </div>
                         </div>
@@ -61,43 +57,40 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="about-info-box">
+                    <div class="about-info-box text-center">
                         <div class="py-3">
-                            <img src="~/assets/images/shape-01.png">
+                            <img src="~/assets/images/@Model.Settings["Info-box-img-1"]">
                         </div>
                         <div class="content">
-                            <h6 class="title">40,000+ Happy Customer</h6>
+                            <h6 class="title">@Model.Settings["Info-box-title-1"]</h6>
                             <p>
-                                Empower your sales teams with industry
-                                tailored solutions that support.
+                                @Model.Settings["Info-box-desc-1"]
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="about-info-box">
+                    <div class="about-info-box text-center">
                         <div class="py-3">
-                            <img src="~/assets/images/shape-02.png">
+                            <img src="~/assets/images/@Model.Settings["Info-box-img-2"]">
                         </div>
                         <div class="content">
-                            <h6 class="title">16 Years of Experiences</h6>
+                            <h6 class="title">@Model.Settings["Info-box-title-2"]</h6>
                             <p>
-                                Empower your sales teams with industry
-                                tailored solutions that support.
+                                @Model.Settings["Info-box-desc-2"]
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="about-info-box">
+                    <div class="about-info-box text-center">
                         <div class="py-3">
-                            <img src="~/assets/images/shape-03.png">
+                            <img src="~/assets/images/@Model.Settings["Info-box-img-3"]">
                         </div>
                         <div class="content">
-                            <h6 class="title">12 Awards Won</h6>
+                            <h6 class="title">@Model.Settings["Info-box-title-3"]</h6>
                             <p>
-                                Empower your sales teams with industry
-                                tailored solutions that support.
+                                @Model.Settings["Info-box-desc-3"]
                             </p>
                         </div>
                     </div>
@@ -110,55 +103,19 @@
             <span> Our Team</span>
             <h3>Expart Management Team</h3>
         </div>
-
-
-
         <div class="multiple-items">
-            <div class="single-team-item">
-                <div class="team-image">
-                    <img src="~/assets/images/team-01.png" alt="">
+            @foreach (var team in Model.Teams)
+            {
+                <div class="single-team-item">
+                    <div class="team-image">
+                        <img src="~/uploads/team/@team.Image" alt="">
+                    </div>
+                    <div class="team-title">
+                        <span class="subtitle">@team.Position</span>
+                        <h5>@team.Name</h5>
+                    </div>
                 </div>
-                <div class="team-title">
-                    <span class="subtitle">CEO</span>
-                    <h5 class="title">Ukolilix X. Xilanorix</h5>
-                </div>
-            </div>
-            <div class="single-team-item">
-                <div class="team-image">
-                    <img src="~/assets/images/team-02.png" alt="">
-                </div>
-                <div class="team-title">
-                    <span class="subtitle">CEO</span>
-                    <h5 class="title">Ukolilix X. Xilanorix</h5>
-                </div>
-            </div>
-            <div class="single-team-item">
-                <div class="team-image">
-                    <img src="~/assets/images/team-03.png" alt="">
-                </div>
-                <div class="team-title">
-                    <span class="subtitle">CEO</span>
-                    <h5 class="title">Ukolilix X. Xilanorix</h5>
-                </div>
-            </div>
-            <div class="single-team-item">
-                <div class="team-image">
-                    <img src="~/assets/images/team-04.png" alt="">
-                </div>
-                <div class="team-title">
-                    <span class="subtitle">CEO</span>
-                    <h5 class="title">Ukolilix X. Xilanorix</h5>
-                </div>
-            </div>
-            <div class="single-team-item">
-                <div class="team-image">
-                    <img src="~/assets/images/team-01.png" alt="">
-                </div>
-                <div class="team-title">
-                    <span class="subtitle">CEO</span>
-                    <h5 class="title">Ukolilix X. Xilanorix</h5>
-                </div>
-            </div>
+            }
         </div>
     </section>
     <div class="feature-about">
@@ -166,18 +123,19 @@
             <div class="row align-items-center">
                 <div class="col-lg-5">
                     <div class="feature-about-image my-3">
-                        <img src="~/assets/images/about-02.png" alt="about">
+                        <img src="~/assets/images/@Model.Settings["About-Feature-Img-2"]" alt="about">
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <div class="about-content content-right">
-                        <span class="subtitle">Features #01</span>
-                        <h4 class="title">Solutions that work together</h4>
+                        <span class="subtitle">
+                            @Model.Settings["About-Feature-2"]
+                        </span>
+                        <h4 class="title">
+                            @Model.Settings["About-Feature-Title-2"]
+                        </h4>
                         <p>
-                            Publish your eCommerce site quickly with our easy-to-use store builder— no
-                            coding required. Migrate your items from your point of sale system or turn your
-                            Instagram feed into a shopping site and start selling fast. Square Online works
-                            for all kinds of businesses—retail, restaurants, services.
+                            @Model.Settings["About-Feature-Desc-2"]
                         </p>
                         <a href="contact.html" class="btn btn-primary">Get In Touch</a>
                     </div>
@@ -186,18 +144,19 @@
             <div class="row align-items-center">
                 <div class="col-lg-5 order-lg-2">
                     <div class="feature-about-image my-3">
-                        <img src="~/assets/images/about-03.png" alt="about">
+                        <img src="~/assets/images/@Model.Settings["About-Feature-Img-3"]" alt="about">
                     </div>
                 </div>
                 <div class="col-lg-7 order-lg-1">
                     <div class="about-content content-left">
-                        <span class="subtitle">Features #01</span>
-                        <h4 class="title">Solutions that work together</h4>
+                        <span class="subtitle">
+                            @Model.Settings["About-Feature-3"]
+                        </span>
+                        <h4 class="title">
+                            @Model.Settings["About-Feature-Title-2"]
+                        </h4>
                         <p>
-                            Publish your eCommerce site quickly with our easy-to-use store builder— no
-                            coding required. Migrate your items from your point of sale system or turn your
-                            Instagram feed into a shopping site and start selling fast. Square Online works
-                            for all kinds of businesses—retail, restaurants, services.
+                            @Model.Settings["About-Feature-Desc-3"]
                         </p>
                         <a href="contact.html" class="btn btn-primary">Get In Touch</a>
                     </div>

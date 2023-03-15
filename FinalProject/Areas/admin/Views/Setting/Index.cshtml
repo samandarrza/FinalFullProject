@@ -20,7 +20,7 @@
                         <td class="col-md-1">
                         @if (setting.Value.Contains(".png") || setting.Value.Contains(".jpg"))
                         {
-                            <img width="100px" style="border-radius: 10px" src="~/assets/images/@setting.Value" />
+                            <img width="50px" max-height="40px" style="border-radius: 10px" src="~/assets/images/@setting.Value" />
                         }
                         else{
                                 @setting.Value

@@ -16,7 +16,7 @@
             <div class="cart-item">
                 <div class="item-img">
                     <a href="~/#"><img width="100px" height="100px" src="~/uploads/phones/@item.Phone.PhoneImages.FirstOrDefault(x => x.Status==true)?.Name" alt="Cart Product"></a>
-                    <button class="close-btn"><i class="las la-times"></i></button>
+                        <a class="close-items" asp-action="deletefromcart" asp-controller="phone" asp-route-phoneId="@item.Phone.Id"><button class="close-btn"><i class="las la-times"></i></button></a>
                 </div>
                 <div class="item-content">
                     <div class="product-rating">

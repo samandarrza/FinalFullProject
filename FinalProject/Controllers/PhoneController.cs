@@ -230,6 +230,75 @@ namespace FinalProject.Controllers
             }
             return PartialView("_BasketPartial", basket);
         }
+
+        public async Task<IActionResult> DeleteFromCart(int phoneId)
+        {
+
+            BasketVM basketVM = new BasketVM();
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = await _userManager.FindByNameAsync(User.Identity.Name);
+                var existBasketItem = _context.BasketItems.Where(x => x.AppUserId == user.Id).FirstOrDefault(x => x.PhoneId == phoneId);
+                if (existBasketItem == null)
+                    return NotFound();
+
+
+
+                _context.BasketItems.Remove(existBasketItem);
+                _context.SaveChanges();
+
+
+
+                var basketItems = _context.BasketItems
+                  .Include(x => x.Phone)
+                  .ThenInclude(x => x.PhoneImages)
+                  .Where(x => x.AppUserId == user.Id)
+                  .ToList();
+
+                foreach (var item in basketItems)
+                {
+                    BasketItemVM basketItemVM = new BasketItemVM
+                    {
+                        Phone = item.Phone,
+                        Count = item.Count
+                    };
+                    basketVM.Items.Add(basketItemVM);
+                    basketVM.TotalPrice += item.Count * (item.Phone.SalePrice * (100 - item.Phone.DiscountPercent) / 100);
+
+                }
+
+            }
+            else
+            {
+                var basket = HttpContext.Request.Cookies["basket"];
+                if (basket == null)
+                    return NotFound();
+
+                var basketList = JsonConvert.DeserializeObject<List<BasketItemCookieVM>>(basket);
+                var basketItem = basketList.FirstOrDefault(x => x.PhoneId == phoneId);
+                if (basketItem == null)
+                    return NotFound();
+
+                basketList.Remove(basketItem);
+
+                HttpContext.Response.Cookies.Append("basket", JsonConvert.SerializeObject(basketList));
+
+                foreach (var item in basketList)
+                {
+                    Phone phone = _context.Phones.Include(x => x.PhoneImages).FirstOrDefault(x => x.Id == item.PhoneId);
+                    BasketItemVM basketItemVM = new BasketItemVM
+                    {
+                        Phone = phone,
+                        Count = item.Count
+                    };
+                    basketVM.Items.Add(basketItemVM);
+                    basketVM.TotalPrice += item.Count * (phone.SalePrice * (100 - phone.DiscountPercent) / 100);
+
+                }
+            }
+            return PartialView("_BasketPartial", basketVM);
+        }
+
         public IActionResult GetSearch(string search)
         {
             var model = _context.Phones.Include(x=>x.PhoneModel).Include(x=>x.Memory)
