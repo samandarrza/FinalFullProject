@@ -1712,3 +1712,6 @@ a{
 #priceRange{
     background-color: transparent;
 }
+.order-body{
+    border-bottom: 1px solid silver;
+}

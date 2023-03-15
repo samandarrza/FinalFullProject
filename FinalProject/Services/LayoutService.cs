@@ -71,5 +71,26 @@ namespace FinalProject.Services
             return basket;
         }
 
+        public double GetTotalPrice()
+        {
+            double count = (double)_context.OrderItems.Sum(x=>x.SalePrice * (100 - x.DiscountPercent)/100 * x.Count);
+            return count;
+        }
+        public int GetTotalUser()
+        {
+            int count = (int)_context.AppUsers.Count();
+            return count;
+        }
+        public int TotalOrder()
+        {
+            int count = (int)_context.Orders.Count();
+            return count;
+        }
+        public int TotalSale()
+        {
+            int count = (int)_context.OrderItems.Sum(x=>x.Count);
+            return count;
+        }
+
     }
 }

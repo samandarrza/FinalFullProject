@@ -31,6 +31,5 @@ namespace FinalProject.ViewModels
         public IFormFile? ImageFile { get; set; }
 
         public List<Order>? Orders { get; set; }
-        public List<OrderItem>? OrderItems { get; set; }
     }
 }

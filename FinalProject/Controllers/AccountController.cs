@@ -2,13 +2,17 @@
 using FinalProject.Helpers;
 using FinalProject.Models;
 using FinalProject.ViewModels;
+using MailKit.Security;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MimeKit.Text;
+using MimeKit;
 using System.Data;
 using System.Linq;
-
+using System.Security.Claims;
+using MailKit.Net.Smtp;
 
 namespace FinalProject.Controllers
 {
@@ -32,13 +36,14 @@ namespace FinalProject.Controllers
 
             var order = _context.Orders.Include(x => x.OrderItems).Where(x => x.AppUserId == UserId).ToList();
 
+
             MemberUpdateVM memberVM = new MemberUpdateVM
             {
                 UserName = user.UserName,
                 FullName = user.FullName,
                 Image = user.Image,
                 Email = user.Email,
-                Orders = order
+                Orders = order,
 
             };
             return View(memberVM);
@@ -192,12 +197,131 @@ namespace FinalProject.Controllers
 
             return RedirectToAction("login");
         }
-
-        public async Task<IActionResult> Logout()
+        public IActionResult GoogleLogin()
         {
+            string redirectUrl = Url.Action("GoogleResponse", "Account", Request.Scheme);
+
+            var properties = _signInManager.ConfigureExternalAuthenticationProperties("Google", redirectUrl);
+            return new ChallengeResult("Google", properties);
+        }
+
+        //[AllowAnonymous]
+        public async Task<IActionResult> GoogleResponse()
+        {
+            var info = await _signInManager.GetExternalLoginInfoAsync();
+            if (info == null) RedirectToAction("Login");
+
+            var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, false);
+            string[] userInfo = { info.Principal.FindFirst(ClaimTypes.Name).Value, info.Principal.FindFirst(ClaimTypes.Email).Value, info.Principal.FindFirst(ClaimTypes.NameIdentifier).Value, };
+
+            if (result.Succeeded)
+            {
+                return RedirectToAction("index", "home");
+            }
+            else
+            {
+                AppUser user = new AppUser
+                {
+                    FullName = info.Principal.FindFirst(ClaimTypes.Name).Value,
+                    Email = info.Principal.FindFirst(ClaimTypes.Email).Value,
+                    UserName = info.Principal.FindFirst(ClaimTypes.Email).Value,
+                    Image = "default.jpg"
+                };
+
+                var createResult = await _userManager.CreateAsync(user);
+
+                var role = await _userManager.AddToRoleAsync(user, "Member");
+                if (createResult.Succeeded)
+                {
+                    createResult = await _userManager.AddLoginAsync(user, info);
+                    if (createResult.Succeeded)
+                    {
+                        await _signInManager.SignInAsync(user, false);
+                        return RedirectToAction("index", "home");
+                    }
+                }
+
+                return Unauthorized();
+            }
+
+
+        }
+
+
+            public async Task<IActionResult> Logout()
+            {
             await _signInManager.SignOutAsync();
 
             return RedirectToAction("index", "home");
+            }
+
+        public async Task<IActionResult> ForgotPassword()
+        {
+            return View();
         }
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordVM forgotPassword)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(forgotPassword.Email);
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+            var url = Url.Action("VerifyPasswordReset", "Account", new { email = user.Email, token = token }, Request.Scheme);
+
+            var email = new MimeMessage();
+            email.From.Add(MailboxAddress.Parse("samandarshr@code.edu.az"));
+            email.To.Add(MailboxAddress.Parse(user.Email));
+            email.Subject = "Reset your password!";
+            email.Body = new TextPart(TextFormat.Html) { Text = $"<h1>Hi,{user.FullName}, please click <a href=\"{url}\">here</a> to reset password! </h1>" };
+
+            using var smtp = new SmtpClient();
+            smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+            smtp.Authenticate("samandarshr@code.edu.az", "xqgevesgpzwitxik");
+            smtp.Send(email);
+            smtp.Disconnect(true);
+
+            return View();
+        }
+
+        public async Task<IActionResult> VerifyPasswordReset(string email, string token)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(email);
+
+            if (user == null || !await _userManager.VerifyUserTokenAsync(user,
+                _userManager.Options.Tokens.PasswordResetTokenProvider, "ResetPassword", token))
+                return NotFound();
+
+            TempData["Email"] = email;
+            TempData["token"] = token;
+
+            return RedirectToAction("ResetPassword");
+        }
+
+        public IActionResult ResetPassword()
+        {
+            var email = TempData["Email"];
+            var token = TempData["token"];
+
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(PasswordResetVM resetVM)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(resetVM.Email);
+            if (user == null)
+                return  RedirectToAction("error","home");
+
+            var result = await _userManager.ResetPasswordAsync(user, resetVM.Token, resetVM.Password);
+            if (!result.Succeeded)
+            {
+                foreach (var err in result.Errors)
+                {
+                    ModelState.AddModelError("", err.Description);
+                }
+                return View();
+            }
+            return RedirectToAction("login");
+        }
+
     }
 }

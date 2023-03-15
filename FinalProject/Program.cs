@@ -33,7 +33,11 @@ builder.Services.ConfigureApplicationCookie(options =>
         return Task.CompletedTask;
     };
 });
-
+builder.Services.AddAuthentication().AddGoogle(opt =>{
+    opt.ClientId = "639788485977-df4n5uov911384j47u85c2v54blit7ah.apps.googleusercontent.com";
+    opt.ClientSecret = "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";
+    opt.SignInScheme = IdentityConstants.ExternalScheme;
+});
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -48,8 +52,6 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthentication();
-app.UseAuthorization();
-
 app.UseAuthorization();
 
 app.MapControllerRoute(
