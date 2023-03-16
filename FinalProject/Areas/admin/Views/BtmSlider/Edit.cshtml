@@ -1,0 +1,36 @@
+﻿@model BtmPromotion
+<div class="container">
+    <h4>Slider / Create</h4>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form asp-action="edit" method="post" enctype="multipart/form-data">
+                    
+                    <div class="form-group">
+                        <label asp-for="Title">Promotion</label>
+                        <input asp-for="Title" class="form-control" id="nameInput">
+                        <span class="text-danger" asp-validation-for="Title"></span>
+                    </div> 
+                    <div class="form-group">
+                        <label asp-for="BtnText">BtnText</label>
+                        <input asp-for="BtnText" class="form-control" id="nameInput">
+                        <span class="text-danger" asp-validation-for="BtnText"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RedirectUrl">Redirect Url</label>
+                        <input asp-for="RedirectUrl" class="form-control" id="nameInput">
+                        <span class="text-danger" asp-validation-for="RedirectUrl"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ImageFile">ImageFile</label>
+                        <input asp-for="ImageFile" class="form-control">
+                        <img width="100px" style="border-radius: 10px" src="~/uploads/sliders/@Model.Image" />
+                        <span class="text-danger" asp-validation-for="ImageFile"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary m-2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

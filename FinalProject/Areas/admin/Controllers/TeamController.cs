@@ -57,9 +57,55 @@ namespace FinalProject.Areas.admin.Controllers
         }
 
 
-        public IActionResult Edit()
+        public IActionResult Edit(int id)
         {
-            return View();
+            Team team = _context.Teams.FirstOrDefault(x => x.Id == id);
+            if (team == null)
+                return RedirectToAction("error", "dashboard");
+
+            return View(team);
+        }
+        [HttpPost]
+        public IActionResult Edit(Team team)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            if (_context.Teams.Any(x => x.Name == team.Name && x.Id != team.Id))
+            {
+                ModelState.AddModelError("Name", "Bu adda data var");
+                return View();
+            }
+            if (team == null)
+            {
+                return View();
+            }
+            Team existTeam = _context.Teams.FirstOrDefault(x => x.Id == team.Id);
+            if (existTeam == null)
+            {
+                return RedirectToAction("Index");
+            }
+            if (team.ImageFile != null)
+            {
+                var newImage = FileManager.Save(team.ImageFile, _env.WebRootPath, "uploads/team");
+                FileManager.Delete(_env.WebRootPath, "uploads/team", existTeam.Image);
+                existTeam.Image = newImage;
+            }
+            existTeam.Name = team.Name;
+            existTeam.Position = team.Position;
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            Team team = _context.Teams.FirstOrDefault(x => x.Id == id);
+            if (team == null)
+                return RedirectToAction("error", "dashboard");
+            _context.Teams.Remove(team);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

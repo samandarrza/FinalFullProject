@@ -51,50 +51,16 @@
     <section class="main-category container">
       <h3 class="main-category-title">Show all category</h3>
       <div class="category slider">
-        <div class="category-items">
-          <img src="assets/images/elec-1.png">
-          <p>Phones</p>
-        </div>
-        <div class="category-items">
-          <img src="assets/images/elec-2.png">
-          <p>Phones</p>
-
-        </div>
-        <div class="category-items">
-          <img src="assets/images/elec-9.png">
-          <p>Phones</p>
-
-        </div>
-        <div class="category-items">
-          <img src="assets/images/elec-4.png">
-          <p>Phones</p>
-
-        </div>
-        <div class="category-items">
-          <img src="assets/images/elec-5.png">
-          <p>Phones</p>
-
-        </div>
-        <div class="category-items">
-          <img src="assets/images/elec-6.png">
-          <p>Phones</p>
-
-        </div>
-        <div class="category-items">
-          <img src="assets/images/elec-7.png">
-          <p>Phones</p>
-
-        </div>
-        <div class="category-items">
-          <img src="assets/images/elec-8.png">
-          <p>Phones</p>
-
-        </div>
-        <div class="category-items">
-          <img src="assets/images/elec-9.png">
-          <p>Phones</p>
-
-        </div>
+          @foreach (var item in Model.PhoneModels)
+          {
+                <div class="category-items">
+                    <a asp-controller="shop" asp-route-phoneModelId="@item.Id">
+                         <img src="assets/images/elec-4.png">
+                    <p>@item.Name</p>
+                    </a>
+                   
+                </div>
+            }
       </div>
     </section>
     <section class="container mt-5 mb-5">
@@ -168,126 +134,28 @@
     <section class="review-main">
       <div class="container">
         <div class="review-slider">
-          <div class="review-slider-items">
-            <div class="main-review">
-              <div class="review-speech m-2 p-2 border review">
-                <p>“ It’s amazing how much easier it has been to
-                  meet new people and create instantly non
-                  connections. I have the exact same personal
-                  the only thing that has changed is my mind
-                  set and a few behaviors. “</p>
-              </div>
-              <div class="review-user">
-                <div class="user-image">
-                  <img src="assets/images/image-1.png" alt="testimonial image">
-                </div>
-                <div class="user-title">
-                  <span class="designation">Head Of Idea</span>
-                  <h6 class="title">James C. Anderson</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="review-slider-items">
-            <div class="main-review">
-              <div class="review-speech m-2 p-2 border review">
-                <p>“ It’s amazing how much easier it has been to
-                  meet new people and create instantly non
-                  connections. I have the exact same personal
-                  the only thing that has changed is my mind
-                  set and a few behaviors. “</p>
-              </div>
-              <div class="review-user">
-                <div class="user-image">
-                  <img src="assets/images/image-2.png" alt="testimonial image">
-                </div>
-                <div class="user-title">
-                  <span class="designation">Head Of Idea</span>
-                  <h6 class="title">James C. Anderson</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="review-slider-items">
-            <div class="main-review">
-              <div class="review-speech m-2 p-2 border review">
-                <p>“ It’s amazing how much easier it has been to
-                  meet new people and create instantly non
-                  connections. I have the exact same personal
-                  the only thing that has changed is my mind
-                  set and a few behaviors. “</p>
-              </div>
-              <div class="review-user">
-                <div class="user-image">
-                  <img src="assets/images/image-3.png" alt="testimonial image">
-                </div>
-                <div class="user-title">
-                  <span class="designation">Head Of Idea</span>
-                  <h6 class="title">James C. Anderson</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="review-slider-items">
-            <div class="main-review">
-              <div class="review-speech m-2 p-2 border review">
-                <p>“ It’s amazing how much easier it has been to
-                  meet new people and create instantly non
-                  connections. I have the exact same personal
-                  the only thing that has changed is my mind
-                  set and a few behaviors. “</p>
-              </div>
-              <div class="review-user">
-                <div class="user-image">
-                  <img src="assets/images/image-1.png" alt="testimonial image">
-                </div>
-                <div class="user-title">
-                  <span class="designation">Head Of Idea</span>
-                  <h6 class="title">James C. Anderson</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="review-slider-items">
-            <div class="main-review">
-              <div class="review-speech m-2 p-2 border review">
-                <p>“ It’s amazing how much easier it has been to
-                  meet new people and create instantly non
-                  connections. I have the exact same personal
-                  the only thing that has changed is my mind
-                  set and a few behaviors. “</p>
-              </div>
-              <div class="review-user">
-                <div class="user-image">
-                  <img src="assets/images/image-2.png" alt="testimonial image">
-                </div>
-                <div class="user-title">
-                  <span class="designation">Head Of Idea</span>
-                  <h6 class="title">James C. Anderson</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="review-slider-items">
-            <div class="main-review">
-              <div class="review-speech m-2 p-2 border review">
-                <p>“ It’s amazing how much easier it has been to
-                  meet new people and create instantly non
-                  connections. I have the exact same personal
-                  the only thing that has changed is my mind
-                  set and a few behaviors. “</p>
-              </div>
-              <div class="review-user">
-                <div class="user-image">
-                  <img src="assets/images/image-3.png" alt="testimonial image">
-                </div>
-                <div class="user-title">
-                  <span class="designation">Head Of Idea</span>
-                  <h6 class="title">James C. Anderson</h6>
-                </div>
-              </div>
-            </div>
-          </div>
+            @foreach (var item in Model.Reviews)
+            {
+                    <div class="review-slider-items">
+                        <div class="main-review">
+                            <div class="review-speech m-2 p-2 border review">
+                                <p>
+                                    @item.Text
+                                </p>
+                            </div>
+                            <div class="review-user">
+                                <div class="user-image">
+                                    <img width="64px" height="64px" src="~/uploads/userImage/@item.AppUser.Image" alt="testimonial image">
+                                </div>
+                                <div class="user-title">
+                                    <span class="designation">@item.AppUser.UserName</span>
+                                    <h6 class="title">@item.AppUser.FullName</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }
         </div>
       </div>
     </section>
@@ -477,9 +345,9 @@
               {
                   <div class="col-lg-6 py-2">
               <div class="single-poster">
-                <a href="@poster.RedirectUrl">
-                  <img src="~/assets/images/@poster.Image" alt="eTrade promotion poster">
-                  <div class="poster-content @(poster.Id%2==0? "content-left":"content-right")">
+                                <a href="~/shop?search=@poster.RedirectUrl">
+                  <img width="640px" height="260px" src="~/uploads/sliders/@poster.Image" alt="eTrade promotion poster">
+                                    <div class="poster-content @(poster.Id%2==0? "content-right":"content-right")">
                     <div class="inner">
                       <h3 class="title">@poster.Title</h3>
                       <span class="sub-title">@poster.BtnText <i class="las la-long-arrow-alt-right"></i></span>

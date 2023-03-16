@@ -104,12 +104,11 @@
                                 </p>
                             </div>
                             <div class="product-color my-2">
-                                <span style="color: @Model.Phone.Color.Name">Colors: @Model.Phone.Color.Name</span>
+                                <span>Colors: @Model.Phone.Color.Name</span>
                             </div>                         
                             <div class="main-product-cart">
-                                <span class="btn btn-min">-</span><input type="text" value="1" readonly><span class="btn btn-min">+</span>
-                                <button class="btn btn-primary">Add to Cart</button>
-                                <button class="btn btn-danger">Whishlist</button>
+                                <a asp-action="addtobasket" asp-controller="phone" asp-route-phoneId="@Model.Phone.Id" class="add-to-basket btn btn-primary p-2 m-1">Add to Cart</a>
+                                <a asp-action="addtowishlist" asp-controller="phone" asp-route-phoneId="@Model.Phone.Id" class="add-to-wishlist btn btn-danger p-2 m-1">Whishlist</a>
                             </div>
                         </div>
                     </div>

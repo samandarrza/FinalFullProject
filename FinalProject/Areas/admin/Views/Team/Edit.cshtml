@@ -1,7 +1,29 @@
-﻿
-@{
-    ViewData["Title"] = "Edit";
-}
-
-<h1>Edit</h1>
-
+﻿@model Team
+<div class="container-fluid">
+    <h4>Edit</h4>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form asp-action="edit" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="ImageFile">Image</label>
+                        <input asp-for="ImageFile" class="form-control">
+                        <img width="50px" style="border-radius: 10px" src="~/uploads/team/@Model.Image" />
+                        <span class="text-danger" asp-validation-for="ImageFile"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Name">Name</label>
+                        <input asp-for="Name" type="text" class="form-control" id="nameInput">
+                        <span class="text-danger" asp-validation-for="Name"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Position">Position</label>
+                        <input asp-for="Position" type="text" class="form-control" id="nameInput">
+                        <span class="text-danger" asp-validation-for="Position"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary m-2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

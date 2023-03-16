@@ -11,6 +11,8 @@ namespace FinalProject.ViewModels
         public List<Phone> MostSoldPhones { get; set; }
         public List<Phone> IsNewPhones { get; set; }
         public List<Phone> DiscountedPhones { get; set; }
+        public List<PhoneModel> PhoneModels { get; set; }
+        public List<Review> Reviews { get; set; }
 
     }
 }

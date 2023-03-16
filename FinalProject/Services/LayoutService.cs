@@ -140,5 +140,11 @@ namespace FinalProject.Services
             return count;
         }
 
+        public List<Contact> Contacts()
+        {
+            var contacts = _context.Contacts.ToList();
+            return contacts;
+        }
+
     }
 }

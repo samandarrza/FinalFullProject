@@ -4,6 +4,7 @@ using FinalProject.Helpers;
 using FinalProject.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 
@@ -33,6 +34,7 @@ namespace FinalProject.Areas.admin.Controllers
             .Include(x => x.PhoneSystem)
             .Include(x => x.ProcessorName)
             .Include(x => x.RAM)
+            .Include(x => x.Reviews)
             .Include(x => x.PhoneImages);
             var model = PaginatedList<Phone>.Create(query, page, 5);
             return View(model);
@@ -344,6 +346,16 @@ namespace FinalProject.Areas.admin.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("index");
+        }
+        public IActionResult Review(int id, int page = 1)
+        {
+            Phone phone = _context.Phones.Include(x=>x.Reviews).ThenInclude(x=>x.AppUser).FirstOrDefault(x => x.Id == id);
+            ViewBag.Page = page;
+            ViewBag.TotalPage = (int)Math.Ceiling(_context.Reviews.Count() / 5d);
+            if (phone == null)
+                return RedirectToAction("error", "dashboard");
+
+            return View(phone);
         }
     }
 }

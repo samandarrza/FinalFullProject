@@ -47,6 +47,7 @@ namespace FinalProject.Areas.admin.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "SuperAdmin,Admin")]
         public async Task<IActionResult> CreateAdmin(AdminCreatedVM createdVM)
         {
             if (!ModelState.IsValid)

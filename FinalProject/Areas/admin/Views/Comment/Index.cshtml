@@ -1,0 +1,67 @@
+﻿@model List<Contact>
+@{
+    int selectedPage = ViewBag.Page;
+    int totalPage = ViewBag.TotalPage;
+    int order = (selectedPage - 1) * 5;
+}
+<main class="container p-2">
+    <div class="d-flex justify-content-between">
+        <h2>Contact Comments</h2>
+        <a asp-action="create" class="btn btn-primary">Create</a>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 m-auto">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="col-md-1">#</th>
+                        <th class="col-md-2">Fullname</th>
+                        <th class="col-md-6">Note</th>
+                        <th class="col-md-2">Time</th>
+                        <th class="col-md-1" ">Delete</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        order++;
+                        <tr>
+                            <th class="fw-bold">@order</th>
+                            <td>@item.FullName</td>
+                            <td>@item.Note</td>
+                            <td>@item.CreatedAt.ToString("dd MMMM, yyyy")</td>
+                            <td>
+                                <a href="comment/delete/@item.Id" class="trash-btn btn btn-danger">Delete</a>
+                                </td>
+
+                        </tr>
+                    }
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item @(selectedPage == 1 ? "disabled":"")">
+                        <a class="page-link" asp-action="index" asp-route-page="@(selectedPage-1)" tabindex="-1">Previous</a>
+                    </li>
+                    @for (var i = 1; i <= totalPage; i++)
+                    {
+                        <li class="page-item @(i==selectedPage?"active":"")"><a class="page-link" asp-action="index" asp-route-page="@i">@i</a></li>
+                    }
+                    <li class="page-item  @(selectedPage == totalPage ? "disabled":"") ">
+                        <a class="page-link" asp-action="index" asp-route-page="@(selectedPage+1)">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</main>
+
+
+

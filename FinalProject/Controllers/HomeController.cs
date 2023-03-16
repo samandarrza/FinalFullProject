@@ -21,6 +21,8 @@ namespace FinalProject.Controllers
             {
                 Sliders = _context.Sliders.ToList(),
                 BtmPromotions = _context.BtmPromotions.ToList(),
+                PhoneModels = _context.PhoneModels.ToList(),
+                Reviews = _context.Reviews.Include(x=>x.AppUser).ToList(),
                 Settings = _context.Settings.ToDictionary(x => x.Key, x => x.Value),
                 IsNewPhones = _context.Phones.Include(x => x.PhoneImages).Include(x => x.Reviews).ThenInclude(x => x.AppUser)
                 .Include(x => x.PhoneModel).Include(x => x.Memory).Where(x=>x.IsNew).Take(20).ToList(),
