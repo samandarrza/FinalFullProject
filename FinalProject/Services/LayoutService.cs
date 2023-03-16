@@ -71,6 +71,54 @@ namespace FinalProject.Services
             return basket;
         }
 
+
+        public WishlistVM GetWistlist()
+        {
+            WishlistVM wishlist = new WishlistVM();
+
+            if (_contextAccessor.HttpContext.User.Identity.IsAuthenticated && _contextAccessor.HttpContext.User.IsInRole("Member"))
+            {
+                string userId = _contextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+                var model = _context.wishlistItems.Include(x => x.Phone).ThenInclude(x => x.PhoneImages).Where(x => x.AppUserId == userId).ToList();
+                foreach (var item in model)
+                {
+                    WishlistItemVM itemVM = new WishlistItemVM
+                    {
+                        Phone = item.Phone,
+                        Id = item.Id
+                    };
+                    wishlist.Items.Add(itemVM);
+                    wishlist.totalPrice += (item.Phone.SalePrice * (100 - item.Phone.DiscountPercent) / 100);
+                }
+            }
+            else
+            {
+                var wishlistStr = _contextAccessor.HttpContext.Request.Cookies["wishlist"];
+                List<WishlistItemCookieVM> wishlistItemsCookie = new List<WishlistItemCookieVM>();
+                if (wishlistStr != null)
+                {
+                    wishlistItemsCookie = JsonConvert.DeserializeObject<List<WishlistItemCookieVM>>(wishlistStr);
+                }
+
+                foreach (var item in wishlistItemsCookie)
+                {
+                    Phone phone = _context.Phones.Include(x => x.PhoneImages).FirstOrDefault(x => x.Id == item.PhoneId);
+                    WishlistItemVM itemVM = new WishlistItemVM
+                    {
+                        Phone = phone,
+                        Id = 0
+                    };
+                    wishlist.Items.Add(itemVM);
+                    wishlist.totalPrice += (itemVM.Phone.SalePrice * (100 - itemVM.Phone.DiscountPercent) / 100);
+                }
+            }
+
+            return wishlist;
+        }
+
+
+
         public double GetTotalPrice()
         {
             double count = (double)_context.OrderItems.Sum(x=>x.SalePrice * (100 - x.DiscountPercent)/100 * x.Count);

@@ -146,17 +146,17 @@
                 <div class="toggle-list">
                     <div class="shop-submenu">
                         <h6 class="title">COLOUR</h6>
+                        <div class="d-flex">
+
                         @foreach (var color in Model.Colors)
                         {
                             <div class="form-check">
-                                <input form="filter-form" type="checkbox" @(ViewBag.SelectedColorIds.Contains(color.Id)?"checked":"") name="colorId" id="color-@color.Id" value="@color.Id">
-                                <label class="form-check-label" for="color-@color.Id">
-                                    @color.Name
-                                </label>
-                                <span class="categorey-no"> - @color.Phones.Count</span>
+                                <input class="shop_check" style="background-color:@color.Name" form="filter-form" type="checkbox" @(ViewBag.SelectedColorIds.Contains(color.Id)?"checked":"") name="colorId" id="color-@color.Id" value="@color.Id">
+                                <label class="form-check-label" for="color-@color.Id"></label>
                             </div>
                         }
-                        
+                        </div>
+
                     </div>
                 </div>
                 <div class="toggle-list">

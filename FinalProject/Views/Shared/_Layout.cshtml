@@ -5,6 +5,8 @@
 @{
     AppUser user = null;
     BasketVM basket = layoutService.GetBasket();
+    WishlistVM wishlist = layoutService.GetWistlist();
+
     if (User.Identity.IsAuthenticated && User.IsInRole("Member"))
     {
         user = _userManager.FindByNameAsync(User.Identity.Name).Result;
@@ -51,14 +53,18 @@
                         <li class="menu-button mx-2  fw-bold @(ViewContext.RouteData.Values["Controller"].ToString()=="About"?"active":"")">@Html.ActionLink("About","Index","About", new { area = ""}, new{})</li></a>
           </div>
           <div class="icon">
-            <a href="~/" data-bs-toggle="modal" data-bs-target="#search"><i class="main-icon las la-search"></i></a>
-            <a href="~/"><i class="main-icon las la-heart"></i></a>
-            <span class="main-shopping-cart">
+                        <a href="~/" data-bs-toggle="modal" data-bs-target="#search"><i class="main-icon las la-search"></i></a>
+                        <span class="main-shopping-cart">
+                            <a asp-action="whistlist"><i class="main-icon las la-heart"></i></a>
+                            <span id="addtowishlist">@await Html.PartialAsync("_WishlistPartial",wishlist)</span>
+                        </span>
+
+                        <span class="main-shopping-cart">
                             <a data-bs-toggle="offcanvas" data-bs-target="#addtocart" aria-controls="addtocart"><i class="main-icon las la-shopping-cart"></i></a>
                             <span id="addtobasket">@await Html.PartialAsync("_BasketPartial",basket)</span>
-            </span>
+                        </span>
             
-                <div class="dropdown">
+                        <div class="dropdown">
                             @if (User.Identity.IsAuthenticated && User.IsInRole("Member"))
                                {
                                 <a role="button" id="dropdownMenuLink"

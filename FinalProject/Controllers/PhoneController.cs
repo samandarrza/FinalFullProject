@@ -299,6 +299,104 @@ namespace FinalProject.Controllers
             return PartialView("_BasketPartial", basketVM);
         }
 
+        public async Task<IActionResult> AddToWhishlist(int phoneId)
+        {
+            AppUser user = null;
+
+            if (User.Identity.IsAuthenticated)
+            {
+                user = await _userManager.FindByNameAsync(User.Identity.Name);
+            }
+
+            WishlistVM wishlist = new WishlistVM();
+
+            if (!_context.Phones.Any(x => x.Id == phoneId && x.StockStatus))
+            {
+                return NotFound();
+            }
+
+            if (user != null)
+            {
+                wishlistItem wishlistItem = _context.wishlistItems.FirstOrDefault(x => x.PhoneId == phoneId && x.AppUserId == user.Id);
+
+                if (wishlistItem == null)
+                {
+                    wishlistItem = new wishlistItem
+                    {
+                        AppUserId = user.Id,
+                        PhoneId = phoneId,
+                    };
+                    _context.wishlistItems.Add(wishlistItem);
+                }
+                else
+                {
+                    _context.wishlistItems.Remove(wishlistItem);
+                }
+
+                _context.SaveChanges();
+
+                var model = _context.wishlistItems.Include(x => x.Phone).ThenInclude(x => x.PhoneImages)
+                    .Where(x => x.AppUserId == user.Id).ToList();
+
+                foreach (var item in model)
+                {
+                    WishlistItemVM itemVM = new WishlistItemVM
+                    {
+                        Phone = item.Phone,
+                        Id = item.Id
+                    };
+                    wishlist.Items.Add(itemVM);
+                    wishlist.totalPrice += (item.Phone.SalePrice * (100 - item.Phone.DiscountPercent) / 100);
+                }
+            }
+            else
+            {
+                var wishlistStr = HttpContext.Request.Cookies["wishlist"];
+                List<WishlistItemCookieVM> wishlistItemCookie = null;
+
+                if (wishlistStr == null)
+                {
+                    wishlistItemCookie = new List<WishlistItemCookieVM>();
+                }
+                else
+                {
+                    wishlistItemCookie = JsonConvert.DeserializeObject<List<WishlistItemCookieVM>>(wishlistStr);
+                }
+
+                WishlistItemCookieVM wishlistCookieItem = wishlistItemCookie.FirstOrDefault(x => x.PhoneId == phoneId);
+
+                if (wishlistCookieItem == null)
+                {
+                    wishlistCookieItem = new WishlistItemCookieVM
+                    {
+                        PhoneId = phoneId,
+                    };
+
+                    wishlistItemCookie.Add(wishlistCookieItem);
+                }
+                else
+                {
+                    wishlistItemCookie.Remove(wishlistCookieItem);
+                }
+
+                var jsonStr = JsonConvert.SerializeObject(wishlistItemCookie);
+                HttpContext.Response.Cookies.Append("basket", jsonStr);
+
+                foreach (var item in wishlistItemCookie)
+                {
+                    Phone phone = _context.Phones.Include(x => x.PhoneImages).FirstOrDefault(x => x.Id == item.PhoneId);
+                    WishlistItemVM itemVM = new WishlistItemVM
+                    {
+                        Phone = phone,
+                        Id = 0
+                    };
+                    wishlist.Items.Add(itemVM);
+                    wishlist.totalPrice += (itemVM.Phone.SalePrice * (100 - itemVM.Phone.DiscountPercent) / 100);
+                }
+            }
+            return PartialView("_WishlistPartial", wishlist);
+        }
+
         public IActionResult GetSearch(string search)
         {
             var model = _context.Phones.Include(x=>x.PhoneModel).Include(x=>x.Memory)

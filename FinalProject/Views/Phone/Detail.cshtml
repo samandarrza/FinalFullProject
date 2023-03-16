@@ -103,28 +103,9 @@
                                     elementum eget magna. Pellentesque sagittis dictum libero, eu dignissim tellus.
                                 </p>
                             </div>
-                            <div class="product-color">
-                                <span>Colors:</span>
-                                <input type="radio" name="color" id="color-1" checked hidden>
-                                <input type="radio" name="color" id="color-2" hidden>
-                                <input type="radio" name="color" id="color-3" hidden>
-                                <input type="radio" name="color" id="color-4" hidden>
-
-                                <div class="product-nav">
-                                    <label for="color-1"></label>
-                                    <label for="color-2"></label>
-                                    <label for="color-3"></label>
-                                    <label for="color-4"></label>
-                                </div>
-                            </div>
-                            <div class="product-size">
-                                <span>Size:</span>
-                                <span>XS</span>
-                                <span>S</span>
-                                <span>M</span>
-                                <span>L</span>
-                                <span>XL</span>
-                            </div>
+                            <div class="product-color my-2">
+                                <span style="color: @Model.Phone.Color.Name">Colors: @Model.Phone.Color.Name</span>
+                            </div>                         
                             <div class="main-product-cart">
                                 <span class="btn btn-min">-</span><input type="text" value="1" readonly><span class="btn btn-min">+</span>
                                 <button class="btn btn-primary">Add to Cart</button>

@@ -33,5 +33,6 @@ namespace FinalProject.DAL
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<wishlistItem> wishlistItems { get; set; }
     }
 }
