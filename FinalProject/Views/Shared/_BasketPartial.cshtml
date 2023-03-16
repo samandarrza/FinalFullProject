@@ -19,15 +19,15 @@
                         <a class="close-items" asp-action="deletefromcart" asp-controller="phone" asp-route-phoneId="@item.Phone.Id"><button class="close-btn"><i class="las la-times"></i></button></a>
                 </div>
                 <div class="item-content">
-                    <div class="product-rating">
-                        <span class="product-icon">
-                            <i class="las la-star"></i>
-                            <i class="las la-star"></i>
-                            <i class="las la-star"></i>
-                            <i class="las la-star"></i>
-                            <i class="las la-star"></i>
-                        </span>
-                    </div>
+
+                        <div class="product-rating">
+                            <span class="product-rating">
+                                @for (var i = 1; i <= 5; i++)
+                                {
+                                    <i class="las la-star  @(item.Phone.AvgRate>=i?"star-on":"")"></i>
+                                }
+                            </span>
+                        </div>
                     <p class="h6 item-title"><a href="~/#">@item.Phone.Name</a></p>
                     <div class="item-price"><span class="currency-symbol">@item.Count - ₼</span>@((item.Phone.SalePrice * (100 - item.Phone.DiscountPercent) / 100).ToString("0.00"))</div>
                 </div>
@@ -39,8 +39,7 @@
         <div class="d-flex justify-content-between p-3">
             <span class="fw-bold">Total:</span><span>₼@Model.TotalPrice.ToString("0.00")</span>
         </div>
-        <div class="d-flex justify-content-between px-3">
-            <a class="btn btn-primary">View Cart</a>
+        <div class="d-flex justify-content-end px-3">
             <a asp-action="checkout" asp-controller="order" class="btn btn-danger">Checkout</a>
         </div>
 

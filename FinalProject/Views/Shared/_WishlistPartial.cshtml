@@ -1,3 +1,56 @@
 ﻿@model WishlistVM
 
+
 <sup class="cart-num">@Model.Items.Count</sup>
+<span class="whishlist-cart-modal">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="addtowish" aria-labelledby="addtowishLabel">
+        <div class="offcanvas-header">
+            <div class="addtowishLabel">
+                <h2 class="header-title">Wishlist review</h2>
+            </div>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            @foreach (var item in Model.Items)
+            {
+                <div class="cart-item">
+                    <div class="item-img">
+                        <a href="~/#"><img width="100px" height="100px" src="~/uploads/phones/@item.Phone.PhoneImages.FirstOrDefault(x => x.Status==true)?.Name" alt="Cart Product"></a>
+                        <a class="close-items add-to-wishlist" asp-action="addtowishlist" asp-controller="phone" asp-route-phoneId="@item.Phone.Id"><button class="close-btn"><i class="las la-times"></i></button></a>
+                    </div>
+                    <div class="item-content">
+                      <div>
+                            <div class="product-rating">
+                                <span class="product-rating">
+                                    @for (var i = 1; i <= 5; i++)
+                                    {
+                                        <i class="las la-star  @(item.Phone.AvgRate>=i?"star-on":"")"></i>
+                                    }
+                                </span>
+                            </div>
+                                <p class="h6 item-title"><a href="~/#">@item.Phone.Name</a></p>
+                                <div class="item-price"><span class="currency-symbol">₼</span>@((item.Phone.SalePrice * (100 - item.Phone.DiscountPercent) / 100).ToString("0.00"))</div>
+
+                                <a asp-action="addtobasket" asp-controller="phone" asp-route-phoneId="@item.Phone.Id" class="add-to-basket btn btn-primary m-1 p-1">
+                                    Add to cart
+                                </a>
+
+                          </div>
+                          
+                        
+                    </div>
+                </div>
+
+            }
+        </div>
+        <div class="offcanvas-footer text-center p-3">
+            <div class="d-flex justify-content-between p-3">
+                <span class="fw-bold">Total:</span><span>₼@Model.totalPrice.ToString("0.00")</span>
+            </div>
+            <div class="d-flex justify-content-between px-3">
+            </div>
+
+
+        </div>
+    </div>
+</span>

@@ -17,6 +17,26 @@
         })
 })
 
+
+$(document).on("click", ".add-to-wishlist", function (e) {
+    e.preventDefault();
+    let url = $(this).attr("href");
+
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                toastr["error"]("Product is out of stock")
+                return;
+            }
+            else {
+                toastr["success"]("Wishlist")
+                return response.text();
+            }
+        }).then(html => {
+            $("#addtowishlist").html(html)
+        })
+})
+
 $(document).on("click", ".close-items", function (e) {
     e.preventDefault();
     let link = $(this).attr("href");

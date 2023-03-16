@@ -11,7 +11,7 @@ using System.Data;
 
 namespace FinalProject.Controllers
 {
-    public class PhoneController : Controller
+    public class PhoneController : BaseController
     {
         private readonly EtradeDbContext _context;
         private readonly UserManager<AppUser> _userManager;
@@ -299,7 +299,7 @@ namespace FinalProject.Controllers
             return PartialView("_BasketPartial", basketVM);
         }
 
-        public async Task<IActionResult> AddToWhishlist(int phoneId)
+        public async Task<IActionResult> AddToWishlist(int phoneId)
         {
             AppUser user = null;
 
@@ -380,7 +380,7 @@ namespace FinalProject.Controllers
                 }
 
                 var jsonStr = JsonConvert.SerializeObject(wishlistItemCookie);
-                HttpContext.Response.Cookies.Append("basket", jsonStr);
+                HttpContext.Response.Cookies.Append("wishlist", jsonStr);
 
                 foreach (var item in wishlistItemCookie)
                 {
@@ -399,6 +399,7 @@ namespace FinalProject.Controllers
 
         public IActionResult GetSearch(string search)
         {
+
             var model = _context.Phones.Include(x=>x.PhoneModel).Include(x=>x.Memory)
                 .Include(x => x.PhoneImages)
                 .Where(x => x.Name.Contains(search)).Take(4).ToList();
