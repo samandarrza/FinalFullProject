@@ -9,13 +9,14 @@
                 <h2 class="header-title">Wishlist review</h2>
             </div>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
         </div>
         <div class="offcanvas-body">
             @foreach (var item in Model.Items)
             {
                 <div class="cart-item">
                     <div class="item-img">
-                        <a href="~/#"><img width="100px" height="100px" src="~/uploads/phones/@item.Phone.PhoneImages.FirstOrDefault(x => x.Status==true)?.Name" alt="Cart Product"></a>
+                        <a href="~/phone/detail/@item.Phone.Id"><img width="100px" height="100px" src="~/uploads/phones/@item.Phone.PhoneImages.FirstOrDefault(x => x.Status==true)?.Name" alt="Cart Product"></a>
                         <a class="add-to-wishlist" asp-action="addtowishlist" asp-controller="phone" asp-route-phoneId="@item.Phone.Id"><button class="close-btn"><i class="las la-times"></i></button></a>
                     </div>
                     <div class="item-content">

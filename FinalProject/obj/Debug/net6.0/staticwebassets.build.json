@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VumR8S9xazNzifg5FvWQeaux4ybjQZm/8sIIC83LVtw=",
+  "Hash": "cDb8gdoODJM0om+6GW+SnpMix5X0uLb1Ss/u6wAKHY0=",
   "Source": "FinalProject",
   "BasePath": "_content/FinalProject",
   "Mode": "Default",
@@ -3840,6 +3840,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\phones\\854b6943-3e8b-430e-a6fb-2da2faad01c214p-silver.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\86295dca-1f18-4716-8335-37c36c3d405c14p-sblack.jpg",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "uploads/phones/86295dca-1f18-4716-8335-37c36c3d405c14p-sblack.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\phones\\86295dca-1f18-4716-8335-37c36c3d405c14p-sblack.jpg"
     },
     {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\89a9e9be-3e42-42e7-8463-b4c8caebe86fa23456-1.png",
