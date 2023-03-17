@@ -1736,3 +1736,13 @@ a{
         width: 20px;
         height: 20px;
     }
+
+.navigate-top {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 36px;
+    z-index: 99;
+    pointer-events: none;
+    opacity: 0;
+}

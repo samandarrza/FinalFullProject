@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cDb8gdoODJM0om+6GW+SnpMix5X0uLb1Ss/u6wAKHY0=",
+  "Hash": "aqnGWMAGpn6q3AI45agtQODimCR7hbrab0cwmavJaGM=",
   "Source": "FinalProject",
   "BasePath": "_content/FinalProject",
   "Mode": "Default",
@@ -2803,6 +2803,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\slider.js"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\assets\\js\\top.js",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "assets/js/top.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\top.js"
     },
     {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\assets\\scss\\main.scss",

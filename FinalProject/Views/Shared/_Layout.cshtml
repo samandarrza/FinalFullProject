@@ -33,14 +33,21 @@
   <link rel="stylesheet" href="~/assets/css/main.css">
 </head>
 <body>
+
+    <a href="#" class="navigate-top">🔝</a>
+
     @if (TempData["error"] != null)
     {
         <input type="hidden" value="@TempData["error"]" id="toastr-error" />
     }
   <header class="bg-navbar">
+
     <div class="">
+
       <div class="nav-fixed">
+
         <nav class="navbar container">
+
           <div class="logo">
             <a href="~/"><img src="~/assets/images/@Settings["HeaderLogo"]" alt=""></a>
             
@@ -130,6 +137,7 @@
   </header>
 
   @RenderBody()
+
   <!-- Product Modal -->
     <div class="modal fade" id="quick-view-modal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -348,6 +356,8 @@
 <script src="~/assets/js/app.js"></script>
 <script src="~/assets/js/slider.js"></script>
 <script src="~/assets/js/burger.js"></script>
+<script src="~/assets/js/top.js"></script>
+
 <script>
     toastr.options = {
         "closeButton": false,
