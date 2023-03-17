@@ -37,9 +37,9 @@ namespace FinalProject.Areas.admin.Controllers
             var model = _context.AppUsers.Skip((page - 1) * 5).Take(5).ToList();
             return View(model);
         }
-        
 
 
+        [Authorize(Roles = "SuperAdmin")]
         public IActionResult CreateAdmin()
         {
             ViewBag.Roles = _roleManager.Roles.ToList();
@@ -47,7 +47,7 @@ namespace FinalProject.Areas.admin.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "SuperAdmin,Admin")]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> CreateAdmin(AdminCreatedVM createdVM)
         {
             if (!ModelState.IsValid)
@@ -72,7 +72,7 @@ namespace FinalProject.Areas.admin.Controllers
 
             AppUser AdminUser = new AppUser
             {
-                FullName = createdVM.UserName,
+                FullName = createdVM.FullName,
                 UserName = createdVM.UserName,
                 Email = createdVM.Email,
                 EmailConfirmed = true,
@@ -92,11 +92,27 @@ namespace FinalProject.Areas.admin.Controllers
 
             foreach (var roleName in createdVM.RoleName)
             {
-                var role = _roleManager.Roles.FirstOrDefault(x => x.Name == roleName);           
-            }
+                var role = _roleManager.Roles.FirstOrDefault(x => x.Name == roleName);
+                if (role != null)
+                {
+                    await _userManager.AddToRoleAsync(AdminUser, role.Name);
+                }
+            }       
             _context.SaveChanges();
+            return RedirectToAction("index","user");
+        }
+
+        [Authorize(Roles = "SuperAdmin")]
+        public async Task<IActionResult> Delete(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+
+            if (user == null)
+                return NotFound();
+            await _userManager.DeleteAsync(user);
 
             return RedirectToAction("index","user");
+
         }
 
     }

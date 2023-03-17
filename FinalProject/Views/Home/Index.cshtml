@@ -12,7 +12,7 @@
               <h1 class="title">@slider.Title2</h1>
               <div class="row main-slider-content">
                 <div class="col-lg-6">
-                  <a href="~/@slider.RedirectUrl" class="btn btn-primary slider-btn">@slider.BtnText</a>
+                  <a href="~/shop?search=@slider.RedirectUrl" class="btn btn-primary slider-btn">@slider.BtnText</a>
                 </div>
                 <div class="col-lg-6">
                   <div class="item-rating">
@@ -24,10 +24,10 @@
                     </div>
                     <div class="content">
                       <span class="product-rating">
-                        <i class="las la-star"></i>
-                        <i class="las la-star"></i>
-                        <i class="las la-star"></i>
-                        <i class="las la-star"></i>
+                        <i class="las la-star star-on"></i>
+                        <i class="las la-star star-on"></i>
+                        <i class="las la-star star-on"></i>
+                        <i class="las la-star star-on"></i>
                         <i class="las la-star"></i>
                       </span>
                       <span class="review-text">
@@ -41,7 +41,7 @@
           </div>
           <div class="col-lg-4">
             <div class="slider-image">
-              <img src="~/uploads/sliders/@slider.Image" alt="">
+              <img height="340px" src="~/uploads/sliders/@slider.Image" alt="">
             </div>
           </div>
         </div>
@@ -110,7 +110,7 @@
                                             <i class="las la-star  @(phone.AvgRate>=i?"star-on":"")"></i>
                                         }
                   </span>
-                  <span class="rating-number">(@phone.Reviews.Count())</span>
+                  <span class="rating-number">(@phone.Reviews.Count() review)</span>
                 </div>
                 <h6 class="title"><a asp-action="detail" asp-controller="phone" asp-route-id="@phone.Id" tabindex="0"> @phone.PhoneModel.Name @phone.Name @phone.Memory.Name GB</a></h6>
                 <div class="product-price">
@@ -134,7 +134,7 @@
     <section class="review-main">
       <div class="container">
         <div class="review-slider">
-            @foreach (var item in Model.Reviews)
+            @foreach (var item in Model.Reviews.OrderByDescending(x=>x.Id))
             {
                     <div class="review-slider-items">
                         <div class="main-review">
@@ -170,7 +170,7 @@
                 <div class="items">
                     <div class="product-arrival">
                         <div class="content">
-                            <a class="arrival-image" href="#" tabindex="0">
+                            <a asp-controller="phone" asp-action="detail" asp-route-id="@phone.Id" class="arrival-image" tabindex="0">
                                 <img width="300px" height="300px" class="product-image" src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==false)?.Name" alt="Product Images">
                                 <img width="300px" height="300px" class="hover-img" src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==true)?.Name" alt="Product Images">
                                     @if (phone.StockStatus == false)
@@ -192,7 +192,7 @@
                                     <a asp-controller="phone" asp-action="getphone" asp-route-id="@phone.Id" class="btn btn-outline-dark phone-modal-btn"
                                    tabindex="0"><i class="las la-eye"></i></a>
                                     <a asp-action="addtobasket" asp-controller="phone" asp-route-phoneId="@phone.Id" class="add-to-basket btn btn-danger color-btn" tabindex="0">Add to Cart</a>
-                                    <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
+                                    <a asp-action="addtowishlist" asp-controller="phone" asp-route-phoneId="@phone.Id" class="add-to-wishlist btn btn-outline-dark color-red" tabindex="0"><i class="las la-heart"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -244,22 +244,30 @@
               <div class="col most-item">
                 <div class="most-product-list">
                   <div class="most-images">
-                    <a href="#">
+                    <a asp-controller="phone" asp-action="detail" asp-route-id="@phone.Id">
                       <img src="~/uploads/phones/@phone.PhoneImages?.FirstOrDefault(x=>x.Status==true)?.Name" alt="Item Image">
                     </a>
                   </div>
                   <div class="product-content">
                     <div class="product-rating">
                       <span class="rating-icon">
-                        <i class="las la-star"></i>
-                        <i class="las la-star"></i>
-                        <i class="las la-star"></i>
-                        <i class="las la-star"></i>
-                        <i class="fal fa-star"></i>
-                      </span>
-                      <span class="rating-number"><span>100+</span> Reviews</span>
+                                                @for (var i = 1; i <= 5; i++)
+                                                {
+                                                    <i class="las la-star  @(phone.AvgRate>=i?"star-on":"")"></i>
+                                                }
+                                        </span>
+                                            @if (phone.Reviews.Count>0)
+                                            {
+                                            <span class="rating-number">@phone.Reviews.Count() Reviews</span>
+                                                
+                                            }
+                                            else{
+                                                <span class="rating-number">Not Review</span>
+
+                                            }
+
                     </div>
-                    <h6 class="product-title"><a href="#">@phone.PhoneModel.Name @phone.Name @phone.Memory.Name GB</a></h6>
+                                        <h6 class="product-title"><a asp-controller="phone" asp-action="detail" asp-route-id="@phone.Id">@phone.PhoneModel.Name @phone.Name @phone.Memory.Name GB</a></h6>
                     <div class="product-price">
                                             @if (phone.DiscountPercent > 0)
                                             {
@@ -273,9 +281,9 @@
                     </div>
                                        
                     <div class="product-cart">
-
+                                            
                       <a asp-action="addtobasket" asp-controller="phone" asp-route-phoneId="@phone.Id" class="add-to-basket btn btn-outline-primary"><i class="las la-shopping-cart"></i></a>
-                      <a href="wishlist.html" class="btn btn-outline-danger"><i class="las la-heart"></i></a>
+                      <a asp-action="addtowishlist" asp-controller="phone" asp-route-phoneId="@phone.Id" class="add-to-wishlist btn btn-outline-danger"><i class="las la-heart"></i></a>
                     </div>
                   </div>
                 </div>

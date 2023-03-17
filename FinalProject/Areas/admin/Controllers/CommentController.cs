@@ -19,9 +19,9 @@ namespace FinalProject.Areas.admin.Controllers
 		}
 		public IActionResult Index(int page = 1)
 		{
-			var model = _context.Contacts.Skip((page - 1) * 5).Take(5).ToList();
+			var model = _context.Contacts.Skip((page - 1) * 5).Take(10).ToList();
 			ViewBag.Page = page;
-            ViewBag.TotalPage = (int)Math.Ceiling(_context.Contacts.Count() / 5d);
+            ViewBag.TotalPage = (int)Math.Ceiling(_context.Contacts.Count() / 10d);
 
             return View(model);
 		}

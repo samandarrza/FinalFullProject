@@ -223,7 +223,7 @@
 									</div>
 								</div>
 								<div class="list-group">
-									@foreach (var item in layoutService.Contacts())
+									@foreach (var item in layoutService.Contacts().OrderByDescending(x=>x.Id).Take(4))
 									{
 										<a href="#" class="list-group-item">
 											<div class="row g-0 align-items-center">
@@ -233,15 +233,25 @@
 												<div class="col-10 ps-2">
 													<div class="text-dark">@item.FullName</div>
 													<div class="text-muted small mt-1">@item.Note</div>
-													@if ((DateTime.UtcNow.AddHours(4).Day - item.CreatedAt.Day)<1)
+													@if ((DateTime.UtcNow.AddHours(4) - item.CreatedAt).TotalMinutes >= 1440)
 													{
-														<div class="text-muted small mt-1">this day</div>
+														<div class="text-muted small mt-1">@((DateTime.UtcNow.AddHours(4) - item.CreatedAt).TotalDays.ToString("0")) day ago</div>
+														
+													}
+													else if ((DateTime.UtcNow.AddHours(4) - item.CreatedAt).TotalMinutes >= 60)
+													{
+														<div class="text-muted small mt-1">@((DateTime.UtcNow.AddHours(4) - item.CreatedAt).TotalHours.ToString("0")) hour ago</div>
 
+													}
+													else if ((DateTime.UtcNow.AddHours(4) - item.CreatedAt).TotalMinutes >= 1){
+														<div class="text-muted small mt-1">@((DateTime.UtcNow.AddHours(4) - item.CreatedAt).TotalMinutes.ToString("0")) minute ago</div>
 													}
 													else{
-														<div class="text-muted small mt-1">@(DateTime.UtcNow.AddHours(4).Day - item.CreatedAt.Day) day ago</div>
+														<div class="text-muted small mt-1">Now</div>
 
 													}
+
+													
 												</div>
 											</div>
 										</a>
@@ -277,104 +287,6 @@
 	<script src="~/admin/js/jquery.easing.min.js"></script>
 	<script src="~/admin/js/main.js"></script>
 	<script src="~/admin/js/app.js"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");
-			var gradient = ctx.createLinearGradient(0, 0, 0, 225);
-			gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
-			gradient.addColorStop(1, "rgba(215, 227, 244, 0)");
-			// Line chart
-			new Chart(document.getElementById("chartjs-dashboard-line"), {
-				type: "line",
-				data: {
-					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-					datasets: [{
-						label: "Sales ($)",
-						fill: true,
-						backgroundColor: gradient,
-						borderColor: window.theme.primary,
-						data: [
-							2115,
-							1562,
-							1584,
-							1892,
-							1587,
-							1923,
-							2566,
-							2448,
-							2805,
-							3438,
-							2917,
-							3327
-						]
-					}]
-				},
-				options: {
-					maintainAspectRatio: false,
-					legend: {
-						display: false
-					},
-					tooltips: {
-						intersect: false
-					},
-					hover: {
-						intersect: true
-					},
-					plugins: {
-						filler: {
-							propagate: false
-						}
-					},
-					scales: {
-						xAxes: [{
-							reverse: true,
-							gridLines: {
-								color: "rgba(0,0,0,0.0)"
-							}
-						}],
-						yAxes: [{
-							ticks: {
-								stepSize: 1000
-							},
-							display: true,
-							borderDash: [3, 3],
-							gridLines: {
-								color: "rgba(0,0,0,0.0)"
-							}
-						}]
-					}
-				}
-			});
-		});
-	</script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			// Pie chart
-			new Chart(document.getElementById("chartjs-dashboard-pie"), {
-				type: "pie",
-				data: {
-					labels: ["Chrome", "Firefox", "IE"],
-					datasets: [{
-						data: [4306, 3801, 1689],
-						backgroundColor: [
-							window.theme.primary,
-							window.theme.warning,
-							window.theme.danger
-						],
-						borderWidth: 5
-					}]
-				},
-				options: {
-					responsive: !window.MSInputMethodContext,
-					maintainAspectRatio: false,
-					legend: {
-						display: false
-					},
-					cutoutPercentage: 75
-				}
-			});
-		});
-	</script>
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
 			// Bar chart
@@ -488,7 +400,7 @@
 	</script>
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
-			var date = new Date(Date.now() - 5 * 24 * 60 * 60 * 1000);
+			var date = new Date(Date.now());
 			var defaultDate = date.getUTCFullYear() + "-" + (date.getUTCMonth() + 1) + "-" + date.getUTCDate();
 			document.getElementById("datetimepicker-dashboard").flatpickr({
 				inline: true,

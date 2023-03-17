@@ -21,8 +21,6 @@
                         <th scope="col">Fullname</th>
                         <th scope="col">Username</th>
                         <th scope="col">Role</th>
-
-                        <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
 
 
@@ -37,8 +35,7 @@
                             <td>@item.FullName</td>
                             <td>@item.UserName</td>
                             <td>@string.Join(", ", _userManager.GetRolesAsync(item).Result.ToList())</td>
-                            <td><a class="btn btn-primary" asp-action="edit" asp-route-id="@item.Id">Edit</a></td>
-                            <td><a class="trash-btn btn btn-danger" asp-action="delete" asp-route-id="@item.Id">Delete</a></td>
+                            <td><a class="trash-btn btn btn-danger" asp-action="delete" asp-controller="user" asp-route-userId="@item.Id">Delete</a></td>
 
                         </tr>
                     }
