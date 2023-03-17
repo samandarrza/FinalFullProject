@@ -131,7 +131,6 @@ namespace FinalProject.Migrations
                         .HasColumnType("nvarchar(40)");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasMaxLength(80)
                         .HasColumnType("nvarchar(80)");
 
@@ -569,7 +568,8 @@ namespace FinalProject.Migrations
 
                     b.Property<string>("Text")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.HasKey("Id");
 
@@ -915,7 +915,8 @@ namespace FinalProject.Migrations
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasDiscriminator().HasValue("AppUser");
                 });

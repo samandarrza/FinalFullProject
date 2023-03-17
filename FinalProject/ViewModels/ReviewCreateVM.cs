@@ -6,7 +6,7 @@ namespace FinalProject.ViewModels
     {
         [Range(1, 5)]
         public byte Rate { get; set; }
-        [MaxLength(50)]
+        [MaxLength(500)]
         public string Text { get; set; }
         public int PhoneId { get; set; }
     }
