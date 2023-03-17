@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sjMZjdotKaNrro0Z7cpLNanzH1StNTiaWCDRIJY3uQM=",
+  "Hash": "VumR8S9xazNzifg5FvWQeaux4ybjQZm/8sIIC83LVtw=",
   "Source": "FinalProject",
   "BasePath": "_content/FinalProject",
   "Mode": "Default",
@@ -2856,6 +2856,40 @@
       "OriginalItemSpec": "wwwroot\\assets\\scss\\partials\\_varialbes.scss"
     },
     {
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\blog\\0dbd7205-26ad-47b5-af3e-c9c9fb55aa7cblog-10.png",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "uploads/blog/0dbd7205-26ad-47b5-af3e-c9c9fb55aa7cblog-10.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\blog\\0dbd7205-26ad-47b5-af3e-c9c9fb55aa7cblog-10.png"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\blog\\0ea3a062-6f0c-415c-8c3a-6d82e481977cblog-11.png",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "uploads/blog/0ea3a062-6f0c-415c-8c3a-6d82e481977cblog-11.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\blog\\0ea3a062-6f0c-415c-8c3a-6d82e481977cblog-11.png"
+    },
+    {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\blog\\2c87f3b1-10f7-4f41-becd-c7ca95154b9cblog-12.png",
       "SourceId": "FinalProject",
       "SourceType": "Discovered",
@@ -2888,6 +2922,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\blog\\5d6bc8de-8ed7-42de-8043-743e322f5b1ablog-10.png"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\blog\\5fa4e93d-68be-48b1-aab6-7808ae100fd3blog-10.png",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "uploads/blog/5fa4e93d-68be-48b1-aab6-7808ae100fd3blog-10.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\blog\\5fa4e93d-68be-48b1-aab6-7808ae100fd3blog-10.png"
     },
     {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\blog\\7c62e9ea-d662-4f3a-9396-977a704bd368blog-12.png",
@@ -2956,6 +3007,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\blog\\a5447ce4-ab06-46bd-ae87-de8d192e3890blog-12.png"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\blog\\c28b9a97-fb1e-4171-b926-04e1845c6802blog-11.png",
+      "SourceId": "FinalProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
+      "BasePath": "_content/FinalProject",
+      "RelativePath": "uploads/blog/c28b9a97-fb1e-4171-b926-04e1845c6802blog-11.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\blog\\c28b9a97-fb1e-4171-b926-04e1845c6802blog-11.png"
     },
     {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\blog\\ce45555e-8831-4fe2-bdfd-568ae79d232cblog-10.png",
@@ -4197,23 +4265,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\phones\\f3bd9a02-0c04-4d65-a331-1facf822714563a6e0d568.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\f4f15c91-5ed7-4926-a628-041e4369848114p-sblack.jpg",
-      "SourceId": "FinalProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\",
-      "BasePath": "_content/FinalProject",
-      "RelativePath": "uploads/phones/f4f15c91-5ed7-4926-a628-041e4369848114p-sblack.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\phones\\f4f15c91-5ed7-4926-a628-041e4369848114p-sblack.jpg"
     },
     {
       "Identity": "C:\\Users\\USER\\source\\repos\\Backend\\FinalProject\\FinalProject\\wwwroot\\uploads\\phones\\f7cbc780-4377-4ef4-bf12-f6b4770b22d3a23456-1.png",

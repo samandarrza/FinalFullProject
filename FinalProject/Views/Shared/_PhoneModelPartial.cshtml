@@ -1,12 +1,15 @@
 ﻿@model Phone
 <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="productModalLabel">Product</h5>
+                    <h5 class="modal-title" id="productModalLabel"><a href="~/phone/detail/@Model.Id">
+                    @Model.PhoneModel.Name @Model.Name @Model.Memory.Name GB @Model.RAM.Name GB</a></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body modal-product">
-                <div class="modal-image">
-                    <img src="~/uploads/phones/@Model.PhoneImages.FirstOrDefault(x=>x.Status==true)?.Name" alt="">
+                <div class="modal-image"> 
+                <a href="~/phone/detail/@Model.Id">
+                <img src="~/uploads/phones/@Model.PhoneImages.FirstOrDefault(x=>x.Status==true)?.Name" alt="">
+                </a>
                 </div>
                 <div class="product-content">
                     <div class="inner">
@@ -18,9 +21,11 @@
                         }
 
                             </span>
-                            <span class="rating-number">()</span>
+                            <span class="rating-number">(@Model.Reviews.Count() review)</span>
                         </div>
-                        <h5 class="title"><a href="~/#" tabindex="0">@Model.Name</a></h5>
+                        <h6 class="mt-2"> Color: @Model.Color.Name</h6>
+                        <h6 class="mb-2"> System: @Model.PhoneSystem.Name</h6>
+
                         <div class="product-price">
                             @if (Model.DiscountPercent > 0)
                             {
@@ -33,8 +38,8 @@
                             }
                         </div>
                         <div class="modal-cart mt-5">
-                            <a class="btn btn-danger color-btn" href="#" tabindex="0">Add to Cart</a>
-                            <a class="btn btn-outline-dark color-red" href="#" tabindex="0"><i class="las la-heart"></i></a>
+                    <a asp-action="addtobasket" asp-controller="phone" asp-route-phoneId="@Model.Id" class="add-to-basket btn btn-danger color-btn" tabindex="0">Add to Cart</a>
+                    <a asp-action="addtowishlist" asp-controller="phone" asp-route-phoneId="@Model.Id" class="add-to-wishlist btn btn-outline-dark color-red" tabindex="0"><i class="las la-heart"></i></a>
                         </div>
                     </div>
                 </div>

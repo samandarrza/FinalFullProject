@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
+using System.Net;
 
 namespace FinalProject.Areas.admin.Controllers
 {
@@ -32,7 +33,7 @@ namespace FinalProject.Areas.admin.Controllers
         public IActionResult Index(int page = 1)
         {
             ViewBag.Page = page;
-            ViewBag.TotalPage = (int)Math.Ceiling(_context.Batteries.Count() / 5d);
+            ViewBag.TotalPage = (int)Math.Ceiling(_context.AppUsers.Count() / 5d);
 
             var model = _context.AppUsers.Skip((page - 1) * 5).Take(5).ToList();
             return View(model);
@@ -50,6 +51,7 @@ namespace FinalProject.Areas.admin.Controllers
         [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> CreateAdmin(AdminCreatedVM createdVM)
         {
+            
             if (!ModelState.IsValid)
             {
                 ViewBag.Roles = _roleManager.Roles.ToList();

@@ -212,11 +212,11 @@
               <h5 class="widget-title">Account</h5>
               <div class="inner">
                 <ul>
-                  <li><a href="~/my-account.html">My Account</a></li>
-                  <li><a href="~/sign-up.html">Login / Register</a></li>
-                  <li><a href="~/cart.html">Cart</a></li>
-                  <li><a href="~/wishlist.html">Wishlist</a></li>
-                  <li><a href="~/shop.html">Shop</a></li>
+                  <li><a asp-controller="account" asp-action="index">My Account</a></li>
+                  <li><a asp-controller="account" asp-action="login">Login</a></li>
+                  <li><a asp-controller="account" asp-action="register">Register</a></li>
+                  <li><a asp-controller="blog" asp-action="index">Blog</a></li>
+                  <li><a asp-controller="shop" asp-action="index">Shop</a></li>
                 </ul>
               </div>
             </div>
@@ -228,11 +228,8 @@
               <h5 class="widget-title">Quick Link</h5>
               <div class="inner">
                 <ul>
-                  <li><a href="~/privacy-policy.html">Privacy Policy</a></li>
-                  <li><a href="~/terms-of-service.html">Terms Of Use</a></li>
-                  <li><a href="~/#">FAQ</a></li>
-                  <li><a href="~/contact.html">Contact</a></li>
-                  <li><a href="~/contact.html">Contact</a></li>
+                  <li><a asp-controller="about" asp-action="index">About</a></li>
+                  <li><a asp-controller="contact" asp-action="index">Contact</a></li>
                 </ul>
               </div>
             </div>
@@ -356,7 +353,7 @@
         "onclick": null,
         "showDuration": "300",
         "hideDuration": "1000",
-        "timeOut": "5000",
+        "timeOut": "500",
         "extendedTimeOut": "1000",
         "showEasing": "swing",
         "hideEasing": "linear",

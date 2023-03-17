@@ -36,6 +36,7 @@ namespace FinalProject.Areas.admin.Controllers
             return View(order);
         }
         [HttpPost]
+        [Authorize(Roles = "SuperAdmin,Admin")]
         public IActionResult Accept(int id)
         {
             Order order = _context.Orders.Include(x => x.OrderItems).FirstOrDefault(x => x.Id == id);
@@ -50,6 +51,7 @@ namespace FinalProject.Areas.admin.Controllers
             return RedirectToAction("index");
         }
         [HttpPost]
+        [Authorize(Roles = "SuperAdmin,Admin")]
         public IActionResult Reject(int id)
         {
             Order order = _context.Orders.Include(x => x.OrderItems).FirstOrDefault(x => x.Id == id);

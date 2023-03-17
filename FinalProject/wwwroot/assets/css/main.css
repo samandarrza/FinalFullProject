@@ -930,7 +930,7 @@ a{
 }
 .blog_watch {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 
 }
 .blog_watch .blog_content {

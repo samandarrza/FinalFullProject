@@ -23,7 +23,8 @@ namespace FinalProject.Controllers
         }
         public IActionResult GetPhone(int id)
         {
-            Phone phone = _context.Phones.Include(x=>x.PhoneImages).Include(x=>x.Memory).Include(x=>x.PhoneModel).FirstOrDefault(x=>x.Id == id);
+            Phone phone = _context.Phones.Include(x=>x.PhoneImages).Include(x=>x.Memory).Include(x => x.Color).Include(x => x.PhoneSystem)
+                .Include(x=>x.PhoneModel).Include(x => x.RAM).Include(x =>x.Reviews).FirstOrDefault(x=>x.Id == id);
 
             return PartialView("_PhoneModelPartial", phone);
         }

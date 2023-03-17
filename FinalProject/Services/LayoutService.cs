@@ -70,8 +70,6 @@ namespace FinalProject.Services
 
             return basket;
         }
-
-
         public WishlistVM GetWistlist()
         {
             WishlistVM wishlist = new WishlistVM();
@@ -116,9 +114,6 @@ namespace FinalProject.Services
 
             return wishlist;
         }
-
-
-
         public double GetTotalPrice()
         {
             double count = (double)_context.OrderItems.Sum(x=>x.SalePrice * (100 - x.DiscountPercent)/100 * x.Count);
@@ -144,6 +139,12 @@ namespace FinalProject.Services
         {
             var contacts = _context.Contacts.ToList();
             return contacts;
+        }
+
+        public List<Order> GetOrders()
+        {
+            var orders = _context.Orders.Include(x=>x.OrderItems).ToList();
+            return orders;
         }
 
     }

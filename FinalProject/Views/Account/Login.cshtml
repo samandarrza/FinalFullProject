@@ -33,6 +33,11 @@
                     <h3 class="title">Sign in to eTrade.</h3>
                     <p class="b2 mb--55">Enter your detail below</p>
                     <form class="singin-form" method="post">
+                        <hr />
+                        <div class="m-2 p-2 text-center">
+                            <a asp-action="GoogleLogin" asp-controller="account" class="fw-bold p-2">Google Login</a>
+                        </div>
+                        <hr />
                         <div>
                             <label asp-for="UserName">UserName</label>
                             <span class="text-danger" asp-validation-for="UserName"></span>
@@ -44,13 +49,11 @@
                             <input class="form-control" asp-for="Password" placeholder="Enter your password">
                         </div>
                         <div asp-validation-summary="ModelOnly"></div>
-                        <div class="form-group d-flex align-items-center justify-content-between">
+                        <div class="form-group d-flex align-items-center justify-content-around">
                             <button type="submit" class="btn btn-primary">Sign In</button>
                             <a asp-action="forgotpassword" class="forgot-btn">Forget password?</a>
                         </div>
-                        <div class="m-2 p-2">
-                            <a asp-action="GoogleLogin" asp-controller="account" class="bbtn btn-primary p-2">Google Login</a>
-                        </div>
+                        
                     </form>
                 </div>
             </div>
